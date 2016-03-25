@@ -1,0 +1,2 @@
+vhdl work "main_definitions.vhd"
+vhdl work "register_file.vhd"

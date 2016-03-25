@@ -1,0 +1,39 @@
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib secureip -o /home/filipe/Documents/AAC/lab1/singleCoreProcessor_tb_isim_beh.exe -prj /home/filipe/Documents/AAC/lab1/singleCoreProcessor_tb_beh.prj work.singleCoreProcessor_tb 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Parsing VHDL file "/home/filipe/Documents/AAC/lab1/main_definitions.vhd" into library work
+Parsing VHDL file "/home/filipe/Documents/AAC/lab1/register_file.vhd" into library work
+Parsing VHDL file "/home/filipe/Documents/AAC/lab1/decoder.vhd" into library work
+Parsing VHDL file "/home/filipe/Documents/AAC/lab1/branch_control.vhd" into library work
+Parsing VHDL file "/home/filipe/Documents/AAC/lab1/alu.vhd" into library work
+Parsing VHDL file "/home/filipe/Documents/AAC/lab1/simpleDualPortMemory.vhd" into library work
+Parsing VHDL file "/home/filipe/Documents/AAC/lab1/simpleCore.vhd" into library work
+Parsing VHDL file "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.vhd" into library work
+Parsing VHDL file "/home/filipe/Documents/AAC/lab1/singleCoreProcessor_tb.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 99712 KB
+Fuse CPU Usage: 3650 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package main_definitions
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling package numeric_std
+Compiling package std_logic_signed
+Compiling architecture behavioral of entity decoder [decoder_default]
+Compiling architecture behavioral of entity register_file [register_file_default]
+Compiling architecture behavioral of entity branch_control [branch_control_default]
+Compiling architecture behavioral of entity alu [alu_default]
+Compiling architecture behavioral of entity simpleCore [simplecore_default]
+Compiling architecture behavioral of entity DualPortMemory [dualportmemory_default]
+Compiling architecture behavioral of entity SingleCoreProcessor [singlecoreprocessor_default]
+Compiling architecture behavioral of entity singlecoreprocessor_tb
+Time Resolution for simulation is 1ps.
+Compiled 22 VHDL Units
+Built simulation executable /home/filipe/Documents/AAC/lab1/singleCoreProcessor_tb_isim_beh.exe
+Fuse Memory Usage: 681520 KB
+Fuse CPU Usage: 4530 ms
+GCC CPU Usage: 2960 ms
