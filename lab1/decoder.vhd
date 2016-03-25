@@ -110,10 +110,11 @@ ExCTRL   <= "000" when std_match(IOpcode,"00-0--") else                       --
             "000" when std_match(IOpcode,"110---") and IModifier(0)='0' else  -- A + B + C
             "000" when std_match(IOpcode,"111---") else  -- A + B + C
             "001" when std_match(IOpcode,"0001--") and IModifier(0)='1' else  -- CMP(A,B)
-            "010" when std_match(IOpcode,"010000") else  -- MUL/MULH
+            "010" when std_match(IOpcode,"01-000") else  -- MUL/MULH
             "011" when std_match(IOpcode,"01-001") else  -- barrel shifter 
             "100" when std_match(IOpcode,"100100") and IModifier(6 downto 5)/="11" else  -- shift right with carry in (ExC) and carry out (MSR_C) 
-            "101" when std_match(IOpcode,"100100") and IModifier(6 downto 5) ="11" else  -- transfer (OR with zero) 
+            "101" when std_match(IOpcode,"100100") and IModifier(6 downto 5) ="11" else  -- transfer (executed as ExOpA OR zero) 
+            "101" when std_match(IOpcode,"10-110") and I(18) ='1' else  -- (*** NEW ***) the branch and link instruction must perform a transfer of PC value (executed as ExOpA OR zero) 
             "101" when std_match(IOpcode,"10-000") else  -- OR 
             "110" when std_match(IOpcode,"10-0-1") else  -- AND 
             "111" when std_match(IOpcode,"10-010") else  -- XOR 
@@ -136,7 +137,7 @@ ExOpA   <= '0'                        & RegDA      when std_match(IOpcode,"00---
            (32 downto 8=>RegDA(7))    & RegDA( 7 downto 0) when std_match(IOpcode,"100100") and IModifier(6 downto 5)="11" and IModifier(0)='0' else -- SEXT8
            (32 downto 16=>RegDA(15))  & RegDA(15 downto 0) when std_match(IOpcode,"100100") and IModifier(6 downto 5)="11" and IModifier(0)='1' else -- SEXT16
            '0'                        & RegDA      when std_match(IOpcode,"11----") else -- LBU/I, LHU/I, LW/I, SB/I, SH/I, SW/I
-           '-'                        & RegDA      when std_match(IOpcode,"10-1--") else -- IMM, BR/I, BRL/I, BRA/I, BRAL/I, BEQ/I, BNE/I, BLT/I, BLE/I, BGT/I, BGE/I
+           (WORD_WIDTH downto PC_WIDTH=>'0') & PC when std_match(IOpcode,"10-1--") else -- IMM, BR/I, BRL/I, BRA/I, BRAL/I, BEQ/I, BNE/I, BLT/I, BLE/I, BGT/I, BGE/I
            (others=>'-');
 
 ExOpB   <= '0'                    & RegDB when std_match(IOpcode,"000---") and IModifier(0)='0' else -- ADD, RSUB, ADDC, RSUBC, ADDK, RSUBK, ADDKC, RSUBKC
@@ -150,9 +151,8 @@ ExOpB   <= '0'                    & RegDB when std_match(IOpcode,"000---") and I
            '-'                    &     RegDB when std_match(IOpcode,"1000-0") else                  -- OR, XOR
            '-'                    &     RegDB when std_match(IOpcode,"100001") else                  -- AND
            '-'                    & not RegDB when std_match(IOpcode,"100011") else                  -- ANDN
-           (others=>'0')                      when std_match(IOpcode,"100100") else                  -- SRA, SRC, SRL, SEXT8, SEXT16
-           '0'                    & RegDB when std_match(IOpcode,"11----") else                      -- LBU, LHU, LW, SB, SH, SW
-           '-'                    & RegDB when std_match(IOpcode,"10----") else                      -- BR, BRL, BRA, BRAL, BEQ, BNE, BLT, BLE, BGT, BGE
+           '0'                    & RegDB     when std_match(IOpcode,"11----") else                  -- LBU, LHU, LW, SB, SH, SW
+           (others=>'0')                      when std_match(IOpcode,"10----") else                  -- SRA, SRC, SRL, SEXT8, SEXT16, BR, BRL, BRA, BRAL, BEQ, BNE, BLT, BLE, BGT, BGE (*** MODIFIED ***)
            (others=>'-');
 
 ExOpC   <= '0'           when std_match(IOpcode,"00--00") else  -- ADD/I, ADDK/I 
@@ -181,10 +181,11 @@ RegWE   <= '1' when std_match(IOpcode,"00----") else -- Arithmetic
            '1' when std_match(IOpcode,"11-0--") else -- LD
            '1' when std_match(IOpcode,"10-0--") else -- OR, AND, XOR ANDN
            '1' when std_match(IOpcode,"100100") else -- SRx, SEXT
+           '1' when std_match(IOpcode,"10-110") and I(18) ='1' else -- BRL (*** NEW ***)
            '0';
 
 MSR_C_WE <= '1' when std_match(IOpcode,"00-0--") else
-            '1' when std_match(IOpcode,"100100") else
+            '1' when std_match(IOpcode,"100100") and IModifier(6 downto 5)/="11" else -- (*** MODIFIED ***)
             '0';
 
 -- Immediate related signals
@@ -192,7 +193,7 @@ Imm16  <= I(15 downto 0);
 RImm16 <= (others=>'0') when reset='1' else 
           Imm16 when rising_edge(clk) and IOpcode="101100";
 ImmAux32 <= RImm16  & Imm16 when MSR_I='1' else
-            (15 downto 0=>Imm16(15)) & Imm16; 
+            (15 downto 0=>Imm16(15)) & Imm16;
 Imm32  <= not ImmAux32 when std_match(IOpcode,"10-011") else ImmAux32;
 
 NewFlagKValue <= '1' when Iopcode="101100" else '0';

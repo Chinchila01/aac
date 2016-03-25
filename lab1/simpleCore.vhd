@@ -130,6 +130,7 @@ signal Data_Hazard : STD_LOGIC;
 signal OpA_I_Needed,OpB_I_Needed: STD_LOGIC;
 signal Mux_I : STD_LOGIC_VECTOR(31 downto 0);
 signal REG_I : STD_LOGIC_VECTOR(31 downto 0);
+signal REG_PC: STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
 begin
 
 
@@ -150,9 +151,11 @@ WB_STAGE_ENABLE  <= '1';--0' when reset='1' else MEM_STAGE_ENABLE when rising_ed
 --         ID_NextPC when rising_edge(clk);-- and WB_STAGE_ENABLE='1';
 ID_PC <= (PC_WIDTH-1 downto 0=>'0') when reset='1' else
          ID_NextPC when rising_edge(clk);-- and WB_STAGE_ENABLE='1';
-					
-PC   <= ID_PC;
-
+			
+REG_PC <= (others=>'0') when reset='1' else
+			  ID_PC when rising_edge(clk) and Data_Hazard='0';
+--PC   <= ID_PC;
+PC <= ID_PC when rising_edge(clk) and Data_Hazard='0' else REG_PC when rising_edge(clk);
 ---------------------------------------------------------------------------------------------------------------
 -- IF to ID stage registers
 ---------------------------------------------------------------------------------------------------------------
@@ -160,14 +163,11 @@ PC   <= ID_PC;
 
 ---------------------------------------------------------------------------------------------------------------
 -- DECODER UNIT
----------------------------------------------------------------------------------------------------------------
---ID_I <= Mux_I; -- assuming memory has synchrounous read
---Mux_I <= I WHEN Data_Hazard='0' else
---			REG_I;
---			
-REG_I <= (others=>'0') when reset='1' else ID_I when rising_edge(clk) AND Data_Hazard='0';
+---------------------------------------------------------------------------------------------------------------		
 
-ID_I <= REG_I when Data_Hazard='1' else I;
+REG_I <= (31 downto 0=>'0') when reset='1' else I when rising_edge(clk) AND Data_Hazard='0';
+
+ID_I <= I when Data_Hazard='0' and rising_edge(clk) else REG_I when rising_edge(clk);
 
 uDecoder : decoder port map(
     clk      => clk,               reset  => reset,

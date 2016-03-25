@@ -308,26 +308,34 @@ static void work_a_0334871770_3212880686_p_6(char *t0)
     unsigned char t3;
     unsigned char t4;
     char *t5;
-    char *t6;
-    char *t7;
-    char *t8;
-    char *t9;
+    unsigned int t6;
+    int t7;
+    unsigned int t8;
+    unsigned int t9;
     char *t10;
-    unsigned char t11;
-    char *t12;
-    unsigned char t13;
+    int t11;
+    unsigned int t12;
+    unsigned int t13;
     char *t14;
     char *t15;
-    unsigned char t16;
-    unsigned char t17;
+    char *t16;
+    char *t17;
     char *t18;
-    char *t19;
+    unsigned char t19;
     char *t20;
-    char *t21;
+    unsigned char t21;
     char *t22;
     char *t23;
+    unsigned char t24;
+    unsigned char t25;
+    char *t26;
+    char *t27;
+    char *t28;
+    char *t29;
+    char *t30;
+    char *t31;
 
-LAB0:    xsi_set_current_line(168, ng0);
+LAB0:    xsi_set_current_line(165, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -335,62 +343,78 @@ LAB0:    xsi_set_current_line(168, ng0);
     if (t4 != 0)
         goto LAB3;
 
-LAB4:    t12 = (t0 + 992U);
-    t13 = ieee_p_2592010699_sub_2763492388968962707_503743352(IEEE_P_2592010699, t12, 0U, 0U);
-    if (t13 == 1)
-        goto LAB7;
+LAB4:    t20 = (t0 + 992U);
+    t21 = ieee_p_2592010699_sub_2763492388968962707_503743352(IEEE_P_2592010699, t20, 0U, 0U);
+    if (t21 == 1)
+        goto LAB10;
 
-LAB8:    t11 = (unsigned char)0;
+LAB11:    t19 = (unsigned char)0;
 
-LAB9:    if (t11 != 0)
-        goto LAB5;
+LAB12:    if (t19 != 0)
+        goto LAB8;
 
-LAB6:
-LAB2:    t23 = (t0 + 20336);
-    *((int *)t23) = 1;
+LAB9:
+LAB2:    t31 = (t0 + 20336);
+    *((int *)t31) = 1;
 
 LAB1:    return;
 LAB3:    t1 = xsi_get_transient_memory(32U);
     memset(t1, 0, 32U);
     t5 = t1;
-    memset(t5, (unsigned char)2, 32U);
-    t6 = (t0 + 21232);
-    t7 = (t6 + 56U);
-    t8 = *((char **)t7);
-    t9 = (t8 + 56U);
-    t10 = *((char **)t9);
-    memcpy(t10, t1, 32U);
-    xsi_driver_first_trans_fast(t6);
-    goto LAB2;
+    if (-1 == -1)
+        goto LAB5;
 
-LAB5:    t14 = (t0 + 3272U);
-    t18 = *((char **)t14);
+LAB6:    t6 = 0;
+
+LAB7:    t7 = (t6 - 31);
+    t8 = (t7 * -1);
+    t9 = (1U * t8);
+    t10 = (t5 + t9);
+    t11 = (0 - 31);
+    t12 = (t11 * -1);
+    t12 = (t12 + 1);
+    t13 = (1U * t12);
+    memset(t10, (unsigned char)2, t13);
     t14 = (t0 + 21232);
-    t19 = (t14 + 56U);
-    t20 = *((char **)t19);
-    t21 = (t20 + 56U);
-    t22 = *((char **)t21);
-    memcpy(t22, t18, 32U);
+    t15 = (t14 + 56U);
+    t16 = *((char **)t15);
+    t17 = (t16 + 56U);
+    t18 = *((char **)t17);
+    memcpy(t18, t1, 32U);
     xsi_driver_first_trans_fast(t14);
     goto LAB2;
 
-LAB7:    t14 = (t0 + 9992U);
-    t15 = *((char **)t14);
-    t16 = *((unsigned char *)t15);
-    t17 = (t16 == (unsigned char)2);
-    t11 = t17;
-    goto LAB9;
+LAB5:    t6 = 31;
+    goto LAB7;
+
+LAB8:    t22 = (t0 + 1512U);
+    t26 = *((char **)t22);
+    t22 = (t0 + 21232);
+    t27 = (t22 + 56U);
+    t28 = *((char **)t27);
+    t29 = (t28 + 56U);
+    t30 = *((char **)t29);
+    memcpy(t30, t26, 32U);
+    xsi_driver_first_trans_fast(t22);
+    goto LAB2;
+
+LAB10:    t22 = (t0 + 9992U);
+    t23 = *((char **)t22);
+    t24 = *((unsigned char *)t23);
+    t25 = (t24 == (unsigned char)2);
+    t19 = t25;
+    goto LAB12;
 
 }
 
 static void work_a_0334871770_3212880686_p_7(char *t0)
 {
-    char *t1;
+    unsigned char t1;
     char *t2;
-    unsigned char t3;
+    char *t3;
     unsigned char t4;
-    char *t5;
-    char *t6;
+    unsigned char t5;
+    unsigned char t6;
     char *t7;
     char *t8;
     char *t9;
@@ -398,45 +422,64 @@ static void work_a_0334871770_3212880686_p_7(char *t0)
     char *t11;
     char *t12;
     char *t13;
-    char *t14;
+    unsigned char t14;
     char *t15;
     char *t16;
+    char *t17;
+    char *t18;
+    char *t19;
+    char *t20;
+    char *t21;
 
-LAB0:    xsi_set_current_line(170, ng0);
-    t1 = (t0 + 9992U);
-    t2 = *((char **)t1);
-    t3 = *((unsigned char *)t2);
-    t4 = (t3 == (unsigned char)3);
-    if (t4 != 0)
+LAB0:    xsi_set_current_line(167, ng0);
+    t2 = (t0 + 9992U);
+    t3 = *((char **)t2);
+    t4 = *((unsigned char *)t3);
+    t5 = (t4 == (unsigned char)2);
+    if (t5 == 1)
+        goto LAB5;
+
+LAB6:    t1 = (unsigned char)0;
+
+LAB7:    if (t1 != 0)
         goto LAB3;
 
-LAB4:
-LAB5:    t10 = (t0 + 1512U);
-    t11 = *((char **)t10);
-    t10 = (t0 + 21296);
-    t12 = (t10 + 56U);
-    t13 = *((char **)t12);
-    t14 = (t13 + 56U);
-    t15 = *((char **)t14);
-    memcpy(t15, t11, 32U);
-    xsi_driver_first_trans_fast(t10);
+LAB4:    t13 = (t0 + 992U);
+    t14 = ieee_p_2592010699_sub_2763492388968962707_503743352(IEEE_P_2592010699, t13, 0U, 0U);
+    if (t14 != 0)
+        goto LAB8;
 
-LAB2:    t16 = (t0 + 20352);
-    *((int *)t16) = 1;
+LAB9:
+LAB2:    t21 = (t0 + 20352);
+    *((int *)t21) = 1;
 
 LAB1:    return;
-LAB3:    t1 = (t0 + 10632U);
-    t5 = *((char **)t1);
-    t1 = (t0 + 21296);
-    t6 = (t1 + 56U);
-    t7 = *((char **)t6);
-    t8 = (t7 + 56U);
-    t9 = *((char **)t8);
-    memcpy(t9, t5, 32U);
-    xsi_driver_first_trans_fast(t1);
+LAB3:    t7 = (t0 + 1512U);
+    t8 = *((char **)t7);
+    t7 = (t0 + 21296);
+    t9 = (t7 + 56U);
+    t10 = *((char **)t9);
+    t11 = (t10 + 56U);
+    t12 = *((char **)t11);
+    memcpy(t12, t8, 32U);
+    xsi_driver_first_trans_fast(t7);
     goto LAB2;
 
-LAB6:    goto LAB2;
+LAB5:    t2 = (t0 + 992U);
+    t6 = ieee_p_2592010699_sub_2763492388968962707_503743352(IEEE_P_2592010699, t2, 0U, 0U);
+    t1 = t6;
+    goto LAB7;
+
+LAB8:    t15 = (t0 + 10632U);
+    t16 = *((char **)t15);
+    t15 = (t0 + 21296);
+    t17 = (t15 + 56U);
+    t18 = *((char **)t17);
+    t19 = (t18 + 56U);
+    t20 = *((char **)t19);
+    memcpy(t20, t16, 32U);
+    xsi_driver_first_trans_fast(t15);
+    goto LAB2;
 
 }
 
@@ -460,7 +503,7 @@ static void work_a_0334871770_3212880686_p_8(char *t0)
     char *t16;
     char *t17;
 
-LAB0:    xsi_set_current_line(205, ng0);
+LAB0:    xsi_set_current_line(202, ng0);
 
 LAB3:    t1 = (t0 + 9672U);
     t2 = *((char **)t1);
@@ -517,7 +560,7 @@ static void work_a_0334871770_3212880686_p_9(char *t0)
     char *t21;
     char *t22;
 
-LAB0:    xsi_set_current_line(207, ng0);
+LAB0:    xsi_set_current_line(204, ng0);
     t1 = (t0 + 1512U);
     t2 = *((char **)t1);
     t3 = (31 - 31);
@@ -608,7 +651,7 @@ static void work_a_0334871770_3212880686_p_10(char *t0)
     char *t30;
     char *t31;
 
-LAB0:    xsi_set_current_line(208, ng0);
+LAB0:    xsi_set_current_line(205, ng0);
     t2 = (t0 + 1512U);
     t3 = *((char **)t2);
     t4 = (29 - 31);
@@ -709,7 +752,7 @@ static void work_a_0334871770_3212880686_p_11(char *t0)
     char *t22;
     char *t23;
 
-LAB0:    xsi_set_current_line(225, ng0);
+LAB0:    xsi_set_current_line(222, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -791,7 +834,7 @@ static void work_a_0334871770_3212880686_p_12(char *t0)
     char *t22;
     char *t23;
 
-LAB0:    xsi_set_current_line(226, ng0);
+LAB0:    xsi_set_current_line(223, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -873,7 +916,7 @@ static void work_a_0334871770_3212880686_p_13(char *t0)
     char *t22;
     char *t23;
 
-LAB0:    xsi_set_current_line(227, ng0);
+LAB0:    xsi_set_current_line(224, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -954,7 +997,7 @@ static void work_a_0334871770_3212880686_p_14(char *t0)
     char *t21;
     char *t22;
 
-LAB0:    xsi_set_current_line(228, ng0);
+LAB0:    xsi_set_current_line(225, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -1033,7 +1076,7 @@ static void work_a_0334871770_3212880686_p_15(char *t0)
     char *t22;
     char *t23;
 
-LAB0:    xsi_set_current_line(229, ng0);
+LAB0:    xsi_set_current_line(226, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -1114,7 +1157,7 @@ static void work_a_0334871770_3212880686_p_16(char *t0)
     char *t21;
     char *t22;
 
-LAB0:    xsi_set_current_line(230, ng0);
+LAB0:    xsi_set_current_line(227, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -1193,7 +1236,7 @@ static void work_a_0334871770_3212880686_p_17(char *t0)
     char *t22;
     char *t23;
 
-LAB0:    xsi_set_current_line(231, ng0);
+LAB0:    xsi_set_current_line(228, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -1274,7 +1317,7 @@ static void work_a_0334871770_3212880686_p_18(char *t0)
     char *t21;
     char *t22;
 
-LAB0:    xsi_set_current_line(232, ng0);
+LAB0:    xsi_set_current_line(229, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -1356,7 +1399,7 @@ static void work_a_0334871770_3212880686_p_19(char *t0)
     char *t25;
     char *t26;
 
-LAB0:    xsi_set_current_line(234, ng0);
+LAB0:    xsi_set_current_line(231, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -1447,7 +1490,7 @@ static void work_a_0334871770_3212880686_p_20(char *t0)
     char *t22;
     char *t23;
 
-LAB0:    xsi_set_current_line(249, ng0);
+LAB0:    xsi_set_current_line(246, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -1529,7 +1572,7 @@ static void work_a_0334871770_3212880686_p_21(char *t0)
     char *t22;
     char *t23;
 
-LAB0:    xsi_set_current_line(250, ng0);
+LAB0:    xsi_set_current_line(247, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -1611,7 +1654,7 @@ static void work_a_0334871770_3212880686_p_22(char *t0)
     char *t22;
     char *t23;
 
-LAB0:    xsi_set_current_line(251, ng0);
+LAB0:    xsi_set_current_line(248, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -1692,7 +1735,7 @@ static void work_a_0334871770_3212880686_p_23(char *t0)
     char *t21;
     char *t22;
 
-LAB0:    xsi_set_current_line(252, ng0);
+LAB0:    xsi_set_current_line(249, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -1762,7 +1805,7 @@ static void work_a_0334871770_3212880686_p_24(char *t0)
     char *t13;
     char *t14;
 
-LAB0:    xsi_set_current_line(257, ng0);
+LAB0:    xsi_set_current_line(254, ng0);
 
 LAB3:    t1 = (t0 + 8232U);
     t2 = *((char **)t1);
@@ -2078,7 +2121,7 @@ static void work_a_0334871770_3212880686_p_25(char *t0)
     char *t294;
     char *t295;
 
-LAB0:    xsi_set_current_line(259, ng0);
+LAB0:    xsi_set_current_line(256, ng0);
     t2 = (t0 + 9032U);
     t3 = *((char **)t2);
     t2 = (t0 + 31571);
@@ -2836,7 +2879,7 @@ static void work_a_0334871770_3212880686_p_26(char *t0)
     char *t22;
     char *t23;
 
-LAB0:    xsi_set_current_line(269, ng0);
+LAB0:    xsi_set_current_line(266, ng0);
     t2 = (t0 + 2952U);
     t3 = *((char **)t2);
     t4 = *((unsigned char *)t3);
@@ -2913,7 +2956,7 @@ static void work_a_0334871770_3212880686_p_27(char *t0)
     char *t22;
     char *t23;
 
-LAB0:    xsi_set_current_line(274, ng0);
+LAB0:    xsi_set_current_line(271, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -2995,7 +3038,7 @@ static void work_a_0334871770_3212880686_p_28(char *t0)
     char *t22;
     char *t23;
 
-LAB0:    xsi_set_current_line(275, ng0);
+LAB0:    xsi_set_current_line(272, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -3077,7 +3120,7 @@ static void work_a_0334871770_3212880686_p_29(char *t0)
     char *t22;
     char *t23;
 
-LAB0:    xsi_set_current_line(276, ng0);
+LAB0:    xsi_set_current_line(273, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -3159,7 +3202,7 @@ static void work_a_0334871770_3212880686_p_30(char *t0)
     char *t22;
     char *t23;
 
-LAB0:    xsi_set_current_line(277, ng0);
+LAB0:    xsi_set_current_line(274, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -3240,7 +3283,7 @@ static void work_a_0334871770_3212880686_p_31(char *t0)
     char *t21;
     char *t22;
 
-LAB0:    xsi_set_current_line(278, ng0);
+LAB0:    xsi_set_current_line(275, ng0);
     t1 = (t0 + 1192U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
@@ -3635,7 +3678,7 @@ static void work_a_0334871770_3212880686_p_32(char *t0)
     char *t349;
     char *t350;
 
-LAB0:    xsi_set_current_line(283, ng0);
+LAB0:    xsi_set_current_line(280, ng0);
     t2 = (t0 + 9032U);
     t3 = *((char **)t2);
     t2 = (t0 + 31597);
@@ -4514,7 +4557,7 @@ static void work_a_0334871770_3212880686_p_33(char *t0)
     char *t15;
     char *t16;
 
-LAB0:    xsi_set_current_line(292, ng0);
+LAB0:    xsi_set_current_line(289, ng0);
     t1 = (t0 + 2952U);
     t2 = *((char **)t1);
     t3 = *((unsigned char *)t2);
