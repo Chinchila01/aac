@@ -67,6 +67,6 @@ PCIncrement <= Offset when Cond="111" else                               -- unco
                std_logic_vector(to_unsigned(4, PC_WIDTH));               -- conditional branch (condition returns false)
 
 -- compute nextPC
-NextPC <= PC + PCIncrement when Data_Hazard='0' else PC;
+NextPC <= PC + PCIncrement;-- when Data_Hazard='0' else PC;
 
 end Behavioral;

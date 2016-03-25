@@ -149,3 +149,65 @@ ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7k70t-fbg676-2 SingleCoreP
 map -intstyle ise -p xc7k70t-fbg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o SingleCoreProcessor_map.ncd SingleCoreProcessor.ngd SingleCoreProcessor.pcf 
 par -w -intstyle ise -ol high -mt off SingleCoreProcessor_map.ncd SingleCoreProcessor.ncd SingleCoreProcessor.pcf 
 trce -intstyle ise -v 3 -a -s 2 -n 3 -fastpaths -xml SingleCoreProcessor.twx SingleCoreProcessor.ncd -o SingleCoreProcessor.twr SingleCoreProcessor.pcf 
+xst -intstyle ise -ifn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.xst" -ofn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7k70t-fbg676-2 SingleCoreProcessor.ngc SingleCoreProcessor.ngd  
+map -intstyle ise -p xc7k70t-fbg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o SingleCoreProcessor_map.ncd SingleCoreProcessor.ngd SingleCoreProcessor.pcf 
+par -w -intstyle ise -ol high -mt off SingleCoreProcessor_map.ncd SingleCoreProcessor.ncd SingleCoreProcessor.pcf 
+trce -intstyle ise -v 3 -a -s 2 -n 3 -fastpaths -xml SingleCoreProcessor.twx SingleCoreProcessor.ncd -o SingleCoreProcessor.twr SingleCoreProcessor.pcf 
+xst -intstyle ise -ifn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.xst" -ofn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7k70t-fbg676-2 SingleCoreProcessor.ngc SingleCoreProcessor.ngd  
+map -intstyle ise -p xc7k70t-fbg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o SingleCoreProcessor_map.ncd SingleCoreProcessor.ngd SingleCoreProcessor.pcf 
+par -w -intstyle ise -ol high -mt off SingleCoreProcessor_map.ncd SingleCoreProcessor.ncd SingleCoreProcessor.pcf 
+trce -intstyle ise -v 3 -a -s 2 -n 3 -fastpaths -xml SingleCoreProcessor.twx SingleCoreProcessor.ncd -o SingleCoreProcessor.twr SingleCoreProcessor.pcf 
+xst -intstyle ise -ifn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.xst" -ofn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7k70t-fbg676-2 SingleCoreProcessor.ngc SingleCoreProcessor.ngd  
+map -intstyle ise -p xc7k70t-fbg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o SingleCoreProcessor_map.ncd SingleCoreProcessor.ngd SingleCoreProcessor.pcf 
+par -w -intstyle ise -ol high -mt off SingleCoreProcessor_map.ncd SingleCoreProcessor.ncd SingleCoreProcessor.pcf 
+trce -intstyle ise -v 3 -a -s 2 -n 3 -fastpaths -xml SingleCoreProcessor.twx SingleCoreProcessor.ncd -o SingleCoreProcessor.twr SingleCoreProcessor.pcf 
+xst -intstyle ise -ifn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.xst" -ofn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7k70t-fbg676-2 SingleCoreProcessor.ngc SingleCoreProcessor.ngd  
+map -intstyle ise -p xc7k70t-fbg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o SingleCoreProcessor_map.ncd SingleCoreProcessor.ngd SingleCoreProcessor.pcf 
+par -w -intstyle ise -ol high -mt off SingleCoreProcessor_map.ncd SingleCoreProcessor.ncd SingleCoreProcessor.pcf 
+trce -intstyle ise -v 3 -a -s 2 -n 3 -fastpaths -xml SingleCoreProcessor.twx SingleCoreProcessor.ncd -o SingleCoreProcessor.twr SingleCoreProcessor.pcf 
+xst -intstyle ise -ifn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.xst" -ofn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7k70t-fbg676-2 SingleCoreProcessor.ngc SingleCoreProcessor.ngd  
+map -intstyle ise -p xc7k70t-fbg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o SingleCoreProcessor_map.ncd SingleCoreProcessor.ngd SingleCoreProcessor.pcf 
+par -w -intstyle ise -ol high -mt off SingleCoreProcessor_map.ncd SingleCoreProcessor.ncd SingleCoreProcessor.pcf 
+trce -intstyle ise -v 3 -a -s 2 -n 3 -fastpaths -xml SingleCoreProcessor.twx SingleCoreProcessor.ncd -o SingleCoreProcessor.twr SingleCoreProcessor.pcf 
+xst -intstyle ise -ifn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.xst" -ofn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7k70t-fbg676-2 SingleCoreProcessor.ngc SingleCoreProcessor.ngd  
+map -intstyle ise -p xc7k70t-fbg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o SingleCoreProcessor_map.ncd SingleCoreProcessor.ngd SingleCoreProcessor.pcf 
+par -w -intstyle ise -ol high -mt off SingleCoreProcessor_map.ncd SingleCoreProcessor.ncd SingleCoreProcessor.pcf 
+trce -intstyle ise -v 3 -a -s 2 -n 3 -fastpaths -xml SingleCoreProcessor.twx SingleCoreProcessor.ncd -o SingleCoreProcessor.twr SingleCoreProcessor.pcf 
+xst -intstyle ise -ifn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.xst" -ofn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7k70t-fbg676-2 SingleCoreProcessor.ngc SingleCoreProcessor.ngd  
+map -intstyle ise -p xc7k70t-fbg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o SingleCoreProcessor_map.ncd SingleCoreProcessor.ngd SingleCoreProcessor.pcf 
+par -w -intstyle ise -ol high -mt off SingleCoreProcessor_map.ncd SingleCoreProcessor.ncd SingleCoreProcessor.pcf 
+trce -intstyle ise -v 3 -a -s 2 -n 3 -fastpaths -xml SingleCoreProcessor.twx SingleCoreProcessor.ncd -o SingleCoreProcessor.twr SingleCoreProcessor.pcf 
+xst -intstyle ise -ifn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.xst" -ofn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7k70t-fbg676-2 SingleCoreProcessor.ngc SingleCoreProcessor.ngd  
+xst -intstyle ise -ifn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.xst" -ofn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7k70t-fbg676-2 SingleCoreProcessor.ngc SingleCoreProcessor.ngd  
+map -intstyle ise -p xc7k70t-fbg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o SingleCoreProcessor_map.ncd SingleCoreProcessor.ngd SingleCoreProcessor.pcf 
+par -w -intstyle ise -ol high -mt off SingleCoreProcessor_map.ncd SingleCoreProcessor.ncd SingleCoreProcessor.pcf 
+trce -intstyle ise -v 3 -a -s 2 -n 3 -fastpaths -xml SingleCoreProcessor.twx SingleCoreProcessor.ncd -o SingleCoreProcessor.twr SingleCoreProcessor.pcf 
+xst -intstyle ise -ifn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.xst" -ofn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7k70t-fbg676-2 SingleCoreProcessor.ngc SingleCoreProcessor.ngd  
+map -intstyle ise -p xc7k70t-fbg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o SingleCoreProcessor_map.ncd SingleCoreProcessor.ngd SingleCoreProcessor.pcf 
+par -w -intstyle ise -ol high -mt off SingleCoreProcessor_map.ncd SingleCoreProcessor.ncd SingleCoreProcessor.pcf 
+trce -intstyle ise -v 3 -a -s 2 -n 3 -fastpaths -xml SingleCoreProcessor.twx SingleCoreProcessor.ncd -o SingleCoreProcessor.twr SingleCoreProcessor.pcf 
+xst -intstyle ise -ifn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.xst" -ofn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7k70t-fbg676-2 SingleCoreProcessor.ngc SingleCoreProcessor.ngd  
+map -intstyle ise -p xc7k70t-fbg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o SingleCoreProcessor_map.ncd SingleCoreProcessor.ngd SingleCoreProcessor.pcf 
+par -w -intstyle ise -ol high -mt off SingleCoreProcessor_map.ncd SingleCoreProcessor.ncd SingleCoreProcessor.pcf 
+trce -intstyle ise -v 3 -a -s 2 -n 3 -fastpaths -xml SingleCoreProcessor.twx SingleCoreProcessor.ncd -o SingleCoreProcessor.twr SingleCoreProcessor.pcf 
+xst -intstyle ise -ifn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.xst" -ofn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7k70t-fbg676-2 SingleCoreProcessor.ngc SingleCoreProcessor.ngd  
+map -intstyle ise -p xc7k70t-fbg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o SingleCoreProcessor_map.ncd SingleCoreProcessor.ngd SingleCoreProcessor.pcf 
+par -w -intstyle ise -ol high -mt off SingleCoreProcessor_map.ncd SingleCoreProcessor.ncd SingleCoreProcessor.pcf 
+trce -intstyle ise -v 3 -a -s 2 -n 3 -fastpaths -xml SingleCoreProcessor.twx SingleCoreProcessor.ncd -o SingleCoreProcessor.twr SingleCoreProcessor.pcf 
+xst -intstyle ise -ifn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.xst" -ofn "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7k70t-fbg676-2 SingleCoreProcessor.ngc SingleCoreProcessor.ngd  
+map -intstyle ise -p xc7k70t-fbg676-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o SingleCoreProcessor_map.ncd SingleCoreProcessor.ngd SingleCoreProcessor.pcf 
+par -w -intstyle ise -ol high -mt off SingleCoreProcessor_map.ncd SingleCoreProcessor.ncd SingleCoreProcessor.pcf 
+trce -intstyle ise -v 3 -a -s 2 -n 3 -fastpaths -xml SingleCoreProcessor.twx SingleCoreProcessor.ncd -o SingleCoreProcessor.twr SingleCoreProcessor.pcf 
