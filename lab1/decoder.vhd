@@ -37,7 +37,7 @@ entity decoder is
         clk     : in std_logic;
         reset   : in std_logic;
         -- instruction
-        RCV_I   : in std_logic_vector(31 downto 0);
+        I   : in std_logic_vector(31 downto 0);
         PC      : in STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
         -- register file connections
         RegOpA  : out STD_LOGIC_VECTOR(REG_ADD_WIDTH-1 downto 0);

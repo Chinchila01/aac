@@ -11,36 +11,36 @@ Target Device  : xc7k70t
 Target Package : fbg676
 Target Speed   : -2
 Mapper Version : kintex7 -- $Revision: 1.55 $
-Mapped Date    : Tue Mar 29 16:05:23 2016
+Mapped Date    : Tue Mar 29 16:48:04 2016
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:   69
 Slice Logic Utilization:
-  Number of Slice Registers:                 1,468 out of  82,000    1%
-    Number used as Flip Flops:               1,468
+  Number of Slice Registers:                 1,516 out of  82,000    1%
+    Number used as Flip Flops:               1,516
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                      1,857 out of  41,000    4%
-    Number used as logic:                    1,853 out of  41,000    4%
-      Number using O6 output only:           1,751
+  Number of Slice LUTs:                      1,860 out of  41,000    4%
+    Number used as logic:                    1,852 out of  41,000    4%
+      Number using O6 output only:           1,749
       Number using O5 output only:               0
-      Number using O5 and O6:                  102
+      Number using O5 and O6:                  103
       Number used as ROM:                        0
     Number used as Memory:                       0 out of  13,400    0%
-    Number used exclusively as route-thrus:      4
-      Number with same-slice register load:      4
+    Number used exclusively as route-thrus:      8
+      Number with same-slice register load:      8
       Number with same-slice carry load:         0
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   989 out of  10,250    9%
-  Number of LUT Flip Flop pairs used:        2,753
-    Number with an unused Flip Flop:         1,306 out of   2,753   47%
-    Number with an unused LUT:                 896 out of   2,753   32%
-    Number of fully used LUT-FF pairs:         551 out of   2,753   20%
+  Number of occupied Slices:                 1,049 out of  10,250   10%
+  Number of LUT Flip Flop pairs used:        2,799
+    Number with an unused Flip Flop:         1,324 out of   2,799   47%
+    Number with an unused LUT:                 939 out of   2,799   33%
+    Number of fully used LUT-FF pairs:         536 out of   2,799   19%
     Number of unique control sets:              36
     Number of slice register sites lost
       to control set restrictions:              12 out of  82,000    1%
@@ -93,11 +93,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of XADCs:                               0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                4.62
+Average Fanout of Non-Clock Nets:                4.63
 
 Peak Memory Usage:  1228 MB
-Total REAL time to MAP completion:  2 mins 58 secs 
-Total CPU time to MAP completion:   2 mins 57 secs 
+Total REAL time to MAP completion:  3 mins 1 secs 
+Total CPU time to MAP completion:   3 mins 
 
 Table of Contents
 -----------------

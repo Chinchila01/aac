@@ -117,28 +117,547 @@ Parsing architecture <Behavioral> of entity <register_file>.
 Parsing VHDL file "/home/filipe/Documents/AAC/lab1/decoder.vhd" into library work
 Parsing entity <decoder>.
 Parsing architecture <Behavioral> of entity <decoder>.
-ERROR:HDLCompiler:69 - "/home/filipe/Documents/AAC/lab1/decoder.vhd" Line 79: <i> is not declared.
-ERROR:HDLCompiler:69 - "/home/filipe/Documents/AAC/lab1/decoder.vhd" Line 80: <i> is not declared.
-ERROR:HDLCompiler:69 - "/home/filipe/Documents/AAC/lab1/decoder.vhd" Line 81: <i> is not declared.
-ERROR:HDLCompiler:69 - "/home/filipe/Documents/AAC/lab1/decoder.vhd" Line 82: <i> is not declared.
-ERROR:HDLCompiler:69 - "/home/filipe/Documents/AAC/lab1/decoder.vhd" Line 83: <i> is not declared.
-ERROR:HDLCompiler:69 - "/home/filipe/Documents/AAC/lab1/decoder.vhd" Line 91: <i> is not declared.
-ERROR:HDLCompiler:69 - "/home/filipe/Documents/AAC/lab1/decoder.vhd" Line 95: <i> is not declared.
-ERROR:HDLCompiler:69 - "/home/filipe/Documents/AAC/lab1/decoder.vhd" Line 94: <i> is not declared.
-ERROR:HDLCompiler:69 - "/home/filipe/Documents/AAC/lab1/decoder.vhd" Line 99: <i> is not declared.
-ERROR:HDLCompiler:69 - "/home/filipe/Documents/AAC/lab1/decoder.vhd" Line 100: <i> is not declared.
-ERROR:HDLCompiler:69 - "/home/filipe/Documents/AAC/lab1/decoder.vhd" Line 98: <i> is not declared.
-ERROR:HDLCompiler:69 - "/home/filipe/Documents/AAC/lab1/decoder.vhd" Line 116: <i> is not declared.
-ERROR:HDLCompiler:69 - "/home/filipe/Documents/AAC/lab1/decoder.vhd" Line 183: <i> is not declared.
-ERROR:HDLCompiler:69 - "/home/filipe/Documents/AAC/lab1/decoder.vhd" Line 191: <i> is not declared.
-ERROR:HDLCompiler:854 - "/home/filipe/Documents/AAC/lab1/decoder.vhd" Line 66: Unit <behavioral> ignored due to previous errors.
-VHDL file /home/filipe/Documents/AAC/lab1/decoder.vhd ignored due to errors
+Parsing VHDL file "/home/filipe/Documents/AAC/lab1/branch_control.vhd" into library work
+Parsing entity <branch_control>.
+Parsing architecture <Behavioral> of entity <branch_control>.
+Parsing VHDL file "/home/filipe/Documents/AAC/lab1/alu.vhd" into library work
+Parsing entity <alu>.
+Parsing architecture <Behavioral> of entity <alu>.
+Parsing VHDL file "/home/filipe/Documents/AAC/lab1/simpleDualPortMemory.vhd" into library work
+Parsing entity <DualPortMemory>.
+Parsing architecture <Behavioral> of entity <dualportmemory>.
+Parsing VHDL file "/home/filipe/Documents/AAC/lab1/simpleCore.vhd" into library work
+Parsing entity <simpleCore>.
+Parsing architecture <Behavioral> of entity <simplecore>.
+Parsing VHDL file "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.vhd" into library work
+Parsing entity <SingleCoreProcessor>.
+Parsing architecture <Behavioral> of entity <singlecoreprocessor>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <SingleCoreProcessor> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <simpleCore> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <decoder> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <register_file> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <branch_control> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <alu> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <DualPortMemory> (architecture <Behavioral>) from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <SingleCoreProcessor>.
+    Related source file is "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.vhd".
+    Summary:
+	no macro.
+Unit <SingleCoreProcessor> synthesized.
+
+Synthesizing Unit <simpleCore>.
+    Related source file is "/home/filipe/Documents/AAC/lab1/simpleCore.vhd".
+    Found 16-bit register for signal <PC>.
+    Found 16-bit register for signal <ID_PC>.
+    Found 16-bit register for signal <REG_PC>.
+    Found 32-bit register for signal <REG_I>.
+    Found 32-bit register for signal <ID_I>.
+    Found 32-bit register for signal <EX_OpD>.
+    Found 32-bit register for signal <MEM_ExResult>.
+    Found 32-bit register for signal <MEM_DataIn>.
+    Found 32-bit register for signal <WB_ExResult>.
+    Found 32-bit register for signal <WB_StoreData>.
+    Found 3-bit register for signal <EX_CTRL>.
+    Found 3-bit register for signal <EX_MemCTRL>.
+    Found 3-bit register for signal <MEM_CTRL>.
+    Found 3-bit register for signal <WB_MemCTRL>.
+    Found 33-bit register for signal <EX_OpA>.
+    Found 33-bit register for signal <EX_OpB>.
+    Found 1-bit register for signal <EX_OpC>.
+    Found 1-bit register for signal <EX_MSR_C_WE>.
+    Found 1-bit register for signal <EX_RegWE>.
+    Found 1-bit register for signal <EX_MSR_C>.
+    Found 1-bit register for signal <MEM_RegWE>.
+    Found 1-bit register for signal <RegWE>.
+    Found 1-bit register for signal <ID_STAGE_ENABLE>.
+    Found 16-bit register for signal <REG_PC[15]_dff_0>.
+    Found 32-bit register for signal <REG_I[31]_dff_8>.
+    Found 1-bit register for signal <CHazard>.
+    Summary:
+	inferred 406 D-type flip-flop(s).
+	inferred  15 Multiplexer(s).
+Unit <simpleCore> synthesized.
+
+Synthesizing Unit <decoder>.
+    Related source file is "/home/filipe/Documents/AAC/lab1/decoder.vhd".
+    Found 16-bit register for signal <RImm16>.
+    Found 1-bit register for signal <MSR_I>.
+    Summary:
+	inferred  17 D-type flip-flop(s).
+	inferred  85 Multiplexer(s).
+Unit <decoder> synthesized.
+
+Synthesizing Unit <register_file>.
+    Related source file is "/home/filipe/Documents/AAC/lab1/register_file.vhd".
+    Found 32-bit register for signal <memTable>.
+    Found 32-bit register for signal <wbTable>.
+    Found 32-bit register for signal <RegisterTable<1>>.
+    Found 32-bit register for signal <RegisterTable<2>>.
+    Found 32-bit register for signal <RegisterTable<3>>.
+    Found 32-bit register for signal <RegisterTable<4>>.
+    Found 32-bit register for signal <RegisterTable<5>>.
+    Found 32-bit register for signal <RegisterTable<6>>.
+    Found 32-bit register for signal <RegisterTable<7>>.
+    Found 32-bit register for signal <RegisterTable<8>>.
+    Found 32-bit register for signal <RegisterTable<9>>.
+    Found 32-bit register for signal <RegisterTable<10>>.
+    Found 32-bit register for signal <RegisterTable<11>>.
+    Found 32-bit register for signal <RegisterTable<12>>.
+    Found 32-bit register for signal <RegisterTable<13>>.
+    Found 32-bit register for signal <RegisterTable<14>>.
+    Found 32-bit register for signal <RegisterTable<15>>.
+    Found 32-bit register for signal <RegisterTable<16>>.
+    Found 32-bit register for signal <RegisterTable<17>>.
+    Found 32-bit register for signal <RegisterTable<18>>.
+    Found 32-bit register for signal <RegisterTable<19>>.
+    Found 32-bit register for signal <RegisterTable<20>>.
+    Found 32-bit register for signal <RegisterTable<21>>.
+    Found 32-bit register for signal <RegisterTable<22>>.
+    Found 32-bit register for signal <RegisterTable<23>>.
+    Found 32-bit register for signal <RegisterTable<24>>.
+    Found 32-bit register for signal <RegisterTable<25>>.
+    Found 32-bit register for signal <RegisterTable<26>>.
+    Found 32-bit register for signal <RegisterTable<27>>.
+    Found 32-bit register for signal <RegisterTable<28>>.
+    Found 32-bit register for signal <RegisterTable<29>>.
+    Found 32-bit register for signal <RegisterTable<30>>.
+    Found 32-bit register for signal <RegisterTable<31>>.
+    Found 32-bit register for signal <exTable>.
+    Found 1-bit 32-to-1 multiplexer for signal <OpA[4]_exTable[31]_Mux_35_o> created at line 77.
+    Found 1-bit 32-to-1 multiplexer for signal <OpA[4]_memTable[31]_Mux_36_o> created at line 77.
+    Found 1-bit 32-to-1 multiplexer for signal <OpA[4]_wbTable[31]_Mux_37_o> created at line 77.
+    Found 1-bit 32-to-1 multiplexer for signal <OpB[4]_exTable[31]_Mux_38_o> created at line 78.
+    Found 1-bit 32-to-1 multiplexer for signal <OpB[4]_memTable[31]_Mux_39_o> created at line 78.
+    Found 1-bit 32-to-1 multiplexer for signal <OpB[4]_wbTable[31]_Mux_40_o> created at line 78.
+    Found 32-bit 32-to-1 multiplexer for signal <DoutA> created at line 82.
+    Found 32-bit 32-to-1 multiplexer for signal <DoutB> created at line 83.
+    Found 32-bit 32-to-1 multiplexer for signal <DoutD> created at line 84.
+    Summary:
+	inferred 1088 D-type flip-flop(s).
+	inferred   9 Multiplexer(s).
+Unit <register_file> synthesized.
+
+Synthesizing Unit <branch_control>.
+    Related source file is "/home/filipe/Documents/AAC/lab1/branch_control.vhd".
+WARNING:Xst:647 - Input <Data_Hazard> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 16-bit adder for signal <NextPC> created at line 70.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   7 Multiplexer(s).
+Unit <branch_control> synthesized.
+
+Synthesizing Unit <alu>.
+    Related source file is "/home/filipe/Documents/AAC/lab1/alu.vhd".
+    Found 34-bit adder for signal <n0160> created at line 90.
+    Found 34-bit adder for signal <uAddComp.auxRes> created at line 90.
+    Found 6-bit adder for signal <n0164> created at line 124.
+    Found 6-bit subtractor for signal <GND_13_o_GND_13_o_sub_49_OUT<5:0>> created at line 130.
+    Found 33x33-bit multiplier for signal <uMultiplier.auxRes> created at line 106.
+    Found 1-bit 21-to-1 multiplexer for signal <PWR_13_o_OpA[16]_Mux_31_o> created at line 124.
+    Found 1-bit 21-to-1 multiplexer for signal <PWR_13_o_OpA[15]_Mux_32_o> created at line 124.
+    Found 1-bit 24-to-1 multiplexer for signal <PWR_13_o_OpA[14]_Mux_33_o> created at line 124.
+    Found 1-bit 24-to-1 multiplexer for signal <PWR_13_o_OpA[13]_Mux_34_o> created at line 124.
+    Found 1-bit 25-to-1 multiplexer for signal <PWR_13_o_OpA[12]_Mux_35_o> created at line 124.
+    Found 1-bit 25-to-1 multiplexer for signal <PWR_13_o_OpA[11]_Mux_36_o> created at line 124.
+    Found 1-bit 27-to-1 multiplexer for signal <PWR_13_o_OpA[10]_Mux_37_o> created at line 124.
+    Found 1-bit 27-to-1 multiplexer for signal <PWR_13_o_OpA[9]_Mux_38_o> created at line 124.
+    Found 1-bit 28-to-1 multiplexer for signal <PWR_13_o_OpA[8]_Mux_39_o> created at line 124.
+    Found 1-bit 28-to-1 multiplexer for signal <PWR_13_o_OpA[7]_Mux_40_o> created at line 124.
+    Found 1-bit 30-to-1 multiplexer for signal <PWR_13_o_OpA[6]_Mux_41_o> created at line 124.
+    Found 1-bit 30-to-1 multiplexer for signal <PWR_13_o_OpA[5]_Mux_42_o> created at line 124.
+    Found 1-bit 31-to-1 multiplexer for signal <PWR_13_o_OpA[4]_Mux_43_o> created at line 124.
+    Found 1-bit 31-to-1 multiplexer for signal <PWR_13_o_OpA[3]_Mux_44_o> created at line 124.
+    Found 1-bit 32-to-1 multiplexer for signal <PWR_13_o_OpA[2]_Mux_45_o> created at line 124.
+    Found 1-bit 32-to-1 multiplexer for signal <PWR_13_o_OpA[1]_Mux_46_o> created at line 124.
+    Found 1-bit 32-to-1 multiplexer for signal <PWR_13_o_OpA[0]_Mux_47_o> created at line 124.
+    Found 32-bit 4-to-1 multiplexer for signal <logicRes> created at line 67.
+    Found 32-bit 3-to-1 multiplexer for signal <_n0202> created at line 46.
+    Summary:
+	inferred   1 Multiplier(s).
+	inferred   4 Adder/Subtractor(s).
+	inferred 218 Multiplexer(s).
+Unit <alu> synthesized.
+
+Synthesizing Unit <DualPortMemory>.
+    Related source file is "/home/filipe/Documents/AAC/lab1/simpleDualPortMemory.vhd".
+WARNING:Xst:647 - Input <Addr_A<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <Addr_B<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 16384x32-bit dual-port RAM <Mram_RAM> for signal <RAM>.
+    Found 32-bit register for signal <DO_B>.
+    Found 32-bit register for signal <DO_A>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred  64 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <DualPortMemory> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 16384x32-bit dual-port RAM                            : 1
+# Multipliers                                          : 1
+ 33x33-bit multiplier                                  : 1
+# Adders/Subtractors                                   : 5
+ 16-bit adder                                          : 1
+ 34-bit adder                                          : 2
+ 6-bit adder                                           : 1
+ 6-bit subtractor                                      : 1
+# Registers                                            : 64
+ 1-bit register                                        : 9
+ 16-bit register                                       : 5
+ 3-bit register                                        : 4
+ 32-bit register                                       : 44
+ 33-bit register                                       : 2
+# Multiplexers                                         : 335
+ 1-bit 2-to-1 multiplexer                              : 195
+ 1-bit 21-to-1 multiplexer                             : 2
+ 1-bit 24-to-1 multiplexer                             : 2
+ 1-bit 25-to-1 multiplexer                             : 2
+ 1-bit 27-to-1 multiplexer                             : 2
+ 1-bit 28-to-1 multiplexer                             : 2
+ 1-bit 30-to-1 multiplexer                             : 2
+ 1-bit 31-to-1 multiplexer                             : 2
+ 1-bit 32-to-1 multiplexer                             : 9
+ 16-bit 2-to-1 multiplexer                             : 15
+ 3-bit 2-to-1 multiplexer                              : 18
+ 32-bit 2-to-1 multiplexer                             : 50
+ 32-bit 3-to-1 multiplexer                             : 1
+ 32-bit 32-to-1 multiplexer                            : 3
+ 32-bit 4-to-1 multiplexer                             : 1
+ 33-bit 2-to-1 multiplexer                             : 29
+# Xors                                                 : 1
+ 32-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <DualPortMemory>.
+INFO:Xst:3226 - The RAM <Mram_RAM> will be implemented as a BLOCK RAM, absorbing the following register(s): <DO_B> <DO_A>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16384-word x 32-bit                 |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <CLK>           | rise     |
+    |     weA            | connected to signal <WE_B>          | high     |
+    |     addrA          | connected to signal <Addr_B>        |          |
+    |     diA            | connected to signal <DI_B>          |          |
+    |     doA            | connected to signal <DO_B>          |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 16384-word x 32-bit                 |          |
+    |     mode           | write-first                         |          |
+    |     clkB           | connected to signal <CLK>           | rise     |
+    |     addrB          | connected to signal <Addr_A>        |          |
+    |     doB            | connected to signal <DO_A>          |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <DualPortMemory> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 16384x32-bit dual-port block RAM                      : 1
+# Multipliers                                          : 1
+ 33x33-bit multiplier                                  : 1
+# Adders/Subtractors                                   : 4
+ 16-bit adder                                          : 1
+ 33-bit adder carry in                                 : 1
+ 6-bit adder                                           : 1
+ 6-bit subtractor                                      : 1
+# Registers                                            : 1511
+ Flip-Flops                                            : 1511
+# Multiplexers                                         : 334
+ 1-bit 2-to-1 multiplexer                              : 195
+ 1-bit 21-to-1 multiplexer                             : 2
+ 1-bit 24-to-1 multiplexer                             : 2
+ 1-bit 25-to-1 multiplexer                             : 2
+ 1-bit 27-to-1 multiplexer                             : 2
+ 1-bit 28-to-1 multiplexer                             : 2
+ 1-bit 30-to-1 multiplexer                             : 2
+ 1-bit 31-to-1 multiplexer                             : 2
+ 1-bit 32-to-1 multiplexer                             : 9
+ 16-bit 2-to-1 multiplexer                             : 15
+ 3-bit 2-to-1 multiplexer                              : 18
+ 32-bit 2-to-1 multiplexer                             : 49
+ 32-bit 3-to-1 multiplexer                             : 1
+ 32-bit 32-to-1 multiplexer                            : 3
+ 32-bit 4-to-1 multiplexer                             : 1
+ 33-bit 2-to-1 multiplexer                             : 29
+# Xors                                                 : 1
+ 32-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <SingleCoreProcessor> ...
+
+Optimizing unit <simpleCore> ...
+
+Optimizing unit <decoder> ...
+
+Optimizing unit <register_file> ...
+
+Optimizing unit <branch_control> ...
+
+Optimizing unit <alu> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block SingleCoreProcessor, actual ratio is 7.
+FlipFlop Core0/EX_OpB[32]_dff_21_0 has been replicated 1 time(s)
+FlipFlop Core0/EX_OpB[32]_dff_21_1 has been replicated 1 time(s)
+FlipFlop Core0/EX_OpB[32]_dff_21_2 has been replicated 1 time(s)
+FlipFlop Core0/EX_OpB[32]_dff_21_3 has been replicated 1 time(s)
+FlipFlop Core0/EX_OpB[32]_dff_21_4 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 1516
+ Flip-Flops                                            : 1516
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : SingleCoreProcessor.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 2203
+#      GND                         : 1
+#      LUT2                        : 57
+#      LUT3                        : 113
+#      LUT4                        : 71
+#      LUT5                        : 306
+#      LUT6                        : 1410
+#      MUXCY                       : 47
+#      MUXF7                       : 148
+#      VCC                         : 1
+#      XORCY                       : 49
+# FlipFlops/Latches                : 1516
+#      FD                          : 50
+#      FDC                         : 282
+#      FDCE                        : 1168
+#      FDP                         : 16
+# RAMS                             : 16
+#      RAMB36E1                    : 16
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 66
+#      IBUF                        : 1
+#      OBUF                        : 65
+# DSPs                             : 4
+#      DSP48E1                     : 4
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 7k70tfbg676-2 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:            1516  out of  82000     1%  
+ Number of Slice LUTs:                 1957  out of  41000     4%  
+    Number used as Logic:              1957  out of  41000     4%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   3256
+   Number with an unused Flip Flop:    1740  out of   3256    53%  
+   Number with an unused LUT:          1299  out of   3256    39%  
+   Number of fully used LUT-FF pairs:   217  out of   3256     6%  
+   Number of unique control sets:        36
+
+IO Utilization: 
+ Number of IOs:                          67
+ Number of bonded IOBs:                  67  out of    300    22%  
+
+Specific Feature Utilization:
+ Number of Block RAM/FIFO:               16  out of    135    11%  
+    Number using Block RAM only:         16
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+ Number of DSP48E1s:                      4  out of    240     1%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 1532  |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -2
+
+   Minimum period: 7.374ns (Maximum Frequency: 135.608MHz)
+   Minimum input arrival time before clock: 0.856ns
+   Maximum output required time after clock: 2.059ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 7.374ns (frequency: 135.608MHz)
+  Total number of paths / destination ports: 117244342 / 2684
+-------------------------------------------------------------------------
+Delay:               7.374ns (Levels of Logic = 5)
+  Source:            Core0/EX_OpB[32]_dff_21_16 (FF)
+  Destination:       Core0/MEM_ExResult[31]_dff_29_31 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: Core0/EX_OpB[32]_dff_21_16 to Core0/MEM_ExResult[31]_dff_29_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             3   0.236   0.351  Core0/EX_OpB[32]_dff_21_16 (Core0/EX_OpB[32]_dff_21_16)
+     DSP48E1:A16->PCOUT47    1   2.879   0.000  Core0/uALU/Mmult_uMultiplier.auxRes (Core0/uALU/Mmult_uMultiplier.auxRes_PCOUT_to_Mmult_uMultiplier.auxRes1_PCIN_47)
+     DSP48E1:PCIN47->PCOUT47    1   1.219   0.000  Core0/uALU/Mmult_uMultiplier.auxRes1 (Core0/uALU/Mmult_uMultiplier.auxRes1_PCOUT_to_Mmult_uMultiplier.auxRes2_PCIN_47)
+     DSP48E1:PCIN47->PCOUT47    1   1.219   0.000  Core0/uALU/Mmult_uMultiplier.auxRes2 (Core0/uALU/Mmult_uMultiplier.auxRes2_PCOUT_to_Mmult_uMultiplier.auxRes3_PCIN_47)
+     DSP48E1:PCIN47->P29    1   1.077   0.350  Core0/uALU/Mmult_uMultiplier.auxRes3 (Core0/uALU/uMultiplier.auxRes<63>)
+     LUT5:I4->O            1   0.043   0.000  Core0/uALU/Res<31> (Core0/EX_Result<31>)
+     FDC:D                    -0.000          Core0/MEM_ExResult[31]_dff_29_31
+    ----------------------------------------
+    Total                      7.374ns (6.673ns logic, 0.701ns route)
+                                       (90.5% logic, 9.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 1466 / 1466
+-------------------------------------------------------------------------
+Offset:              0.856ns (Levels of Logic = 1)
+  Source:            reset (PAD)
+  Destination:       Core0/WB_ExResult[31]_dff_50_31 (FF)
+  Destination Clock: clk rising
+
+  Data Path: reset to Core0/WB_ExResult[31]_dff_50_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O          1466   0.000   0.592  reset_IBUF (reset_IBUF)
+     FDCE:CLR                  0.264          Core0/REG_I[31]_dff_7_0
+    ----------------------------------------
+    Total                      0.856ns (0.264ns logic, 0.592ns route)
+                                       (30.8% logic, 69.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 505 / 65
+-------------------------------------------------------------------------
+Offset:              2.059ns (Levels of Logic = 3)
+  Source:            Core0/WB_MemCTRL[2]_dff_54_0 (FF)
+  Destination:       MemWData<31> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: Core0/WB_MemCTRL[2]_dff_54_0 to MemWData<31>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             71   0.236   0.740  Core0/WB_MemCTRL[2]_dff_54_0 (Core0/WB_MemCTRL[2]_dff_54_0)
+     LUT5:I0->O            8   0.043   0.652  Core0/Mmux_MemWriteData3421 (Core0/Mmux_MemWriteData342)
+     LUT6:I0->O            2   0.043   0.344  Core0/Mmux_MemWriteData50 (MemWData_31_OBUF)
+     OBUF:I->O                 0.000          MemWData_31_OBUF (MemWData<31>)
+    ----------------------------------------
+    Total                      2.059ns (0.322ns logic, 1.737ns route)
+                                       (15.6% logic, 84.4% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    7.374|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 77.00 secs
+Total CPU time to Xst completion: 69.98 secs
+ 
 --> 
 
 
-Total memory usage is 355444 kilobytes
+Total memory usage is 527772 kilobytes
 
-Number of errors   :   15 (   0 filtered)
-Number of warnings :    0 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    3 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
 

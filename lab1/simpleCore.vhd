@@ -157,9 +157,8 @@ ID_PC <= (PC_WIDTH-1 downto 0=>'0') when reset='1' else
 			
 REG_PC <= (others=>'0') when reset='1' else
 			  ID_NextPC when rising_edge(clk) and Hazard='0';
---PC   <= ID_PC;
+
 PC <= ID_PC;
---PC <= REG_PC;
 ---------------------------------------------------------------------------------------------------------------
 -- IF to ID stage registers
 ---------------------------------------------------------------------------------------------------------------
@@ -171,12 +170,14 @@ PC <= ID_PC;
 
 REG_I <= (others=>'0') when reset='1' else I when rising_edge(clk) AND Hazard='0';
 
-ID_I <= I when Hazard='0' else REG_I;
+ID_I <= (others=>'0') when reset='1' else 
+			I when Hazard='0' and rising_edge(clk) else 
+			REG_I when rising_edge(clk);
 
 uDecoder : decoder port map(
     clk      => clk,               reset  => reset,
     -- instruction
-    RCV_I        => ID_I,              PC     => ID_PC,
+    I        => ID_I,              PC     => ID_PC,
     -- register file connections
     RegOpA   => ID_OpA,            RegOpB => ID_OpB,           RegOpD   => ID_OpD,
     RegDA    => ID_RegDA,          RegDB  => ID_RegDB,
