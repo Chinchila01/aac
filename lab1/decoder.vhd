@@ -37,7 +37,7 @@ entity decoder is
         clk     : in std_logic;
         reset   : in std_logic;
         -- instruction
-        I       : in std_logic_vector(31 downto 0);
+        RCV_I   : in std_logic_vector(31 downto 0);
         PC      : in STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
         -- register file connections
         RegOpA  : out STD_LOGIC_VECTOR(REG_ADD_WIDTH-1 downto 0);
@@ -73,7 +73,6 @@ signal IModifier : std_logic_vector(10 downto 0);
 signal Imm16, RImm16 : std_logic_vector(15 downto 0);
 signal Imm32, ImmAux32 : std_logic_vector(31 downto 0);
 signal MSR_I ,NewFlagKValue : std_logic;
-
 begin
 
 -- Get Instruction Fields

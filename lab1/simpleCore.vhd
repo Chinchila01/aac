@@ -153,10 +153,10 @@ WB_STAGE_ENABLE  <= '1';--0' when reset='1' else MEM_STAGE_ENABLE when rising_ed
 --IF_PC <= (PC_WIDTH-1 downto 0=>'0') when reset='1' else
 --         ID_NextPC when rising_edge(clk);-- and WB_STAGE_ENABLE='1';
 ID_PC <= (PC_WIDTH-1 downto 0=>'0') when reset='1' else
-         ID_NextPC when rising_edge(clk) and Data_Hazard='0' else REG_PC when rising_edge(clk);
+         ID_NextPC when rising_edge(clk) and Hazard='0' else REG_PC when rising_edge(clk);
 			
 REG_PC <= (others=>'0') when reset='1' else
-			  ID_NextPC when rising_edge(clk) and Data_Hazard='0';
+			  ID_NextPC when rising_edge(clk) and Hazard='0';
 --PC   <= ID_PC;
 PC <= ID_PC;
 --PC <= REG_PC;
@@ -169,14 +169,14 @@ PC <= ID_PC;
 -- DECODER UNIT
 ---------------------------------------------------------------------------------------------------------------		
 
-REG_I <= (31 downto 0=>'0') when reset='1' else I when rising_edge(clk) AND Data_Hazard='0';
+REG_I <= (others=>'0') when reset='1' else I when rising_edge(clk) AND Hazard='0';
 
-ID_I <= I when Data_Hazard='0' and rising_edge(clk) else REG_I when rising_edge(clk);
+ID_I <= I when Hazard='0' else REG_I;
 
 uDecoder : decoder port map(
     clk      => clk,               reset  => reset,
     -- instruction
-    I        => ID_I,              PC     => ID_PC,
+    RCV_I        => ID_I,              PC     => ID_PC,
     -- register file connections
     RegOpA   => ID_OpA,            RegOpB => ID_OpB,           RegOpD   => ID_OpD,
     RegDA    => ID_RegDA,          RegDB  => ID_RegDB,
@@ -209,16 +209,16 @@ uRF : register_file port map(
 -- Data Hazard
 Data_Hazard <= (RF_InValidA AND OpA_I_Needed) OR (RF_InValidB AND OpB_I_Needed);
 
-OpA_I_Needed <= '0' when I(31 downto 26)="101100" else '1';
-OpB_I_Needed <= '0' when I(29)='1' OR I(31 downto 26)="100100" else '1';
+OpA_I_Needed <= '0' when ID_I(31 downto 26)="101100" else '1';
+OpB_I_Needed <= '0' when ID_I(29)='1' OR ID_I(31 downto 26)="100100" else '1';
 
 -- Control Hazards
-CHazard <= '1' when (I(31 downto 27)="10011" OR I(31 downto 27)="10111") and rising_edge(clk) else
+CHazard <= '1' when (ID_I(31 downto 27)="10011" OR ID_I(31 downto 27)="10111") and rising_edge(clk) else
 						'0';
 						
 Control_Hazard <= Control_Hazard(1 downto 0) & CHazard;
 						
-Hazard <= Data_Hazard OR Control_Hazard(2) OR Control_Hazard(1) OR Control_Hazard(0);
+Hazard <= (Data_Hazard OR Control_Hazard(2) OR Control_Hazard(1) OR Control_Hazard(0));
 ---------------------------------------------------------------------------------------------------------------
 -- BRANCH (i.e. PC) CONTROL
 ---------------------------------------------------------------------------------------------------------------
@@ -228,7 +228,7 @@ uBranchCTRL: branch_control port map (
     Cond     => ID_BrCond,
     CondWord => ID_RegDA,
     NextPC   => ID_NextPC,
-	 Data_Hazard => Data_Hazard
+	 Data_Hazard => Hazard
 );
 
 ---------------------------------------------------------------------------------------------------------------
