@@ -22,7 +22,6 @@
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="lab1.xise"/>
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="DualPortMemory_isim_beh.exe"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="SingleCoreProcessor.bld"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="SingleCoreProcessor.cmd_log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="SingleCoreProcessor.lso"/>
@@ -44,7 +43,6 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="SingleCoreProcessor.xst"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="SingleCoreProcessor_envsettings.html"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="SingleCoreProcessor_guide.ncd" xil_pn:origination="imported"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="SingleCoreProcessor_isim_beh.exe"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="SingleCoreProcessor_map.map" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="SingleCoreProcessor_map.mrp" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="SingleCoreProcessor_map.ncd" xil_pn:subbranch="Map"/>
@@ -67,18 +65,9 @@
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
-    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="netgen"/>
-    <file xil_pn:fileType="FILE_NETGEN_REPORT" xil_pn:name="netgen/synthesis/SingleCoreProcessor_synthesis.nlf"/>
-    <file xil_pn:fileType="FILE_VHDL" xil_pn:name="netgen/synthesis/SingleCoreProcessor_synthesis.vhd"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="register_file.prj"/>
-    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="register_file.stx"/>
-    <file xil_pn:fileType="FILE_XST" xil_pn:name="register_file.xst"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="simpleCore_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="singleCoreProcessor_tb_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="singleCoreProcessor_tb_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="singleCoreProcessor_tb_isim_beh.wdb"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="singleCoreProcessor_tb_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
@@ -86,11 +75,7 @@
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1458746639" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1458746639">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1459532584" xil_pn:in_ck="607627221520294374" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1459532584">
+    <transform xil_pn:end_ts="1459619444" xil_pn:in_ck="-4962448864834014317" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1459619444">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="SingleCoreProcessor.vhd"/>
@@ -102,20 +87,21 @@
       <outfile xil_pn:name="simpleCore.vhd"/>
       <outfile xil_pn:name="simpleDualPortMemory.vhd"/>
       <outfile xil_pn:name="singleCoreProcessor_tb.vhd"/>
+      <outfile xil_pn:name="txt_util.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1459531140" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="1570663485089411427" xil_pn:start_ts="1459531140">
+    <transform xil_pn:end_ts="1459619444" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="1570663485089411427" xil_pn:start_ts="1459619444">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1459531140" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-8910188415032971945" xil_pn:start_ts="1459531140">
+    <transform xil_pn:end_ts="1459619444" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-8910188415032971945" xil_pn:start_ts="1459619444">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1458746639" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-7822285656217061542" xil_pn:start_ts="1458746639">
+    <transform xil_pn:end_ts="1459619444" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-7822285656217061542" xil_pn:start_ts="1459619444">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1459532584" xil_pn:in_ck="607627221520294374" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1459532584">
+    <transform xil_pn:end_ts="1459619444" xil_pn:in_ck="-4962448864834014317" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1459619444">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="SingleCoreProcessor.vhd"/>
@@ -127,57 +113,52 @@
       <outfile xil_pn:name="simpleCore.vhd"/>
       <outfile xil_pn:name="simpleDualPortMemory.vhd"/>
       <outfile xil_pn:name="singleCoreProcessor_tb.vhd"/>
+      <outfile xil_pn:name="txt_util.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1459532590" xil_pn:in_ck="607627221520294374" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-5311547800506281772" xil_pn:start_ts="1459532584">
+    <transform xil_pn:end_ts="1459619453" xil_pn:in_ck="-4962448864834014317" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-5311547800506281772" xil_pn:start_ts="1459619444">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
-      <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="singleCoreProcessor_tb_beh.prj"/>
       <outfile xil_pn:name="singleCoreProcessor_tb_isim_beh.exe"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1459533161" xil_pn:in_ck="-2874650020684477762" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="2077902221129412513" xil_pn:start_ts="1459533160">
+    <transform xil_pn:end_ts="1459619453" xil_pn:in_ck="-7729775826897122833" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="2077902221129412513" xil_pn:start_ts="1459619453">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="isim.cmd"/>
-      <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="singleCoreProcessor_tb_isim_beh.wdb"/>
     </transform>
-    <transform xil_pn:end_ts="1458255470" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1458255470">
+    <transform xil_pn:end_ts="1459618191" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="7034035178161649922" xil_pn:start_ts="1459618191">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1458255470" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="7034035178161649922" xil_pn:start_ts="1458255470">
+    <transform xil_pn:end_ts="1459618191" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-7822285656217061542" xil_pn:start_ts="1459618191">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1458255470" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-7822285656217061542" xil_pn:start_ts="1458255470">
+    <transform xil_pn:end_ts="1459618191" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1459618191">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1458255470" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1458255470">
+    <transform xil_pn:end_ts="1459618191" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-1549749865264246898" xil_pn:start_ts="1459618191">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1458255470" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-1549749865264246898" xil_pn:start_ts="1458255470">
+    <transform xil_pn:end_ts="1459618191" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="-313773099461494508" xil_pn:start_ts="1459618191">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1458255470" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="-313773099461494508" xil_pn:start_ts="1458255470">
+    <transform xil_pn:end_ts="1459618191" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="6901776967673354532" xil_pn:start_ts="1459618191">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1458255470" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="6901776967673354532" xil_pn:start_ts="1458255470">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1459532164" xil_pn:in_ck="-5018644105898049706" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="2743836425250339052" xil_pn:start_ts="1459532095">
+    <transform xil_pn:end_ts="1459618895" xil_pn:in_ck="8563503844996315395" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="2743836425250339052" xil_pn:start_ts="1459618824">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -195,11 +176,11 @@
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1457709662" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-8357226358783493117" xil_pn:start_ts="1457709662">
+    <transform xil_pn:end_ts="1459618918" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-8357226358783493117" xil_pn:start_ts="1459618918">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1459532199" xil_pn:in_ck="-3545413052494998863" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="7239975596254343424" xil_pn:start_ts="1459532164">
+    <transform xil_pn:end_ts="1459618954" xil_pn:in_ck="-3545413052494998863" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="7239975596254343424" xil_pn:start_ts="1459618918">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="SingleCoreProcessor.bld"/>
@@ -208,7 +189,7 @@
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1459532413" xil_pn:in_ck="-3545413052494998862" xil_pn:name="TRANEXT_map_virtex7" xil_pn:prop_ck="-8951648165516822008" xil_pn:start_ts="1459532199">
+    <transform xil_pn:end_ts="1459619227" xil_pn:in_ck="-3545413052494998862" xil_pn:name="TRANEXT_map_virtex7" xil_pn:prop_ck="-8951648165516822008" xil_pn:start_ts="1459618954">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -222,7 +203,7 @@
       <outfile xil_pn:name="SingleCoreProcessor_usage.xml"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1459532552" xil_pn:in_ck="5030838857057397451" xil_pn:name="TRANEXT_par_virtex5" xil_pn:prop_ck="-753327474312324658" xil_pn:start_ts="1459532413">
+    <transform xil_pn:end_ts="1459619377" xil_pn:in_ck="5030838857057397451" xil_pn:name="TRANEXT_par_virtex5" xil_pn:prop_ck="-753327474312324658" xil_pn:start_ts="1459619227">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="SingleCoreProcessor.ncd"/>
@@ -236,21 +217,12 @@
       <outfile xil_pn:name="SingleCoreProcessor_par.xrpt"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1459532552" xil_pn:in_ck="-3545413052494998994" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="-9019495824400740531" xil_pn:start_ts="1459532505">
+    <transform xil_pn:end_ts="1459619377" xil_pn:in_ck="-3545413052494998994" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="-9019495824400740531" xil_pn:start_ts="1459619328">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="SingleCoreProcessor.twr"/>
       <outfile xil_pn:name="SingleCoreProcessor.twx"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
-    </transform>
-    <transform xil_pn:end_ts="1459530556" xil_pn:in_ck="-3545413052494998863" xil_pn:name="TRAN_postSynthesisSimModel" xil_pn:prop_ck="5198797172381815602" xil_pn:start_ts="1459530549">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <outfile xil_pn:name="netgen"/>
-      <outfile xil_pn:name="netgen/synthesis/SingleCoreProcessor_synthesis.nlf"/>
-      <outfile xil_pn:name="netgen/synthesis/SingleCoreProcessor_synthesis.vhd"/>
     </transform>
   </transforms>
 

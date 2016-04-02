@@ -81,6 +81,15 @@ component register_file
        DinD  : in  STD_LOGIC_VECTOR  (WORD_WIDTH-1 downto 0);
        DoutD : out STD_LOGIC_VECTOR  (WORD_WIDTH-1 downto 0);
 
+		FW_exTable_A : out std_logic;
+		FW_exTable_B : out std_logic;
+
+		FW_memTable_A : out std_logic;
+		FW_memTable_B : out std_logic;
+
+		FW_wbTable_A : out std_logic;
+		FW_wbTable_B : out std_logic;
+
        AIsInValid: out STD_LOGIC;
        BIsInValid: out STD_LOGIC;
        ID_ENABLE : in STD_LOGIC

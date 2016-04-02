@@ -21,7 +21,11 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_SIGNED.ALL;
 use WORK.MAIN_DEFINITIONS.ALL;
+USE STD.TEXTIO.ALL;
+USE IEEE.STD_LOGIC_TEXTIO.ALL;
+use WORK.TXT_UTIL.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -62,6 +66,8 @@ signal MemAdd   : STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0) := (others=>'0');
 signal MemWE    : STD_LOGIC := '0'; 
 signal MemWData : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0) := (others=>'0');
 
+signal clk_cnt : integer;
+
 constant clk_period : time := 10ns;
 
 begin
@@ -91,6 +97,27 @@ begin
     wait for clk_period/2;
     clk <= '0';
     wait for clk_period/2;
+end process;
+
+process(clk)
+variable my_line : line;
+variable lel : line;
+begin
+    if rising_edge(clk) then
+        clk_cnt <= clk_cnt + 1;
+        if MemWE = '1' then
+            write(my_line, string'("Write to memory @ "));
+            write(my_line, now); -- format time
+            write(my_line, string'(" :: M("));
+            write(my_line, hstr(MemAdd));
+            write(my_line, string'(") <= "));
+            write(my_line, hstr(MemWData));
+            write(my_line, string'("    ("));
+            write(my_line, conv_integer(MemWData));
+            write(my_line, string'(")"));
+            writeline(output, my_line);-- write to display
+        end if;
+    end if;
 end process;
 
 end Behavioral;

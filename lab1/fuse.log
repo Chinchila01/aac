@@ -10,19 +10,23 @@ Parsing VHDL file "/home/filipe/Documents/AAC/lab1/branch_control.vhd" into libr
 Parsing VHDL file "/home/filipe/Documents/AAC/lab1/alu.vhd" into library work
 Parsing VHDL file "/home/filipe/Documents/AAC/lab1/simpleDualPortMemory.vhd" into library work
 Parsing VHDL file "/home/filipe/Documents/AAC/lab1/simpleCore.vhd" into library work
+Parsing VHDL file "/home/filipe/Documents/AAC/lab1/txt_util.vhd" into library work
 Parsing VHDL file "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.vhd" into library work
 Parsing VHDL file "/home/filipe/Documents/AAC/lab1/singleCoreProcessor_tb.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 99736 KB
-Fuse CPU Usage: 3620 ms
+Fuse Memory Usage: 100580 KB
+Fuse CPU Usage: 3660 ms
 Compiling package standard
 Compiling package std_logic_1164
-Compiling package main_definitions
 Compiling package std_logic_arith
+Compiling package std_logic_signed
+Compiling package main_definitions
+Compiling package textio
+Compiling package std_logic_textio
+Compiling package txt_util
 Compiling package std_logic_unsigned
 Compiling package numeric_std
-Compiling package std_logic_signed
 Compiling architecture behavioral of entity decoder [decoder_default]
 Compiling architecture behavioral of entity register_file [register_file_default]
 Compiling architecture behavioral of entity branch_control [branch_control_default]
@@ -32,9 +36,9 @@ Compiling architecture behavioral of entity DualPortMemory [dualportmemory_defau
 Compiling architecture behavioral of entity SingleCoreProcessor [singlecoreprocessor_default]
 Compiling architecture behavioral of entity singlecoreprocessor_tb
 Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
-Compiled 22 VHDL Units
+Waiting for 2 sub-compilation(s) to finish...
+Compiled 25 VHDL Units
 Built simulation executable /home/filipe/Documents/AAC/lab1/singleCoreProcessor_tb_isim_beh.exe
-Fuse Memory Usage: 681544 KB
-Fuse CPU Usage: 4480 ms
-GCC CPU Usage: 3020 ms
+Fuse Memory Usage: 688644 KB
+Fuse CPU Usage: 4640 ms
+GCC CPU Usage: 11500 ms

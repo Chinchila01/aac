@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use WORK.MAIN_DEFINITIONS.ALL;
 
 -- Uncomment the following library declaration if using
@@ -89,6 +90,11 @@ signal ID_MemCTRL  : STD_LOGIC_VECTOR( 2 downto 0);
 -- WB
 signal ID_RegWE : STD_LOGIC;
 
+--Tables
+signal exTable : std_logic_vector(N_REGISTERS-1 downto 0);
+signal memTable: std_logic_vector(N_REGISTERS-1 downto 0);
+signal wbTable : std_logic_vector(N_REGISTERS-1 downto 0);
+
 --------------------------------------------------------------------------------------------
 -- EX  stage signals
 --------------------------------------------------------------------------------------------
@@ -134,6 +140,32 @@ signal REG_PC: STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
 signal CHazard : STD_LOGIC;
 signal Control_Hazard: STD_LOGIC_VECTOR(2 downto 0);
 signal Hazard,PC_Hazard : STD_LOGIC;
+
+-- Forwarding
+signal FW_Ex_OpA : STD_LOGIC_VECTOR(WORD_WIDTH downto 0);
+signal FW_Ex_OpB : STD_LOGIC_VECTOR(WORD_WIDTH downto 0);
+signal FW_Mem_OpA : STD_LOGIC_VECTOR(WORD_WIDTH downto 0);
+signal FW_Mem_OpB : STD_LOGIC_VECTOR(WORD_WIDTH downto 0);
+signal FW_Wb_OpA : STD_LOGIC_VECTOR(WORD_WIDTH downto 0);
+signal FW_Wb_OpB : STD_LOGIC_VECTOR(WORD_WIDTH downto 0);
+
+signal ID_ExOpA_EX_FW : STD_LOGIC_VECTOR(WORD_WIDTH downto 0);
+signal ID_ExOpB_EX_FW : STD_LOGIC_VECTOR(WORD_WIDTH downto 0);
+signal ID_ExOpA_MEM_FW : STD_LOGIC_VECTOR(WORD_WIDTH downto 0);
+signal ID_ExOpB_MEM_FW : STD_LOGIC_VECTOR(WORD_WIDTH downto 0);
+signal ID_ExOpA_WB_FW : STD_LOGIC_VECTOR(WORD_WIDTH downto 0);
+signal ID_ExOpB_WB_FW : STD_LOGIC_VECTOR(WORD_WIDTH downto 0);
+
+signal ID_ExOpA_FW : STD_LOGIC_VECTOR(WORD_WIDTH downto 0);
+signal ID_ExOpB_FW : STD_LOGIC_VECTOR(WORD_WIDTH downto 0);
+
+signal extable_a : std_logic;
+signal extable_b : std_logic;
+signal memtable_a : std_logic;
+signal memtable_b : std_logic;
+signal wbtable_a : std_logic;
+signal wbtable_b : std_logic;
+
 begin
 
 
@@ -142,7 +174,7 @@ begin
 --------------------------------------------------------------------------------------------
 -- activate one stage at a time
 --IF_STAGE_ENABLE  <= '1';-- when reset='1' else WB_STAGE_ENABLE when rising_edge(clk);
-ID_STAGE_ENABLE  <= '0' when reset='1' else NOT Data_Hazard when rising_edge(clk);
+ID_STAGE_ENABLE  <= '0' when reset='1' else NOT Hazard when rising_edge(clk);
 EX_STAGE_ENABLE  <= '1';--0' when reset='1' else ID_STAGE_ENABLE when rising_edge(clk);
 MEM_STAGE_ENABLE <= '1';--0' when reset='1' else EX_STAGE_ENABLE when rising_edge(clk);
 WB_STAGE_ENABLE  <= '1';--0' when reset='1' else MEM_STAGE_ENABLE when rising_edge(clk);
@@ -170,8 +202,8 @@ PC <= ID_PC;
 
 REG_I <= (others=>'0') when reset='1' else I when rising_edge(clk) AND Hazard='0';
 
-ID_I <= (others=>'0') when reset='1' else  -- AQUI ESTA O PROBLEMA - obtemos um loop
-			I when Hazard='0' else 			    -- Adicionando um registo aqui ficamos atrasados de 2 ciclos
+ID_I <= (others=>'0') when reset='1' else  
+			I when Hazard='0' else 			    
 			REG_I;							
 
 uDecoder : decoder port map(
@@ -193,6 +225,18 @@ uDecoder : decoder port map(
     MSR_C_WE => ID_MSR_C_WE,       MSR_C => EX_MSR_C
 );
 
+-- MUX EXTABLE
+ID_ExOpA_EX_FW <= ID_ExOpA when exTable_A='0' else FW_Ex_OpA;
+ID_ExOpB_EX_FW <= ID_ExOpB when exTable_B='0' else FW_Ex_OpB;
+ 
+-- MUX MEMTABLE
+ID_ExOpA_MEM_FW <= ID_ExOpA_EX_FW when memTable_A='0' else FW_Mem_OpA;
+ID_ExOpB_MEM_FW <= ID_ExOpB_EX_FW when memTable_B='0' else FW_Mem_OpB;
+
+-- MUX WBTABLE
+ID_ExOpA_FW <= ID_ExOpA_MEM_FW when wbTable_A='0' else FW_Wb_OpA;
+ID_ExOpB_FW <= ID_ExOpB_MEM_FW when wbTable_B='0' else FW_Wb_OpB;
+
 ---------------------------------------------------------------------------------------------------------------
 -- REGISTER FILE
 ---------------------------------------------------------------------------------------------------------------
@@ -201,6 +245,7 @@ uRF : register_file port map(
     OpA   => ID_OpA,          OpB => ID_OpB,          OpD => ID_OpD,     -- port addressing
 	 DoutA => ID_RegDA,      DoutB => ID_RegDB,      DoutD => ID_RegDD, -- port output
     WE    => RegWE,         DinD  => WB_RegDin,                        -- RF write (port D only)
+	 fw_exTable_A =>exTable_A,fw_exTable_B =>exTable_B,fw_memTable_A => memTable_A,fw_memTable_B => memTable_B,fw_wbTable_A => wbTable_A,fw_wbTable_B => wbTable_B,
 	AIsInValid=>RF_InValidA,  BIsInValid => RF_InValidB,	ID_ENABLE => ID_STAGE_ENABLE--Valid Registers
 );
 
@@ -220,7 +265,9 @@ CHazard <= '1' when (ID_I(31 downto 27)="10011" OR ID_I(31 downto 27)="10111") a
 Control_Hazard <= Control_Hazard(1 downto 0) & CHazard;
 						
 Hazard <= PC_Hazard when rising_edge(clk);
-PC_Hazard <= (Data_Hazard OR Control_Hazard(2) OR Control_Hazard(1) OR Control_Hazard(0));
+--PC_Hazard <= (Data_Hazard OR Control_Hazard(2) OR Control_Hazard(1) OR Control_Hazard(0)); before forwarding
+PC_Hazard <= (Control_Hazard(2) OR Control_Hazard(1) OR Control_Hazard(0));
+
 ---------------------------------------------------------------------------------------------------------------
 -- BRANCH (i.e. PC) CONTROL
 ---------------------------------------------------------------------------------------------------------------
@@ -237,8 +284,8 @@ uBranchCTRL: branch_control port map (
 -- ID/OF to EX stage registers
 ---------------------------------------------------------------------------------------------------------------
 EX_CTRL     <= (others=>'0') when reset='1' else ID_ExCTRL   when rising_edge(clk) and ID_STAGE_ENABLE='1';
-EX_OpA      <= (others=>'0') when reset='1' else ID_ExOpA    when rising_edge(clk) and ID_STAGE_ENABLE='1';
-EX_OpB      <= (others=>'0') when reset='1' else ID_ExOpB    when rising_edge(clk) and ID_STAGE_ENABLE='1';
+EX_OpA      <= (others=>'0') when reset='1' else ID_ExOpA_FW    when rising_edge(clk) and ID_STAGE_ENABLE='1';
+EX_OpB      <= (others=>'0') when reset='1' else ID_ExOpB_FW    when rising_edge(clk) and ID_STAGE_ENABLE='1';
 EX_OpC      <=          '0'  when reset='1' else ID_ExOpC    when rising_edge(clk) and ID_STAGE_ENABLE='1';
 EX_OpD      <= (others=>'0') when reset='1' else ID_RegDD    when rising_edge(clk) and ID_STAGE_ENABLE='1';
 EX_MSR_C_WE <=          '0'  when reset='1' else ID_MSR_C_WE when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
@@ -256,6 +303,9 @@ uALU: alu port map (
     Res  => EX_Result,       FlagC => EX_FlagC
 );
 
+-- Forwarding
+FW_Ex_OpA <= '0' & Ex_Result;
+FW_Ex_OpB <= '0' & Ex_Result;
 
 ---------------------------------------------------------------------------------------------------------------
 -- EX to MEM stage registers
@@ -282,6 +332,10 @@ MemWriteData <= MemReadData(31 downto  8) & WB_StoreData( 7 downto 0)           
 -- all writes are performed during the WB stage
 MemWriteEnable <= '1' when WB_STAGE_ENABLE='1' and WB_MemCTRL(2)='1' else '0'; 
 
+-- Forwarding
+FW_Mem_OpA <= '0' & MEM_ExResult;
+FW_Mem_OpB <= '0' & MEM_ExResult;
+
 ---------------------------------------------------------------------------------------------------------------
 -- MEM to WB stage registers
 ---------------------------------------------------------------------------------------------------------------
@@ -304,5 +358,9 @@ WB_RegDin <= (WORD_WIDTH-1 downto  8=>'0') & MemReadData( 7 downto  0) when WB_M
              WB_ExResult; -- remaining operations
 
 RegWE <= WB_RegWE when WB_STAGE_ENABLE='1' else '0';
+
+-- Forwarding
+FW_Wb_OpA <= '0' & WB_ExResult;
+FW_Wb_OpB <= '0' & WB_ExResult;
 
 end Behavioral;

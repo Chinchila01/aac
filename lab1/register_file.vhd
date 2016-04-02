@@ -49,6 +49,15 @@ entity register_file is
            DinD  : in  STD_LOGIC_VECTOR  (WORD_WIDTH-1 downto 0);
            DoutD : out STD_LOGIC_VECTOR  (WORD_WIDTH-1 downto 0);
 			  -- Validation --
+			  FW_exTable_A : out std_logic;
+			  FW_exTable_B : out std_logic;
+			  
+			  FW_memTable_A : out std_logic;
+			  FW_memTable_B : out std_logic;
+			  
+			  FW_wbTable_A : out std_logic;
+			  FW_wbTable_B : out std_logic;
+			  
 			  AIsInValid:out STD_LOGIC;
 			  BIsInValid:out STD_LOGIC;
 			  ID_ENABLE: in STD_LOGIC
@@ -73,6 +82,13 @@ end generate;
 exTable  <= (others => '0') when reset='1' else idTable  when rising_edge(clk);
 memTable <= (others => '0') when reset='1' else exTable  when rising_edge(clk);
 wbTable  <= (others => '0') when reset='1' else memTable when rising_edge(clk);
+
+FW_exTable_A <= exTable(conv_integer(OpA));
+FW_memTable_A <= memTable(conv_integer(OpA));
+FW_wbTable_A <= wbTable(conv_integer(OpA));
+FW_exTable_B <= exTable(conv_integer(OpB));
+FW_memTable_B <= memTable(conv_integer(OpB));
+FW_wbTable_B <= wbTable(conv_integer(OpB));
 
 AIsInValid <= exTable(conv_integer(OpA)) OR memTable(conv_integer(OpA)) OR wbTable(conv_integer(OpA));
 BIsInValid <= exTable(conv_integer(OpB)) OR memTable(conv_integer(OpB)) OR wbTable(conv_integer(OpB));

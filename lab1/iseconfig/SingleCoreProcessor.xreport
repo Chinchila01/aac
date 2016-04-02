@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2016-04-01T18:51:54</DateModified>
+  <DateModified>2016-04-02T18:29:50</DateModified>
   <ModuleName>SingleCoreProcessor</ModuleName>
-  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
+  <SummaryTimeStamp>2016-04-02T18:29:04</SummaryTimeStamp>
   <SavedFilePath>/home/filipe/Documents/AAC/lab1/iseconfig/SingleCoreProcessor.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/home/filipe/Documents/AAC/lab1/</ImplementationReportsDirectory>
-  <DateInitialized>2016-03-02T09:03:29</DateInitialized>
+  <DateInitialized>2016-04-02T15:53:41</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>
