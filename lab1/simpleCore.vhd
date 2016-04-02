@@ -133,7 +133,7 @@ signal REG_I : STD_LOGIC_VECTOR(31 downto 0);
 signal REG_PC: STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
 signal CHazard : STD_LOGIC;
 signal Control_Hazard: STD_LOGIC_VECTOR(2 downto 0);
-signal Hazard : STD_LOGIC;
+signal Hazard,PC_Hazard : STD_LOGIC;
 begin
 
 
@@ -153,10 +153,10 @@ WB_STAGE_ENABLE  <= '1';--0' when reset='1' else MEM_STAGE_ENABLE when rising_ed
 --IF_PC <= (PC_WIDTH-1 downto 0=>'0') when reset='1' else
 --         ID_NextPC when rising_edge(clk);-- and WB_STAGE_ENABLE='1';
 ID_PC <= (PC_WIDTH-1 downto 0=>'0') when reset='1' else
-         ID_NextPC when rising_edge(clk) and Hazard='0' else REG_PC when rising_edge(clk);
+         ID_NextPC when rising_edge(clk) and PC_Hazard='0' else REG_PC when rising_edge(clk);
 			
 REG_PC <= (others=>'0') when reset='1' else
-			  ID_NextPC when rising_edge(clk) and Hazard='0';
+			  ID_NextPC when rising_edge(clk) and PC_Hazard='0';
 
 PC <= ID_PC;
 ---------------------------------------------------------------------------------------------------------------
@@ -170,9 +170,9 @@ PC <= ID_PC;
 
 REG_I <= (others=>'0') when reset='1' else I when rising_edge(clk) AND Hazard='0';
 
-ID_I <= (others=>'0') when reset='1' else 
-			I when Hazard='0' and rising_edge(clk) else 
-			REG_I when rising_edge(clk);
+ID_I <= (others=>'0') when reset='1' else  -- AQUI ESTA O PROBLEMA - obtemos um loop
+			I when Hazard='0' else 			    -- Adicionando um registo aqui ficamos atrasados de 2 ciclos
+			REG_I;							
 
 uDecoder : decoder port map(
     clk      => clk,               reset  => reset,
@@ -219,7 +219,8 @@ CHazard <= '1' when (ID_I(31 downto 27)="10011" OR ID_I(31 downto 27)="10111") a
 						
 Control_Hazard <= Control_Hazard(1 downto 0) & CHazard;
 						
-Hazard <= (Data_Hazard OR Control_Hazard(2) OR Control_Hazard(1) OR Control_Hazard(0));
+Hazard <= PC_Hazard when rising_edge(clk);
+PC_Hazard <= (Data_Hazard OR Control_Hazard(2) OR Control_Hazard(1) OR Control_Hazard(0));
 ---------------------------------------------------------------------------------------------------------------
 -- BRANCH (i.e. PC) CONTROL
 ---------------------------------------------------------------------------------------------------------------
