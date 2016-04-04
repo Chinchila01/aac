@@ -166,6 +166,8 @@ signal memtable_b : std_logic;
 signal wbtable_a : std_logic;
 signal wbtable_b : std_logic;
 
+signal BrTaken, REG_BrTaken : std_logic;
+
 begin
 
 
@@ -266,8 +268,8 @@ Control_Hazard <= Control_Hazard(1 downto 0) & CHazard;
 						
 Hazard <= PC_Hazard when rising_edge(clk);
 --PC_Hazard <= (Data_Hazard OR Control_Hazard(2) OR Control_Hazard(1) OR Control_Hazard(0)); before forwarding
-PC_Hazard <= (Control_Hazard(2) OR Control_Hazard(1) OR Control_Hazard(0));
-
+--PC_Hazard <= (Control_Hazard(2) OR Control_Hazard(1) OR Control_Hazard(0));
+PC_Hazard <= '0';
 ---------------------------------------------------------------------------------------------------------------
 -- BRANCH (i.e. PC) CONTROL
 ---------------------------------------------------------------------------------------------------------------
@@ -277,22 +279,24 @@ uBranchCTRL: branch_control port map (
     Cond     => ID_BrCond,
     CondWord => ID_RegDA,
     NextPC   => ID_NextPC,
-	 Data_Hazard => Hazard
+	 Data_Hazard => Hazard,
+	 BrTaken => REG_BrTaken
 );
 
+BrTaken <= '0' when reset='1' else REG_BrTaken when rising_edge(clk);
 ---------------------------------------------------------------------------------------------------------------
 -- ID/OF to EX stage registers
 ---------------------------------------------------------------------------------------------------------------
-EX_CTRL     <= (others=>'0') when reset='1' else ID_ExCTRL   when rising_edge(clk) and ID_STAGE_ENABLE='1';
-EX_OpA      <= (others=>'0') when reset='1' else ID_ExOpA_FW    when rising_edge(clk) and ID_STAGE_ENABLE='1';
-EX_OpB      <= (others=>'0') when reset='1' else ID_ExOpB_FW    when rising_edge(clk) and ID_STAGE_ENABLE='1';
-EX_OpC      <=          '0'  when reset='1' else ID_ExOpC    when rising_edge(clk) and ID_STAGE_ENABLE='1';
-EX_OpD      <= (others=>'0') when reset='1' else ID_RegDD    when rising_edge(clk) and ID_STAGE_ENABLE='1';
-EX_MSR_C_WE <=          '0'  when reset='1' else ID_MSR_C_WE when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
-EX_MemCTRL  <= (others=>'0') when reset='1' else ID_MemCTRL  when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
-EX_RegWE    <=          '0'  when reset='1' else ID_RegWE    when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
+EX_CTRL     <= (others=>'0') when (reset='1' OR BrTaken='1') else ID_ExCTRL   when rising_edge(clk) and ID_STAGE_ENABLE='1';
+EX_OpA      <= (others=>'0') when (reset='1' OR BrTaken='1') else ID_ExOpA_FW    when rising_edge(clk) and ID_STAGE_ENABLE='1';
+EX_OpB      <= (others=>'0') when (reset='1' OR BrTaken='1') else ID_ExOpB_FW    when rising_edge(clk) and ID_STAGE_ENABLE='1';
+EX_OpC      <=          '0'  when (reset='1' OR BrTaken='1') else ID_ExOpC    when rising_edge(clk) and ID_STAGE_ENABLE='1';
+EX_OpD      <= (others=>'0') when (reset='1' OR BrTaken='1') else ID_RegDD    when rising_edge(clk) and ID_STAGE_ENABLE='1';
+EX_MSR_C_WE <=          '0'  when (reset='1' OR BrTaken='1') else ID_MSR_C_WE when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
+EX_MemCTRL  <= (others=>'0') when (reset='1' OR BrTaken='1') else ID_MemCTRL  when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
+EX_RegWE    <=          '0'  when (reset='1' OR BrTaken='1') else ID_RegWE    when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
 
-EX_MSR_C    <= '0' when reset='1' else EX_FlagC when rising_edge(clk) and EX_MSR_C_WE='1' and EX_STAGE_ENABLE='1';
+EX_MSR_C    <= '0' when (reset='1' OR BrTaken='1') else EX_FlagC when rising_edge(clk) and EX_MSR_C_WE='1' and EX_STAGE_ENABLE='1';
 
 ---------------------------------------------------------------------------------------------------------------
 -- ALU
@@ -310,10 +314,10 @@ FW_Ex_OpB <= '0' & Ex_Result;
 ---------------------------------------------------------------------------------------------------------------
 -- EX to MEM stage registers
 ---------------------------------------------------------------------------------------------------------------
-MEM_CTRL     <= (others=>'0') when reset='1' else EX_MemCTRL when rising_edge(clk) and EX_STAGE_ENABLE='1';
-MEM_ExResult <= (others=>'0') when reset='1' else EX_Result  when rising_edge(clk) and EX_STAGE_ENABLE='1';
-MEM_DataIn   <= (others=>'0') when reset='1' else EX_OpD     when rising_edge(clk) and EX_STAGE_ENABLE='1';
-MEM_RegWE    <=          '0'  when reset='1' else EX_RegWE   when rising_edge(clk) and EX_STAGE_ENABLE='1'; 
+MEM_CTRL     <= (others=>'0') when (reset='1' OR BrTaken='1') else EX_MemCTRL when rising_edge(clk) and EX_STAGE_ENABLE='1';
+MEM_ExResult <= (others=>'0') when (reset='1' OR BrTaken='1') else EX_Result  when rising_edge(clk) and EX_STAGE_ENABLE='1';
+MEM_DataIn   <= (others=>'0') when (reset='1' OR BrTaken='1') else EX_OpD     when rising_edge(clk) and EX_STAGE_ENABLE='1';
+MEM_RegWE    <=          '0'  when (reset='1' OR BrTaken='1') else EX_RegWE   when rising_edge(clk) and EX_STAGE_ENABLE='1'; 
 
 ---------------------------------------------------------------------------------------------------------------
 -- DATA MEMORY

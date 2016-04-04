@@ -41,7 +41,8 @@ entity branch_control is
         Offset   : in  STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
         CondWord : in  STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
         NextPC   : out STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
-		  Data_Hazard: in STD_LOGIC
+		  Data_Hazard: in STD_LOGIC;
+		  BrTaken  : out STD_LOGIC
        );
 end branch_control;
 
@@ -65,6 +66,10 @@ PCIncrement <= Offset when Cond="111" else                               -- unco
                Offset when Cond="100" and FlagN='0' and FlagZ='0'  else  -- conditioned to WORD >  0
                Offset when Cond="101" and FlagN='0' else                 -- conditioned to WORD >= 0
                std_logic_vector(to_unsigned(4, PC_WIDTH));               -- conditional branch (condition returns false)
+
+-- Flag to know if branch taken or not taken
+BrTaken <= 		'0' when PCIncrement=std_logic_vector(to_unsigned(4, PC_WIDTH))else
+					'1';
 
 -- compute nextPC
 NextPC <= PC + PCIncrement;-- when Data_Hazard='0' else PC;

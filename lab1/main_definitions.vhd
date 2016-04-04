@@ -103,7 +103,8 @@ component branch_control
         Offset   : in  STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
         CondWord : in  STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
         NextPC   : out STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
-	Data_Hazard: in STD_LOGIC
+	Data_Hazard: in STD_LOGIC;
+	BrTaken : out STD_LOGIC
        );
 end component;
 

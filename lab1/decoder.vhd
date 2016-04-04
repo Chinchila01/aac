@@ -37,7 +37,7 @@ entity decoder is
         clk     : in std_logic;
         reset   : in std_logic;
         -- instruction
-        I   : in std_logic_vector(31 downto 0);
+        I       : in std_logic_vector(31 downto 0);
         PC      : in STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
         -- register file connections
         RegOpA  : out STD_LOGIC_VECTOR(REG_ADD_WIDTH-1 downto 0);
@@ -73,6 +73,7 @@ signal IModifier : std_logic_vector(10 downto 0);
 signal Imm16, RImm16 : std_logic_vector(15 downto 0);
 signal Imm32, ImmAux32 : std_logic_vector(31 downto 0);
 signal MSR_I ,NewFlagKValue : std_logic;
+
 begin
 
 -- Get Instruction Fields
@@ -142,8 +143,9 @@ ExOpA   <= '0'                        & RegDA      when std_match(IOpcode,"00---
 ExOpB   <= '0'                    & RegDB when std_match(IOpcode,"000---") and IModifier(0)='0' else -- ADD, RSUB, ADDC, RSUBC, ADDK, RSUBK, ADDKC, RSUBKC
            RegDB(WORD_WIDTH-1)    & RegDB when std_match(IOpcode,"000---") and IModifier(1 downto 0)="01" else -- CMP
            '0'                    & RegDB when std_match(IOpcode,"000---") and IModifier(1 downto 0)="11" else -- CMPU
-           '0'                    & Imm32 when std_match(IOpcode,"001---") else                      -- ADDI, RSUBI, ADDIC, RSUBIC, ADDIK, RSUBIK, ADDIKC, RSUBIKC
-           '0'                    & Imm32 when std_match(IOpcode,"--1---") else                      -- BSRAI, BSLAI, BSRLI, BSLLI, ORI, ANDI, XORI, ANDNI, LBUI, LHUI, LWI, SBI, SHI, SWI, BRI, BRLI, BRALI, BEWI, BNEI, BLTI, BLEI, BGTI, BGEI
+           '0'                    & Imm32 when std_match(IOpcode,"0-1---") else                      -- ADDI, RSUBI, ADDIC, RSUBIC, ADDIK, RSUBIK, ADDIKC, RSUBIKC, BSRAI, BSLAI, BSRLI, BSLLI (*** MODIFIED ***)
+           '0'                    & Imm32 when std_match(IOpcode,"1010--") else                      -- ORI, ANDI, XORI, ANDNI
+           '0'                    & Imm32 when std_match(IOpcode,"111---") else                      -- LBUI, LHUI, LWI, SBI, SHI, SWI
            RegDB(WORD_WIDTH-1)    & RegDB when std_match(IOpcode,"010000") and IModifier(1)='0' else -- MUL, MULH
                               '0' & RegDB when std_match(IOpcode,"010000") and IModifier(1)='1' else -- MULHU, MULHSU
            IModifier(10 downto 9) & RegDB(30 downto 0) when std_match(IOpcode,"01-001") else         -- BSRA, BSLA, BSRL, BSLL
@@ -151,7 +153,7 @@ ExOpB   <= '0'                    & RegDB when std_match(IOpcode,"000---") and I
            '-'                    &     RegDB when std_match(IOpcode,"100001") else                  -- AND
            '-'                    & not RegDB when std_match(IOpcode,"100011") else                  -- ANDN
            '0'                    & RegDB     when std_match(IOpcode,"11----") else                  -- LBU, LHU, LW, SB, SH, SW
-           (others=>'0')                      when std_match(IOpcode,"10----") else                  -- SRA, SRC, SRL, SEXT8, SEXT16, BR, BRL, BRA, BRAL, BEQ, BNE, BLT, BLE, BGT, BGE (*** MODIFIED ***)
+           (others=>'0')                      when std_match(IOpcode,"10-1--") else                  -- SRA, SRC, SRL, SEXT8, SEXT16, BR, BRL, BRA, BRAL, BEQ, BNE, BLT, BLE, BGT, BGE, BRI, BRLI, BRALI, BEWI, BNEI, BLTI, BLEI, BGTI, BGEI (*** MODIFIED ***)
            (others=>'-');
 
 ExOpC   <= '0'           when std_match(IOpcode,"00--00") else  -- ADD/I, ADDK/I 
@@ -176,11 +178,11 @@ MemCTRL <= "001" when std_match(IOpcode,"11-000") else -- read byte
 RegWE   <= '1' when std_match(IOpcode,"00----") else -- Arithmetic
            '1' when std_match(IOpcode,"01-0--") else -- MUL, BS
            '0' when std_match(IOpcode,"101100") else -- IMM
-           '0' when std_match(IOpcode,"10-11-") else -- BR
            '1' when std_match(IOpcode,"11-0--") else -- LD
            '1' when std_match(IOpcode,"10-0--") else -- OR, AND, XOR ANDN
            '1' when std_match(IOpcode,"100100") else -- SRx, SEXT
            '1' when std_match(IOpcode,"10-110") and I(18) ='1' else -- BRL (*** NEW ***)
+           '0' when std_match(IOpcode,"10-11-") else -- BR (*** MOVED ***)
            '0';
 
 MSR_C_WE <= '1' when std_match(IOpcode,"00-0--") else
