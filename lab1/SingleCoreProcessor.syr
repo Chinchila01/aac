@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.13 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> 
 Reading design: SingleCoreProcessor.prj
@@ -144,7 +144,7 @@ Elaborating entity <simpleCore> (architecture <Behavioral>) from library <work>.
 Elaborating entity <decoder> (architecture <Behavioral>) from library <work>.
 
 Elaborating entity <register_file> (architecture <Behavioral>) from library <work>.
-WARNING:HDLCompiler:1127 - "/home/filipe/Documents/AAC/lab1/simpleCore.vhd" Line 268: Assignment to data_hazard ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/filipe/Documents/AAC/lab1/simpleCore.vhd" Line 281: Assignment to data_hazard ignored, since the identifier is never used
 
 Elaborating entity <branch_control> (architecture <Behavioral>) from library <work>.
 
@@ -164,31 +164,34 @@ Unit <SingleCoreProcessor> synthesized.
 
 Synthesizing Unit <simpleCore>.
     Related source file is "/home/filipe/Documents/AAC/lab1/simpleCore.vhd".
-INFO:Xst:3210 - "/home/filipe/Documents/AAC/lab1/simpleCore.vhd" line 255: Output port <AIsInValid> of the instance <uRF> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/filipe/Documents/AAC/lab1/simpleCore.vhd" line 255: Output port <BIsInValid> of the instance <uRF> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/filipe/Documents/AAC/lab1/simpleCore.vhd" line 263: Output port <AIsInValid> of the instance <uRF> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/filipe/Documents/AAC/lab1/simpleCore.vhd" line 263: Output port <BIsInValid> of the instance <uRF> is unconnected or connected to loadless signal.
     Found 16-bit register for signal <ID_PC>.
+    Found 32-bit register for signal <EX_OpD>.
     Found 32-bit register for signal <MEM_ExResult>.
     Found 32-bit register for signal <MEM_DataIn>.
     Found 32-bit register for signal <WB_ExResult>.
     Found 32-bit register for signal <WB_StoreData>.
+    Found 5-bit register for signal <WB_ID_OpD>.
+    Found 5-bit register for signal <MEM_ID_OpD>.
+    Found 5-bit register for signal <EX_ID_OpD>.
+    Found 33-bit register for signal <EX_OpA>.
+    Found 33-bit register for signal <EX_OpB>.
     Found 3-bit register for signal <MEM_CTRL>.
     Found 3-bit register for signal <WB_MemCTRL>.
     Found 1-bit register for signal <BrTaken>.
+    Found 1-bit register for signal <EX_OpC>.
     Found 1-bit register for signal <MEM_RegWE>.
     Found 1-bit register for signal <RegWE>.
     Found 1-bit register for signal <ID_STAGE_ENABLE>.
     Found 1-bit register for signal <MSR_C_REG>.
     Found 3-bit register for signal <EX_CTRL>.
-    Found 33-bit register for signal <EX_OpA>.
-    Found 33-bit register for signal <EX_OpB>.
-    Found 1-bit register for signal <EX_OpC>.
-    Found 32-bit register for signal <EX_OpD>.
     Found 1-bit register for signal <EX_MSR_C_WE>.
     Found 3-bit register for signal <EX_MemCTRL>.
     Found 1-bit register for signal <EX_RegWE>.
     WARNING:Xst:2404 -  FFs/Latches <Hazard<0:0>> (without init value) have a constant value of 0 in block <simpleCore>.
     Summary:
-	inferred 262 D-type flip-flop(s).
+	inferred 277 D-type flip-flop(s).
 	inferred  22 Multiplexer(s).
 Unit <simpleCore> synthesized.
 
@@ -237,15 +240,15 @@ Synthesizing Unit <register_file>.
     Found 32-bit register for signal <RegisterTable<30>>.
     Found 32-bit register for signal <RegisterTable<31>>.
     Found 32-bit register for signal <exTable>.
-    Found 1-bit 32-to-1 multiplexer for signal <FW_exTable_A> created at line 86.
-    Found 1-bit 32-to-1 multiplexer for signal <FW_memTable_A> created at line 87.
-    Found 1-bit 32-to-1 multiplexer for signal <FW_wbTable_A> created at line 88.
-    Found 1-bit 32-to-1 multiplexer for signal <FW_exTable_B> created at line 89.
-    Found 1-bit 32-to-1 multiplexer for signal <FW_memTable_B> created at line 90.
-    Found 1-bit 32-to-1 multiplexer for signal <FW_wbTable_B> created at line 91.
-    Found 32-bit 32-to-1 multiplexer for signal <DoutA> created at line 98.
-    Found 32-bit 32-to-1 multiplexer for signal <DoutB> created at line 99.
-    Found 32-bit 32-to-1 multiplexer for signal <DoutD> created at line 100.
+    Found 1-bit 32-to-1 multiplexer for signal <FW_exTable_A> created at line 89.
+    Found 1-bit 32-to-1 multiplexer for signal <FW_memTable_A> created at line 90.
+    Found 1-bit 32-to-1 multiplexer for signal <FW_wbTable_A> created at line 91.
+    Found 1-bit 32-to-1 multiplexer for signal <FW_exTable_B> created at line 92.
+    Found 1-bit 32-to-1 multiplexer for signal <FW_memTable_B> created at line 93.
+    Found 1-bit 32-to-1 multiplexer for signal <FW_wbTable_B> created at line 94.
+    Found 32-bit 32-to-1 multiplexer for signal <DoutA> created at line 101.
+    Found 32-bit 32-to-1 multiplexer for signal <DoutB> created at line 102.
+    Found 32-bit 32-to-1 multiplexer for signal <DoutD> created at line 103.
     Summary:
 	inferred 1088 D-type flip-flop(s).
 	inferred   9 Multiplexer(s).
@@ -320,12 +323,13 @@ Macro Statistics
  34-bit adder                                          : 2
  6-bit adder                                           : 1
  6-bit subtractor                                      : 1
-# Registers                                            : 58
+# Registers                                            : 61
  1-bit register                                        : 9
  16-bit register                                       : 2
  3-bit register                                        : 4
  32-bit register                                       : 41
  33-bit register                                       : 2
+ 5-bit register                                        : 3
 # Multiplexers                                         : 343
  1-bit 2-to-1 multiplexer                              : 196
  1-bit 21-to-1 multiplexer                             : 2
@@ -394,8 +398,8 @@ Macro Statistics
  33-bit adder carry in                                 : 1
  6-bit adder                                           : 1
  6-bit subtractor                                      : 1
-# Registers                                            : 1367
- Flip-Flops                                            : 1367
+# Registers                                            : 1382
+ Flip-Flops                                            : 1382
 # Multiplexers                                         : 342
  1-bit 2-to-1 multiplexer                              : 196
  1-bit 21-to-1 multiplexer                             : 2
@@ -437,11 +441,11 @@ Optimizing unit <alu> ...
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block SingleCoreProcessor, actual ratio is 7.
-FlipFlop Core0/EX_OpB[32]_dff_26_0 has been replicated 1 time(s)
-FlipFlop Core0/EX_OpB[32]_dff_26_1 has been replicated 1 time(s)
-FlipFlop Core0/EX_OpB[32]_dff_26_2 has been replicated 1 time(s)
-FlipFlop Core0/EX_OpB[32]_dff_26_3 has been replicated 1 time(s)
-FlipFlop Core0/EX_OpB[32]_dff_26_4 has been replicated 1 time(s)
+FlipFlop Core0/EX_OpB[32]_dff_32_0 has been replicated 1 time(s)
+FlipFlop Core0/EX_OpB[32]_dff_32_1 has been replicated 1 time(s)
+FlipFlop Core0/EX_OpB[32]_dff_32_2 has been replicated 1 time(s)
+FlipFlop Core0/EX_OpB[32]_dff_32_3 has been replicated 1 time(s)
+FlipFlop Core0/EX_OpB[32]_dff_32_4 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -449,8 +453,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 1372
- Flip-Flops                                            : 1372
+# Registers                                            : 1387
+ Flip-Flops                                            : 1387
 
 =========================================================================
 
@@ -473,22 +477,22 @@ Top Level Output File Name         : SingleCoreProcessor.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 2520
+# BELS                             : 2465
 #      GND                         : 1
 #      INV                         : 13
 #      LUT1                        : 1
-#      LUT2                        : 85
-#      LUT3                        : 118
-#      LUT4                        : 73
-#      LUT5                        : 353
-#      LUT6                        : 1604
+#      LUT2                        : 86
+#      LUT3                        : 64
+#      LUT4                        : 84
+#      LUT5                        : 407
+#      LUT6                        : 1535
 #      MUXCY                       : 60
-#      MUXF7                       : 148
+#      MUXF7                       : 150
 #      VCC                         : 1
 #      XORCY                       : 63
-# FlipFlops/Latches                : 1372
+# FlipFlops/Latches                : 1387
 #      FD                          : 2
-#      FDC                         : 250
+#      FDC                         : 265
 #      FDCE                        : 1120
 # RAMS                             : 16
 #      RAMB36E1                    : 16
@@ -507,16 +511,16 @@ Selected Device : 7k70tfbg676-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            1372  out of  82000     1%  
- Number of Slice LUTs:                 2247  out of  41000     5%  
-    Number used as Logic:              2247  out of  41000     5%  
+ Number of Slice Registers:            1387  out of  82000     1%  
+ Number of Slice LUTs:                 2190  out of  41000     5%  
+    Number used as Logic:              2190  out of  41000     5%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   3337
-   Number with an unused Flip Flop:    1965  out of   3337    58%  
-   Number with an unused LUT:          1090  out of   3337    32%  
-   Number of fully used LUT-FF pairs:   282  out of   3337     8%  
-   Number of unique control sets:        35
+ Number of LUT Flip Flop pairs used:   3315
+   Number with an unused Flip Flop:    1928  out of   3315    58%  
+   Number with an unused LUT:          1125  out of   3315    33%  
+   Number of fully used LUT-FF pairs:   262  out of   3315     7%  
+   Number of unique control sets:        36
 
 IO Utilization: 
  Number of IOs:                          67
@@ -549,7 +553,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 1388  |
+clk                                | BUFGP                  | 1403  |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -561,7 +565,7 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 9.381ns (Maximum Frequency: 106.598MHz)
-   Minimum input arrival time before clock: 8.055ns
+   Minimum input arrival time before clock: 7.846ns
    Maximum output required time after clock: 2.060ns
    Maximum combinational path delay: No path found
 
@@ -572,19 +576,19 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 9.381ns (frequency: 106.598MHz)
-  Total number of paths / destination ports: 6045715021 / 2594
+  Total number of paths / destination ports: 6043472692 / 2500
 -------------------------------------------------------------------------
 Delay:               9.381ns (Levels of Logic = 22)
-  Source:            Core0/EX_OpB[32]_dff_26_16 (FF)
+  Source:            Core0/EX_OpB[32]_dff_32_16 (FF)
   Destination:       Core0/REG_PC[15]_dff_2_15 (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: Core0/EX_OpB[32]_dff_26_16 to Core0/REG_PC[15]_dff_2_15
+  Data Path: Core0/EX_OpB[32]_dff_32_16 to Core0/REG_PC[15]_dff_2_15
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             3   0.236   0.351  Core0/EX_OpB[32]_dff_26_16 (Core0/EX_OpB[32]_dff_26_16)
+     FDCE:C->Q             3   0.236   0.351  Core0/EX_OpB[32]_dff_32_16 (Core0/EX_OpB[32]_dff_32_16)
      DSP48E1:A16->PCOUT47    1   2.879   0.000  Core0/uALU/Mmult_uMultiplier.auxRes (Core0/uALU/Mmult_uMultiplier.auxRes_PCOUT_to_Mmult_uMultiplier.auxRes1_PCIN_47)
      DSP48E1:PCIN47->PCOUT47    1   1.219   0.000  Core0/uALU/Mmult_uMultiplier.auxRes1 (Core0/uALU/Mmult_uMultiplier.auxRes1_PCOUT_to_Mmult_uMultiplier.auxRes2_PCIN_47)
      DSP48E1:PCIN47->PCOUT47    1   1.219   0.000  Core0/uALU/Mmult_uMultiplier.auxRes2 (Core0/uALU/Mmult_uMultiplier.auxRes2_PCOUT_to_Mmult_uMultiplier.auxRes3_PCIN_47)
@@ -614,9 +618,9 @@ Delay:               9.381ns (Levels of Logic = 22)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 3359333 / 2557
+  Total number of paths / destination ports: 1851401 / 1585
 -------------------------------------------------------------------------
-Offset:              8.055ns (Levels of Logic = 25)
+Offset:              7.846ns (Levels of Logic = 27)
   Source:            reset (PAD)
   Destination:       Core0/REG_PC[15]_dff_2_15 (FF)
   Destination Clock: clk rising
@@ -625,19 +629,21 @@ Offset:              8.055ns (Levels of Logic = 25)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O          1504   0.000   0.659  reset_IBUF (reset_IBUF)
+     IBUF:I->O          1600   0.000   0.663  reset_IBUF (reset_IBUF)
      LUT2:I0->O          248   0.043   0.783  Core0/Mmux_ID_I91 (Core0/ID_I<17>)
      LUT6:I0->O            1   0.043   0.522  Core0/uRF/Mmux_DoutA_813 (Core0/uRF/Mmux_DoutA_813)
      LUT6:I2->O            1   0.043   0.000  Core0/uRF/Mmux_DoutA_34 (Core0/uRF/Mmux_DoutA_34)
-     MUXF7:I1->O           2   0.178   0.618  Core0/uRF/Mmux_DoutA_2_f7_3 (Core0/ID_RegDA<13>)
+     MUXF7:I1->O           3   0.178   0.625  Core0/uRF/Mmux_DoutA_2_f7_3 (Core0/ID_RegDA<13>)
      LUT6:I0->O            1   0.043   0.613  Core0/uBranchCTRL/FlagZ1 (Core0/uBranchCTRL/FlagZ1)
      LUT6:I0->O            2   0.043   0.355  Core0/uBranchCTRL/FlagZ7 (Core0/uBranchCTRL/FlagZ)
-     LUT5:I4->O           30   0.043   0.479  Core0/uBranchCTRL/Mmux_PCIncrement1011 (Core0/uBranchCTRL/Mmux_PCIncrement101)
-     LUT6:I5->O            3   0.043   0.625  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_lut<6>_SW1 (N304)
-     LUT6:I0->O            2   0.043   0.355  Core0/Mmux_ID_ExOpB_FW29_SW2 (N401)
-     LUT6:I5->O            1   0.043   0.495  Core0/uALU/Res<6>_SW1 (N502)
-     LUT5:I2->O            1   0.043   0.000  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_lut<6> (Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_lut<6>)
-     MUXCY:S->O            1   0.238   0.000  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<6> (Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<6>)
+     LUT5:I4->O           30   0.043   0.742  Core0/uBranchCTRL/Mmux_PCIncrement1011 (Core0/uBranchCTRL/Mmux_PCIncrement101)
+     LUT6:I0->O            2   0.043   0.500  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_lut<3>_SW1 (N295)
+     LUT6:I3->O            1   0.043   0.495  Core0/Mmux_ID_ExOpB_FW26_SW1 (N426)
+     LUT5:I2->O            1   0.043   0.000  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_lut<3> (Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_lut<3>)
+     MUXCY:S->O            1   0.238   0.000  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<3> (Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<3>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<4> (Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<4>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<5> (Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<5>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<6> (Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<6>)
      MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<7> (Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<7>)
      MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<8> (Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<8>)
      MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<9> (Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<9>)
@@ -652,23 +658,23 @@ Offset:              8.055ns (Levels of Logic = 25)
      LUT3:I1->O            1   0.043   0.000  Core0/uBranchCTRL/Mmux_NextPC71 (Core0/ID_NextPC<15>)
      FDC:D                    -0.000          Core0/REG_PC[15]_dff_2_15
     ----------------------------------------
-    Total                      8.055ns (1.800ns logic, 6.255ns route)
-                                       (22.3% logic, 77.7% route)
+    Total                      7.846ns (1.797ns logic, 6.049ns route)
+                                       (22.9% logic, 77.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
   Total number of paths / destination ports: 505 / 65
 -------------------------------------------------------------------------
 Offset:              2.060ns (Levels of Logic = 3)
-  Source:            Core0/WB_MemCTRL[2]_dff_63_0 (FF)
+  Source:            Core0/WB_MemCTRL[2]_dff_69_0 (FF)
   Destination:       MemWData<31> (PAD)
   Source Clock:      clk rising
 
-  Data Path: Core0/WB_MemCTRL[2]_dff_63_0 to MemWData<31>
+  Data Path: Core0/WB_MemCTRL[2]_dff_69_0 to MemWData<31>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q             79   0.236   0.742  Core0/WB_MemCTRL[2]_dff_63_0 (Core0/WB_MemCTRL[2]_dff_63_0)
+     FDC:C->Q             79   0.236   0.742  Core0/WB_MemCTRL[2]_dff_69_0 (Core0/WB_MemCTRL[2]_dff_69_0)
      LUT5:I0->O            8   0.043   0.652  Core0/Mmux_MemWriteData3421 (Core0/Mmux_MemWriteData342)
      LUT6:I0->O            2   0.043   0.344  Core0/Mmux_MemWriteData50 (MemWData_31_OBUF)
      OBUF:I->O                 0.000          MemWData_31_OBUF (MemWData<31>)
@@ -692,13 +698,13 @@ clk            |    9.381|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 78.00 secs
-Total CPU time to Xst completion: 70.74 secs
+Total REAL time to Xst completion: 72.00 secs
+Total CPU time to Xst completion: 70.96 secs
  
 --> 
 
 
-Total memory usage is 527916 kilobytes
+Total memory usage is 528068 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    5 (   0 filtered)

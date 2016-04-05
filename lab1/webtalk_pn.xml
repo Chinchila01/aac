@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pn" timeStamp="Tue Apr  5 14:57:35 2016">
+<application name="pn" timeStamp="Tue Apr  5 19:58:34 2016">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="E84AF83C22FC488F60C8B4ECC0F695B1" type="project"/>
 <property name="ProjectIteration" value="66" type="project"/>
@@ -34,8 +34,10 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_xilxPostTrceAdvAna" value="true" type="process"/>
 <property name="PROP_AutoTop" value="true" type="design"/>
 <property name="PROP_DevFamily" value="Kintex7" type="design"/>
+<property name="PROP_ISimCustomSimCmdFileName_behav_tb" value="changed" type="process"/>
 <property name="PROP_DevDevice" value="xc7k70t" type="design"/>
 <property name="PROP_DevFamilyPMName" value="kintex7" type="design"/>
+<property name="PROP_ISimSimulationRunTime_behav_tb" value="100 ns" type="process"/>
 <property name="PROP_DevPackage" value="fbg676" type="design"/>
 <property name="PROP_Synthesis_Tool" value="XST (VHDL/Verilog)" type="design"/>
 <property name="PROP_DevSpeed" value="-2" type="design"/>

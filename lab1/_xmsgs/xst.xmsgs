@@ -5,13 +5,13 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/filipe/Documents/AAC/lab1/simpleCore.vhd" Line 268: Assignment to <arg fmt="%s" index="1">data_hazard</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"/home/filipe/Documents/AAC/lab1/simpleCore.vhd" Line 281: Assignment to <arg fmt="%s" index="1">data_hazard</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/filipe/Documents/AAC/lab1/simpleCore.vhd</arg>&quot; line <arg fmt="%s" index="2">255</arg>: Output port &lt;<arg fmt="%s" index="3">AIsInValid</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">uRF</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/filipe/Documents/AAC/lab1/simpleCore.vhd</arg>&quot; line <arg fmt="%s" index="2">263</arg>: Output port &lt;<arg fmt="%s" index="3">AIsInValid</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">uRF</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/filipe/Documents/AAC/lab1/simpleCore.vhd</arg>&quot; line <arg fmt="%s" index="2">255</arg>: Output port &lt;<arg fmt="%s" index="3">BIsInValid</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">uRF</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/filipe/Documents/AAC/lab1/simpleCore.vhd</arg>&quot; line <arg fmt="%s" index="2">263</arg>: Output port &lt;<arg fmt="%s" index="3">BIsInValid</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">uRF</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="warning" file="Xst" num="2404" delta="old" > FFs/Latches &lt;<arg fmt="%s" index="1">Hazard</arg>&lt;<arg fmt="%d" index="2">0</arg>:<arg fmt="%d" index="3">0</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">simpleCore</arg>&gt;.

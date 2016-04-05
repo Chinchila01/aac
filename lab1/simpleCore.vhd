@@ -170,6 +170,10 @@ signal BrTaken, REG_BrTaken : std_logic;
 
 -- Carry forwarding
 signal EX_MSR_C_FW, MSR_C_REG : std_logic;
+signal MSR_C_REG_EN,MSR_MUX_SEL : std_logic;
+
+signal WB_ID_OpD,MEM_ID_OpD,EX_ID_OpD : std_logic_vector(REG_ADD_WIDTH-1 downto 0);
+
 
 begin
 
@@ -230,36 +234,45 @@ uDecoder : decoder port map(
     MSR_C_WE => ID_MSR_C_WE,       MSR_C => EX_MSR_C_FW
 );
 
-EX_MSR_C_FW <= EX_MSR_C when (ID_STAGE_ENABLE='0')OR(ID_MSR_C_WE='1') else
+EX_MSR_C_FW <= EX_MSR_C when MSR_MUX_SEL='1' else
 					MSR_C_REG;
-			
-MSR_C_REG <= EX_MSR_C when EX_MSR_C_WE='1' AND rising_edge(clk);
+					
+MSR_MUX_SEL <= '1' when EX_MSR_C_WE='1' OR ID_STAGE_ENABLE='0' else '0';
+
+MSR_C_REG_EN <= '1' when EX_MSR_C_WE='1' AND ID_STAGE_ENABLE='1' else '0';
+
+MSR_C_REG <= EX_MSR_C when MSR_C_REG_EN='1' AND rising_edge(clk);
 
 -- MUX EXTABLE
 --ID_ExOpA_EX_FW <= ID_RegDA when exTable_A='0' else FW_Ex_OpA;
 --ID_ExOpB_EX_FW <= ID_RegDB when exTable_B='0' else FW_Ex_OpB;
-ID_ExOpA_FW <= ID_ExOpA_MEM_FW when exTable_A='0' else FW_Ex_OpA;
-ID_ExOpB_FW <= ID_ExOpB_MEM_FW when exTable_B='0' else FW_Ex_OpB;
+ID_ExOpA_FW <= ID_ExOpA_MEM_FW when exTable_A='0' or BrTaken='1' else FW_Ex_OpA;
+ID_ExOpB_FW <= ID_ExOpB_MEM_FW when exTable_B='0' or BrTaken='1' else FW_Ex_OpB;
 
 -- MUX MEMTABLE
-ID_ExOpA_MEM_FW <= ID_ExOpA_WB_FW when memTable_A='0' else FW_Mem_OpA;
-ID_ExOpB_MEM_FW <= ID_ExOpB_WB_FW when memTable_B='0' else FW_Mem_OpB;
+ID_ExOpA_MEM_FW <= ID_ExOpA_WB_FW when memTable_A='0' or BrTaken='1' else FW_Mem_OpA;
+ID_ExOpB_MEM_FW <= ID_ExOpB_WB_FW when memTable_B='0' or BrTaken='1' else FW_Mem_OpB;
 
 -- MUX WBTABLE
-ID_ExOpA_WB_FW <= ID_RegDA when wbTable_A='0' else FW_Wb_OpA;
-ID_ExOpB_WB_FW <= ID_RegDB when wbTable_B='0' else FW_Wb_OpB;
+ID_ExOpA_WB_FW <= ID_RegDA when wbTable_A='0' or BrTaken='1' else FW_Wb_OpA;
+ID_ExOpB_WB_FW <= ID_RegDB when wbTable_B='0' or BrTaken='1' else FW_Wb_OpB;
 
 ---------------------------------------------------------------------------------------------------------------
 -- REGISTER FILE
 ---------------------------------------------------------------------------------------------------------------
 uRF : register_file port map(
     clk   => clk,           reset => reset,
-    OpA   => ID_OpA,          OpB => ID_OpB,          OpD => ID_OpD,     -- port addressing
+    OpA   => ID_OpA,          OpB => ID_OpB,          OpD => ID_OpD, OP_D_REG=>WB_ID_OpD,--ID_OpD,     -- port addressing
 	 DoutA => ID_RegDA,      DoutB => ID_RegDB,      DoutD => ID_RegDD, -- port output
     WE    => RegWE,         DinD  => WB_RegDin,                        -- RF write (port D only)
 	 fw_exTable_A =>exTable_A,fw_exTable_B =>exTable_B,fw_memTable_A => memTable_A,fw_memTable_B => memTable_B,fw_wbTable_A => wbTable_A,fw_wbTable_B => wbTable_B,
-	AIsInValid=>RF_InValidA,  BIsInValid => RF_InValidB,	ID_ENABLE => ID_STAGE_ENABLE--Valid Registers
+	AIsInValid=>RF_InValidA,  BIsInValid => RF_InValidB,	ID_ENABLE => ID_STAGE_ENABLE,--Valid Registers
+	BrTaken => BrTaken
 );
+
+WB_ID_OpD <= (others=>'0') when reset='1' else MEM_ID_OpD when rising_edge(clk) AND WB_STAGE_ENABLE='1';
+MEM_ID_OpD <= (others=>'0') when reset='1' else EX_ID_OpD when rising_edge(clk) AND MEM_STAGE_ENABLE='1';
+EX_ID_OpD <= (others=>'0') when reset='1' else ID_OpD when rising_edge(clk) AND EX_STAGE_ENABLE='1';
 
 -------------------------------------------------------------------------------------------------
 -- HAZARD DETECTION 
@@ -297,17 +310,27 @@ BrTaken <= '0' when reset='1' else REG_BrTaken when rising_edge(clk);
 ---------------------------------------------------------------------------------------------------------------
 -- ID/OF to EX stage registers
 ---------------------------------------------------------------------------------------------------------------
-EX_CTRL     <= (others=>'0') when (reset='1' OR BrTaken='1') else ID_ExCTRL   when rising_edge(clk) and ID_STAGE_ENABLE='1';
-EX_OpA      <= (others=>'0') when (reset='1' OR BrTaken='1') else ID_ExOpA    when rising_edge(clk) and ID_STAGE_ENABLE='1';
-EX_OpB      <= (others=>'0') when (reset='1' OR BrTaken='1') else ID_ExOpB    when rising_edge(clk) and ID_STAGE_ENABLE='1';
-EX_OpC      <=          '0'  when (reset='1' OR BrTaken='1') else ID_ExOpC    when rising_edge(clk) and ID_STAGE_ENABLE='1';
-EX_OpD      <= (others=>'0') when (reset='1' OR BrTaken='1') else ID_RegDD    when rising_edge(clk) and ID_STAGE_ENABLE='1';
-EX_MSR_C_WE <=          '0'  when (reset='1' OR BrTaken='1') else ID_MSR_C_WE when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
-EX_MemCTRL  <= (others=>'0') when (reset='1' OR BrTaken='1') else ID_MemCTRL  when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
-EX_RegWE    <=          '0'  when (reset='1' OR BrTaken='1') else ID_RegWE    when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
+--EX_CTRL     <= (others=>'0') when (reset='1' OR BrTaken='1') else ID_ExCTRL   when rising_edge(clk) and ID_STAGE_ENABLE='1';
+--EX_OpA      <= (others=>'0') when (reset='1' OR BrTaken='1') else ID_ExOpA    when rising_edge(clk) and ID_STAGE_ENABLE='1';
+--EX_OpB      <= (others=>'0') when (reset='1' OR BrTaken='1') else ID_ExOpB    when rising_edge(clk) and ID_STAGE_ENABLE='1';
+--EX_OpC      <=          '0'  when (reset='1' OR BrTaken='1') else ID_ExOpC    when rising_edge(clk) and ID_STAGE_ENABLE='1';
+--EX_OpD      <= (others=>'0') when (reset='1' OR BrTaken='1') else ID_RegDD    when rising_edge(clk) and ID_STAGE_ENABLE='1';
+--EX_MSR_C_WE <=          '0'  when (reset='1' OR BrTaken='1') else ID_MSR_C_WE when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
+--EX_MemCTRL  <= (others=>'0') when (reset='1' OR BrTaken='1') else ID_MemCTRL  when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
+--EX_RegWE    <=          '0'  when (reset='1' OR BrTaken='1') else ID_RegWE    when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
+--
+--EX_MSR_C    <= '0' when (reset='1' OR BrTaken='1') else EX_FlagC;
 
---EX_MSR_C    <= '0' when (reset='1' OR BrTaken='1') else EX_FlagC when rising_edge(clk) and EX_MSR_C_WE='1' and EX_STAGE_ENABLE='1';
-EX_MSR_C    <= '0' when (reset='1' OR BrTaken='1') else EX_FlagC;
+EX_CTRL     <= (others=>'0') when (reset='1' or BrTaken='1') else ID_ExCTRL   when rising_edge(clk) and ID_STAGE_ENABLE='1';
+EX_OpA      <= (others=>'0') when (reset='1') else ID_ExOpA    when rising_edge(clk) and ID_STAGE_ENABLE='1';
+EX_OpB      <= (others=>'0') when (reset='1') else ID_ExOpB    when rising_edge(clk) and ID_STAGE_ENABLE='1';
+EX_OpC      <=          '0'  when (reset='1') else ID_ExOpC    when rising_edge(clk) and ID_STAGE_ENABLE='1';
+EX_OpD      <= (others=>'0') when (reset='1') else ID_RegDD    when rising_edge(clk) and ID_STAGE_ENABLE='1';
+EX_MSR_C_WE <=          '0'  when (reset='1' or BrTaken='1') else ID_MSR_C_WE when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
+EX_MemCTRL  <= (others=>'0') when (reset='1' or BrTaken='1') else ID_MemCTRL  when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
+EX_RegWE    <=          '0'  when (reset='1' or BrTaken='1') else ID_RegWE    when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
+
+EX_MSR_C    <= '0' when (reset='1') else EX_FlagC;
 ---------------------------------------------------------------------------------------------------------------
 -- ALU
 ---------------------------------------------------------------------------------------------------------------

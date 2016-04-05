@@ -68,7 +68,7 @@ PCIncrement <= Offset when Cond="111" else                               -- unco
                std_logic_vector(to_unsigned(4, PC_WIDTH));               -- conditional branch (condition returns false)
 
 -- Flag to know if branch taken or not taken
-BrInTaken <= 		'0' when PCIncrement=std_logic_vector(to_unsigned(4, PC_WIDTH))else
+BrInTaken <= 	'0' when PCIncrement=std_logic_vector(to_unsigned(4, PC_WIDTH))else
 					'1';
 					
 BrTaken <= BrInTaken;

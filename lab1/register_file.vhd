@@ -46,6 +46,7 @@ entity register_file is
            -- input/output Port D
            WE    : in  STD_LOGIC;
            OpD   : in  STD_LOGIC_VECTOR (REG_ADD_WIDTH-1 downto 0);
+			  OP_D_REG : in STD_LOGIC_VECTOR(REG_ADD_WIDTH-1 downto 0);
            DinD  : in  STD_LOGIC_VECTOR  (WORD_WIDTH-1 downto 0);
            DoutD : out STD_LOGIC_VECTOR  (WORD_WIDTH-1 downto 0);
 			  -- Validation --
@@ -60,7 +61,9 @@ entity register_file is
 			  
 			  AIsInValid:out STD_LOGIC;
 			  BIsInValid:out STD_LOGIC;
-			  ID_ENABLE: in STD_LOGIC
+			  ID_ENABLE: in STD_LOGIC;
+			  
+			  BrTaken : in STD_LOGIC
          );
 end register_file;
 
@@ -76,7 +79,7 @@ signal wbTable  : std_logic_vector(N_REGISTERS-1 downto 0);
 begin
 -- Scoreboard markings --
 uScoreboard: for i in 0 to (N_REGISTERS-1) generate
-		idTable(i) <= '1' when conv_integer(OpD)=i AND ID_ENABLE='1' else '0';
+		idTable(i) <= '1' when conv_integer(OpD)=i AND ID_ENABLE='1' AND BrTaken='0' else '0';
 end generate;
 
 exTable  <= (others => '0') when reset='1' else idTable  when rising_edge(clk);
@@ -109,7 +112,7 @@ WriteUnit: for i in 1 to 2**REG_ADD_WIDTH-1 generate
 	    if reset='1' then
 	       RegisterTable(i) <= (others=>'0');
 		elsif rising_edge(clk) then
-			if WE='1' and conv_integer(OpD)=i then
+			if WE='1' and conv_integer(OP_D_REG)=i then
 				RegisterTable(i) <= DinD;
 			end if;
 		end if;

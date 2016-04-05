@@ -78,21 +78,23 @@ component register_file
        -- input/output Port D
        WE    : in  STD_LOGIC;
        OpD   : in  STD_LOGIC_VECTOR (REG_ADD_WIDTH-1 downto 0);
+       OP_D_REG : in STD_LOGIC_VECTOR (REG_ADD_WIDTH-1 downto 0);
        DinD  : in  STD_LOGIC_VECTOR  (WORD_WIDTH-1 downto 0);
        DoutD : out STD_LOGIC_VECTOR  (WORD_WIDTH-1 downto 0);
 
-		FW_exTable_A : out std_logic;
-		FW_exTable_B : out std_logic;
+	FW_exTable_A : out std_logic;
+	FW_exTable_B : out std_logic;
 
-		FW_memTable_A : out std_logic;
-		FW_memTable_B : out std_logic;
+	FW_memTable_A : out std_logic;
+	FW_memTable_B : out std_logic;
 
-		FW_wbTable_A : out std_logic;
-		FW_wbTable_B : out std_logic;
+	FW_wbTable_A : out std_logic;
+	FW_wbTable_B : out std_logic;
 
        AIsInValid: out STD_LOGIC;
        BIsInValid: out STD_LOGIC;
-       ID_ENABLE : in STD_LOGIC
+       ID_ENABLE : in STD_LOGIC;
+       BrTaken : in STD_LOGIC
      );
 end component;
 
