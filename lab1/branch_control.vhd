@@ -50,7 +50,7 @@ architecture Behavioral of branch_control is
 
 signal PCIncrement : STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
 signal FlagZ, FlagN : STD_LOGIC;
-
+signal BrInTaken: STD_LOGIC;
 begin
 
 -- compute flags
@@ -68,10 +68,13 @@ PCIncrement <= Offset when Cond="111" else                               -- unco
                std_logic_vector(to_unsigned(4, PC_WIDTH));               -- conditional branch (condition returns false)
 
 -- Flag to know if branch taken or not taken
-BrTaken <= 		'0' when PCIncrement=std_logic_vector(to_unsigned(4, PC_WIDTH))else
+BrInTaken <= 		'0' when PCIncrement=std_logic_vector(to_unsigned(4, PC_WIDTH))else
 					'1';
+					
+BrTaken <= BrInTaken;
 
 -- compute nextPC
-NextPC <= PC + PCIncrement;-- when Data_Hazard='0' else PC;
+NextPC <= PC + PCIncrement when BrInTaken='0' else
+			 PC + PCIncrement - std_logic_vector(to_unsigned(4,PC_WIDTH));-- when Data_Hazard='0' else PC;
 
 end Behavioral;

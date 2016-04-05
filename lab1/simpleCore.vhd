@@ -168,6 +168,9 @@ signal wbtable_b : std_logic;
 
 signal BrTaken, REG_BrTaken : std_logic;
 
+-- Carry forwarding
+signal EX_MSR_C_FW, MSR_C_REG : std_logic;
+
 begin
 
 
@@ -224,20 +227,27 @@ uDecoder : decoder port map(
     -- MEM connections
     MemCTRL  => ID_MemCTRL,
     -- Other/Flag connections
-    MSR_C_WE => ID_MSR_C_WE,       MSR_C => EX_MSR_C
+    MSR_C_WE => ID_MSR_C_WE,       MSR_C => EX_MSR_C_FW
 );
 
+EX_MSR_C_FW <= EX_MSR_C when (ID_STAGE_ENABLE='0')OR(ID_MSR_C_WE='1') else
+					MSR_C_REG;
+			
+MSR_C_REG <= EX_MSR_C when EX_MSR_C_WE='1' AND rising_edge(clk);
+
 -- MUX EXTABLE
-ID_ExOpA_EX_FW <= ID_RegDA when exTable_A='0' else FW_Ex_OpA;
-ID_ExOpB_EX_FW <= ID_RegDB when exTable_B='0' else FW_Ex_OpB;
- 
+--ID_ExOpA_EX_FW <= ID_RegDA when exTable_A='0' else FW_Ex_OpA;
+--ID_ExOpB_EX_FW <= ID_RegDB when exTable_B='0' else FW_Ex_OpB;
+ID_ExOpA_FW <= ID_ExOpA_MEM_FW when exTable_A='0' else FW_Ex_OpA;
+ID_ExOpB_FW <= ID_ExOpB_MEM_FW when exTable_B='0' else FW_Ex_OpB;
+
 -- MUX MEMTABLE
-ID_ExOpA_MEM_FW <= ID_ExOpA_EX_FW when memTable_A='0' else FW_Mem_OpA;
-ID_ExOpB_MEM_FW <= ID_ExOpB_EX_FW when memTable_B='0' else FW_Mem_OpB;
+ID_ExOpA_MEM_FW <= ID_ExOpA_WB_FW when memTable_A='0' else FW_Mem_OpA;
+ID_ExOpB_MEM_FW <= ID_ExOpB_WB_FW when memTable_B='0' else FW_Mem_OpB;
 
 -- MUX WBTABLE
-ID_ExOpA_FW <= ID_ExOpA_MEM_FW when wbTable_A='0' else FW_Wb_OpA;
-ID_ExOpB_FW <= ID_ExOpB_MEM_FW when wbTable_B='0' else FW_Wb_OpB;
+ID_ExOpA_WB_FW <= ID_RegDA when wbTable_A='0' else FW_Wb_OpA;
+ID_ExOpB_WB_FW <= ID_RegDB when wbTable_B='0' else FW_Wb_OpB;
 
 ---------------------------------------------------------------------------------------------------------------
 -- REGISTER FILE
@@ -296,8 +306,8 @@ EX_MSR_C_WE <=          '0'  when (reset='1' OR BrTaken='1') else ID_MSR_C_WE wh
 EX_MemCTRL  <= (others=>'0') when (reset='1' OR BrTaken='1') else ID_MemCTRL  when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
 EX_RegWE    <=          '0'  when (reset='1' OR BrTaken='1') else ID_RegWE    when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
 
-EX_MSR_C    <= '0' when (reset='1' OR BrTaken='1') else EX_FlagC when rising_edge(clk) and EX_MSR_C_WE='1' and EX_STAGE_ENABLE='1';
-
+--EX_MSR_C    <= '0' when (reset='1' OR BrTaken='1') else EX_FlagC when rising_edge(clk) and EX_MSR_C_WE='1' and EX_STAGE_ENABLE='1';
+EX_MSR_C    <= '0' when (reset='1' OR BrTaken='1') else EX_FlagC;
 ---------------------------------------------------------------------------------------------------------------
 -- ALU
 ---------------------------------------------------------------------------------------------------------------
@@ -314,10 +324,10 @@ FW_Ex_OpB <= Ex_Result;
 ---------------------------------------------------------------------------------------------------------------
 -- EX to MEM stage registers
 ---------------------------------------------------------------------------------------------------------------
-MEM_CTRL     <= (others=>'0') when (reset='1' OR BrTaken='1') else EX_MemCTRL when rising_edge(clk) and EX_STAGE_ENABLE='1';
-MEM_ExResult <= (others=>'0') when (reset='1' OR BrTaken='1') else EX_Result  when rising_edge(clk) and EX_STAGE_ENABLE='1';
-MEM_DataIn   <= (others=>'0') when (reset='1' OR BrTaken='1') else EX_OpD     when rising_edge(clk) and EX_STAGE_ENABLE='1';
-MEM_RegWE    <=          '0'  when (reset='1' OR BrTaken='1') else EX_RegWE   when rising_edge(clk) and EX_STAGE_ENABLE='1'; 
+MEM_CTRL     <= (others=>'0') when (reset='1') else EX_MemCTRL when rising_edge(clk) and EX_STAGE_ENABLE='1';
+MEM_ExResult <= (others=>'0') when (reset='1') else EX_Result  when rising_edge(clk) and EX_STAGE_ENABLE='1';
+MEM_DataIn   <= (others=>'0') when (reset='1') else EX_OpD     when rising_edge(clk) and EX_STAGE_ENABLE='1';
+MEM_RegWE    <=          '0'  when (reset='1') else EX_RegWE   when rising_edge(clk) and EX_STAGE_ENABLE='1'; 
 
 ---------------------------------------------------------------------------------------------------------------
 -- DATA MEMORY
