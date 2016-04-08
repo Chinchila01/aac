@@ -36,13 +36,16 @@ use WORK.MAIN_DEFINITIONS.ALL;
 
 entity branch_control is
   Port (
+		  clk,reset: in STD_LOGIC;
         PC       : in  STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
         Cond     : in  STD_LOGIC_VECTOR( 2 downto 0);
         Offset   : in  STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
         CondWord : in  STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
         NextPC   : out STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
 		  Data_Hazard: in STD_LOGIC;
-		  BrTaken  : out STD_LOGIC
+		  BrTaken  : out STD_LOGIC;
+		  brali    : in STD_LOGIC;
+		  RegPC   : in STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0)
        );
 end branch_control;
 
@@ -51,6 +54,7 @@ architecture Behavioral of branch_control is
 signal PCIncrement : STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
 signal FlagZ, FlagN : STD_LOGIC;
 signal BrInTaken: STD_LOGIC;
+signal BrTakenFlag,BrTakenReg : STD_LOGIC;
 begin
 
 -- compute flags
@@ -68,13 +72,19 @@ PCIncrement <= Offset when Cond="111" else                               -- unco
                std_logic_vector(to_unsigned(4, PC_WIDTH));               -- conditional branch (condition returns false)
 
 -- Flag to know if branch taken or not taken
-BrInTaken <= 	'0' when PCIncrement=std_logic_vector(to_unsigned(4, PC_WIDTH))else
+BrTakenFlag <= '0' when PCIncrement=std_logic_vector(to_unsigned(4, PC_WIDTH))else
 					'1';
-					
+
 BrTaken <= BrInTaken;
 
--- compute nextPC
-NextPC <= PC + PCIncrement when BrInTaken='0' else
-			 PC + PCIncrement - std_logic_vector(to_unsigned(4,PC_WIDTH));-- when Data_Hazard='0' else PC;
+BrInTaken <= BrTakenFlag when BrTakenReg='0' else '0';
 
+BrTakenReg <= BrTakenFlag when rising_edge(clk);
+
+-- compute nextPC
+NextPC <= PC + std_logic_vector(to_unsigned(4,PC_WIDTH)) when BrInTaken='0' else
+			 PC + PCIncrement when brali='1' and BrInTaken='1' else
+			 RegPC + PCIncrement when brali='1' and BrInTaken='0' else
+			 PC + PCIncrement - std_logic_vector(to_unsigned(4,PC_WIDTH));-- when Data_Hazard='0' else PC;
+			 	
 end Behavioral;

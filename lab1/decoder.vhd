@@ -59,7 +59,10 @@ entity decoder is
         MemCTRL  : out STD_LOGIC_VECTOR( 2 downto 0);
         -- Flag (MSR) conncections
         MSR_C_WE : out STD_LOGIC;
-        MSR_C   : in STD_LOGIC
+        MSR_C   : in STD_LOGIC;
+		  -- Flag BRALI
+		  brali : out STD_LOGIC;
+		  BrInTaken : in STD_LOGIC
   );
 end decoder;
 
@@ -92,7 +95,8 @@ RegOpD    <= IOpD;
 BrCond <= I(23 downto 21) when std_match(IOpcode,"10-111") else
           "111"; -- unconditional operation
 
-BrPC <= RegDB(PC_WIDTH-1 downto 0) when IOpcode="100110" and I(19)='1' else -- unconditional jump (i.e., with absolute address given by RB)
+BrPC <= PC when BrInTaken='1' else
+		  RegDB(PC_WIDTH-1 downto 0) when IOpcode="100110" and I(19)='1' else -- unconditional jump (i.e., with absolute address given by RB)
         Imm32(PC_WIDTH-1 downto 0) when IOpcode="101110" and I(19)='1' else -- unconditional jump (i.e., with absolute address given by Imm)
         PC;
 
@@ -119,6 +123,8 @@ ExCTRL   <= "000" when std_match(IOpcode,"00-0--") else                       --
             "110" when std_match(IOpcode,"10-0-1") else  -- AND 
             "111" when std_match(IOpcode,"10-010") else  -- XOR 
             (others=>'-');
+
+brali <= '1' when std_match(IOpcode,"10-110") and I(18) ='1' else '0';
 
 ExOpA   <= '0'                        & RegDA      when std_match(IOpcode,"00---0") else -- ADD/I, ADDC/I, ADDK/I, ADDKC/I,
            '0'                        & not RegDA  when std_match(IOpcode,"000--1") and IModifier(0) ='0' else -- RSUB, RSUBC, RSUBK, RSUBKC

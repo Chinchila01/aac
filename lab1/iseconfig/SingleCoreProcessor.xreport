@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2016-04-05T15:48:40</DateModified>
+  <DateModified>2016-04-08T12:10:37</DateModified>
   <ModuleName>SingleCoreProcessor</ModuleName>
-  <SummaryTimeStamp>2016-04-02T18:29:04</SummaryTimeStamp>
+  <SummaryTimeStamp>2016-04-05T20:32:06</SummaryTimeStamp>
   <SavedFilePath>/home/filipe/Documents/AAC/lab1/iseconfig/SingleCoreProcessor.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/home/filipe/Documents/AAC/lab1/</ImplementationReportsDirectory>
   <DateInitialized>2016-04-02T15:53:41</DateInitialized>

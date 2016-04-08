@@ -174,7 +174,7 @@ signal MSR_C_REG_EN,MSR_MUX_SEL : std_logic;
 
 signal WB_ID_OpD,MEM_ID_OpD,EX_ID_OpD : std_logic_vector(REG_ADD_WIDTH-1 downto 0);
 
-
+signal brali : std_logic; -- Brali flag
 begin
 
 
@@ -231,7 +231,9 @@ uDecoder : decoder port map(
     -- MEM connections
     MemCTRL  => ID_MemCTRL,
     -- Other/Flag connections
-    MSR_C_WE => ID_MSR_C_WE,       MSR_C => EX_MSR_C_FW
+    MSR_C_WE => ID_MSR_C_WE,       MSR_C => EX_MSR_C_FW,
+	 -- Brali flag
+	 brali => brali, BrInTaken => BrTaken
 );
 
 EX_MSR_C_FW <= EX_MSR_C when MSR_MUX_SEL='1' else
@@ -297,13 +299,17 @@ PC_Hazard <= '0';
 -- BRANCH (i.e. PC) CONTROL
 ---------------------------------------------------------------------------------------------------------------
 uBranchCTRL: branch_control port map (
+	 clk      => clk,
+	 reset    => reset,
     PC       => ID_BrPC,
     Offset   => ID_BrOffset,
     Cond     => ID_BrCond,
-    CondWord => ID_RegDA,
+    CondWord => ID_ExOpA_FW,--ID_RegDA,
     NextPC   => ID_NextPC,
 	 Data_Hazard => Hazard,
-	 BrTaken => REG_BrTaken
+	 BrTaken => REG_BrTaken,
+	 brali => brali,
+	 RegPC => REG_PC
 );
 
 BrTaken <= '0' when reset='1' else REG_BrTaken when rising_edge(clk);

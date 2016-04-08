@@ -78,9 +78,10 @@ signal wbTable  : std_logic_vector(N_REGISTERS-1 downto 0);
 
 begin
 -- Scoreboard markings --
-uScoreboard: for i in 0 to (N_REGISTERS-1) generate
+uScoreboard: for i in 1 to (N_REGISTERS-1) generate
 		idTable(i) <= '1' when conv_integer(OpD)=i AND ID_ENABLE='1' AND BrTaken='0' else '0';
 end generate;
+		idTable(0) <= '0';
 
 exTable  <= (others => '0') when reset='1' else idTable  when rising_edge(clk);
 memTable <= (others => '0') when reset='1' else exTable  when rising_edge(clk);

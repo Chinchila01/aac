@@ -61,7 +61,9 @@ component decoder
         MemCTRL  : out STD_LOGIC_VECTOR( 2 downto 0);
         -- Flag (MSR) conncections
         MSR_C_WE : out STD_LOGIC;
-        MSR_C   : in STD_LOGIC
+        MSR_C   : in STD_LOGIC;
+	brali   : out STD_LOGIC;
+	BrInTaken : in STD_LOGIC
   );
 end component;
 
@@ -100,13 +102,17 @@ end component;
 
 component branch_control
   Port (
+	clk      : in  STD_LOGIC;
+	reset    : in  STD_LOGIC;
         PC       : in  STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
         Cond     : in  STD_LOGIC_VECTOR( 2 downto 0);
         Offset   : in  STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
         CondWord : in  STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
         NextPC   : out STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
 	Data_Hazard: in STD_LOGIC;
-	BrTaken : out STD_LOGIC
+	BrTaken : out STD_LOGIC;
+	brali   : in STD_LOGIC;
+	RegPC   : in STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0)
        );
 end component;
 
