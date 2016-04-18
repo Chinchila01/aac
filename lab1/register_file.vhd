@@ -63,6 +63,7 @@ entity register_file is
 			  BIsInValid:out STD_LOGIC;
 			  ID_ENABLE: in STD_LOGIC;
 			  
+			  memCTRL: in STD_LOGIC_VECTOR(2 downto 0);
 			  BrTaken : in STD_LOGIC
          );
 end register_file;
@@ -76,10 +77,20 @@ signal exTable  : std_logic_vector(N_REGISTERS-1 downto 0);
 signal memTable : std_logic_vector(N_REGISTERS-1 downto 0);
 signal wbTable  : std_logic_vector(N_REGISTERS-1 downto 0);
 
+signal toScoreBoard : std_logic; -- when 1, scoreboard is recorded, else isn't
+signal StoreSig : std_logic;
+signal loadOP_reg: std_logic; -- when load operation, data_hazard is needed
+
 begin
+
+StoreSig <= '0' when memCTRL(2)='1' else '1'; -- when store operation, scoreboard is not updated
+
+toScoreBoard <= ID_ENABLE AND NOT BrTaken AND StoreSig;
+loadOP_reg <= '1' when (memCTRL="001" OR memCTRL="010" OR memCTRL="011") else '0' when rising_edge(clk);
+
 -- Scoreboard markings --
 uScoreboard: for i in 1 to (N_REGISTERS-1) generate
-		idTable(i) <= '1' when conv_integer(OpD)=i AND ID_ENABLE='1' AND BrTaken='0' else '0';
+		idTable(i) <= '1' when conv_integer(OpD)=i AND toScoreBoard='1' else '0';
 end generate;
 		idTable(0) <= '0';
 
@@ -94,8 +105,8 @@ FW_exTable_B <= exTable(conv_integer(OpB));
 FW_memTable_B <= memTable(conv_integer(OpB));
 FW_wbTable_B <= wbTable(conv_integer(OpB));
 
-AIsInValid <= exTable(conv_integer(OpA)) OR memTable(conv_integer(OpA)) OR wbTable(conv_integer(OpA));
-BIsInValid <= exTable(conv_integer(OpB)) OR memTable(conv_integer(OpB)) OR wbTable(conv_integer(OpB));
+AIsInValid <= (exTable(conv_integer(OpA)) AND loadOp_Reg); --OR memTable(conv_integer(OpA)) OR wbTable(conv_integer(OpA));
+BIsInValid <= (exTable(conv_integer(OpB)) AND loadOp_Reg); --OR memTable(conv_integer(OpB)) OR wbTable(conv_integer(OpB));
 
 
 -- Asynchronous read process
@@ -112,7 +123,7 @@ WriteUnit: for i in 1 to 2**REG_ADD_WIDTH-1 generate
 	begin
 	    if reset='1' then
 	       RegisterTable(i) <= (others=>'0');
-		elsif rising_edge(clk) then
+		elsif falling_edge(clk) then
 			if WE='1' and conv_integer(OP_D_REG)=i then
 				RegisterTable(i) <= DinD;
 			end if;

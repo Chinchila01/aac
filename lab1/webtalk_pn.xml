@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pn" timeStamp="Fri Apr  8 14:31:58 2016">
+<application name="pn" timeStamp="Sun Apr 17 22:52:40 2016">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="E84AF83C22FC488F60C8B4ECC0F695B1" type="project"/>
-<property name="ProjectIteration" value="66" type="project"/>
+<property name="ProjectIteration" value="68" type="project"/>
 <property name="ProjectFile" value="/home/filipe/Documents/AAC/lab1/lab1.xise" type="project"/>
 <property name="ProjectCreationTimestamp" value="2016-03-02T08:44:19" type="project"/>
 </section>
@@ -18,7 +18,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_LastAppliedStrategy" value="Xilinx Default (unlocked)" type="design"/>
 <property name="PROP_ManualCompileOrderImp" value="false" type="design"/>
 <property name="PROP_PropSpecInProjFile" value="Store all values" type="design"/>
-<property name="PROP_SelectedInstanceHierarchicalPath" value="/singleCoreProcessor_tb/proc0/Core0" type="process"/>
+<property name="PROP_SelectedInstanceHierarchicalPath" value="/singleCoreProcessor_tb" type="process"/>
 <property name="PROP_Simulator" value="ISim (VHDL/Verilog)" type="design"/>
 <property name="PROP_SynthTopFile" value="changed" type="process"/>
 <property name="PROP_Top_Level_Module_Type" value="HDL" type="design"/>
@@ -27,10 +27,10 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_UserConstraintEditorPreference" value="Text Editor" type="process"/>
 <property name="PROP_intProjectCreationTimestamp" value="2016-03-02T08:44:19" type="design"/>
 <property name="PROP_intWbtProjectID" value="E84AF83C22FC488F60C8B4ECC0F695B1" type="design"/>
-<property name="PROP_intWbtProjectIteration" value="66" type="process"/>
+<property name="PROP_intWbtProjectIteration" value="68" type="process"/>
 <property name="PROP_intWorkingDirLocWRTProjDir" value="Same" type="design"/>
 <property name="PROP_intWorkingDirUsed" value="No" type="design"/>
-<property name="PROP_selectedSimRootSourceNode_behav" value="work.simpleCore" type="process"/>
+<property name="PROP_selectedSimRootSourceNode_behav" value="work.singleCoreProcessor_tb" type="process"/>
 <property name="PROP_xilxPostTrceAdvAna" value="true" type="process"/>
 <property name="PROP_AutoTop" value="true" type="design"/>
 <property name="PROP_DevFamily" value="Kintex7" type="design"/>

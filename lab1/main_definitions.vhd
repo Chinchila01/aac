@@ -96,6 +96,8 @@ component register_file
        AIsInValid: out STD_LOGIC;
        BIsInValid: out STD_LOGIC;
        ID_ENABLE : in STD_LOGIC;
+
+       memCTRL: in STD_LOGIC_VECTOR(2 downto 0);
        BrTaken : in STD_LOGIC
      );
 end component;

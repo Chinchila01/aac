@@ -175,6 +175,7 @@ signal MSR_C_REG_EN,MSR_MUX_SEL : std_logic;
 signal WB_ID_OpD,MEM_ID_OpD,EX_ID_OpD : std_logic_vector(REG_ADD_WIDTH-1 downto 0);
 
 signal brali : std_logic; -- Brali flag
+signal brali_FW : std_logic; -- Brali flag delayed
 begin
 
 
@@ -248,16 +249,18 @@ MSR_C_REG <= EX_MSR_C when MSR_C_REG_EN='1' AND rising_edge(clk);
 -- MUX EXTABLE
 --ID_ExOpA_EX_FW <= ID_RegDA when exTable_A='0' else FW_Ex_OpA;
 --ID_ExOpB_EX_FW <= ID_RegDB when exTable_B='0' else FW_Ex_OpB;
-ID_ExOpA_FW <= ID_ExOpA_MEM_FW when exTable_A='0' or BrTaken='1' else FW_Ex_OpA;
-ID_ExOpB_FW <= ID_ExOpB_MEM_FW when exTable_B='0' or BrTaken='1' else FW_Ex_OpB;
+ID_ExOpA_FW <= ID_ExOpA_MEM_FW when exTable_A='0' else FW_Ex_OpA;--or BrTaken='1' else FW_Ex_OpA;
+ID_ExOpB_FW <= ID_ExOpB_MEM_FW when exTable_B='0' else FW_Ex_OpB;--or BrTaken='1' else FW_Ex_OpB;
 
 -- MUX MEMTABLE
-ID_ExOpA_MEM_FW <= ID_ExOpA_WB_FW when memTable_A='0' or BrTaken='1' else FW_Mem_OpA;
-ID_ExOpB_MEM_FW <= ID_ExOpB_WB_FW when memTable_B='0' or BrTaken='1' else FW_Mem_OpB;
+ID_ExOpA_MEM_FW <= ID_ExOpA_WB_FW when memTable_A='0' else FW_Mem_OpA;--or BrTaken='1' else FW_Mem_OpA;
+ID_ExOpB_MEM_FW <= ID_ExOpB_WB_FW when memTable_B='0' else FW_Mem_OpB;--or BrTaken='1' else FW_Mem_OpB;
+
+brali_FW <= '0' when reset='1' else brali when rising_edge(clk);
 
 -- MUX WBTABLE
-ID_ExOpA_WB_FW <= ID_RegDA when wbTable_A='0' or BrTaken='1' else FW_Wb_OpA;
-ID_ExOpB_WB_FW <= ID_RegDB when wbTable_B='0' or BrTaken='1' else FW_Wb_OpB;
+ID_ExOpA_WB_FW <= ID_RegDA when wbTable_A='0' else FW_Wb_OpA;--or (BrTaken='1' AND brali_FW='0') else FW_Wb_OpA;
+ID_ExOpB_WB_FW <= ID_RegDB when wbTable_B='0' else FW_Wb_OpB;--or (BrTaken='1' AND brali_FW='0') else FW_Wb_OpB;
 
 ---------------------------------------------------------------------------------------------------------------
 -- REGISTER FILE
@@ -269,7 +272,7 @@ uRF : register_file port map(
     WE    => RegWE,         DinD  => WB_RegDin,                        -- RF write (port D only)
 	 fw_exTable_A =>exTable_A,fw_exTable_B =>exTable_B,fw_memTable_A => memTable_A,fw_memTable_B => memTable_B,fw_wbTable_A => wbTable_A,fw_wbTable_B => wbTable_B,
 	AIsInValid=>RF_InValidA,  BIsInValid => RF_InValidB,	ID_ENABLE => ID_STAGE_ENABLE,--Valid Registers
-	BrTaken => BrTaken
+	memCTRL => ID_MemCTRL, BrTaken => BrTaken
 );
 
 WB_ID_OpD <= (others=>'0') when reset='1' else MEM_ID_OpD when rising_edge(clk) AND WB_STAGE_ENABLE='1';
@@ -294,7 +297,7 @@ Control_Hazard <= Control_Hazard(1 downto 0) & CHazard;
 Hazard <= PC_Hazard when rising_edge(clk);
 --PC_Hazard <= (Data_Hazard OR Control_Hazard(2) OR Control_Hazard(1) OR Control_Hazard(0)); before forwarding
 --PC_Hazard <= (Control_Hazard(2) OR Control_Hazard(1) OR Control_Hazard(0));
-PC_Hazard <= '0';
+PC_Hazard <= Data_Hazard;
 ---------------------------------------------------------------------------------------------------------------
 -- BRANCH (i.e. PC) CONTROL
 ---------------------------------------------------------------------------------------------------------------
@@ -327,7 +330,7 @@ BrTaken <= '0' when reset='1' else REG_BrTaken when rising_edge(clk);
 --
 --EX_MSR_C    <= '0' when (reset='1' OR BrTaken='1') else EX_FlagC;
 
-EX_CTRL     <= (others=>'0') when (reset='1' or BrTaken='1') else ID_ExCTRL   when rising_edge(clk) and ID_STAGE_ENABLE='1';
+EX_CTRL     <= (others=>'0') when (reset='1') else ID_ExCTRL   when rising_edge(clk) and ID_STAGE_ENABLE='1';--or BrTaken='1') else ID_ExCTRL   when rising_edge(clk) and ID_STAGE_ENABLE='1';
 EX_OpA      <= (others=>'0') when (reset='1') else ID_ExOpA    when rising_edge(clk) and ID_STAGE_ENABLE='1';
 EX_OpB      <= (others=>'0') when (reset='1') else ID_ExOpB    when rising_edge(clk) and ID_STAGE_ENABLE='1';
 EX_OpC      <=          '0'  when (reset='1') else ID_ExOpC    when rising_edge(clk) and ID_STAGE_ENABLE='1';
@@ -376,8 +379,8 @@ MemWriteData <= MemReadData(31 downto  8) & WB_StoreData( 7 downto 0)           
 MemWriteEnable <= '1' when WB_STAGE_ENABLE='1' and WB_MemCTRL(2)='1' else '0'; 
 
 -- Forwarding
-FW_Mem_OpA <= MEM_ExResult;
-FW_Mem_OpB <= MEM_ExResult;
+FW_Mem_OpA <= MEM_ExResult when RF_InValidA='0' else memReadData;
+FW_Mem_OpB <= MEM_ExResult when RF_InValidB='0' else memReadData;
 
 ---------------------------------------------------------------------------------------------------------------
 -- MEM to WB stage registers

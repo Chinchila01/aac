@@ -118,7 +118,7 @@ ExCTRL   <= "000" when std_match(IOpcode,"00-0--") else                       --
             "011" when std_match(IOpcode,"01-001") else  -- barrel shifter 
             "100" when std_match(IOpcode,"100100") and IModifier(6 downto 5)/="11" else  -- shift right with carry in (ExC) and carry out (MSR_C) 
             "101" when std_match(IOpcode,"100100") and IModifier(6 downto 5) ="11" else  -- transfer (executed as ExOpA OR zero) 
-            "101" when std_match(IOpcode,"10-110") and I(18) ='1' else  -- (*** NEW ***) the branch and link instruction must perform a transfer of PC value (executed as ExOpA OR zero) 
+				"101" when std_match(IOpcode,"10-110") and I(18) ='1' else  -- (*** NEW ***) the branch and link instruction must perform a transfer of PC value (executed as ExOpA OR zero) 
             "101" when std_match(IOpcode,"10-000") else  -- OR 
             "110" when std_match(IOpcode,"10-0-1") else  -- AND 
             "111" when std_match(IOpcode,"10-010") else  -- XOR 
