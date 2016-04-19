@@ -86,15 +86,19 @@ component register_file
 
 	FW_exTable_A : out std_logic;
 	FW_exTable_B : out std_logic;
+	FW_exTable_D : out std_logic;
 
 	FW_memTable_A : out std_logic;
 	FW_memTable_B : out std_logic;
+	FW_memTable_D : out std_logic;
 
 	FW_wbTable_A : out std_logic;
 	FW_wbTable_B : out std_logic;
+	FW_wbTable_D : out std_logic;
 
        AIsInValid: out STD_LOGIC;
        BIsInValid: out STD_LOGIC;
+
        ID_ENABLE : in STD_LOGIC;
 
        memCTRL: in STD_LOGIC_VECTOR(2 downto 0);

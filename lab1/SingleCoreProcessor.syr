@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.14 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.15 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: SingleCoreProcessor.prj
@@ -108,28 +108,28 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Parsing VHDL file "/home/filipe/Documents/AAC/lab1/main_definitions.vhd" into library work
+Parsing VHDL file "/home/nuno/aac/aac/lab1/main_definitions.vhd" into library work
 Parsing package <main_definitions>.
 Parsing package body <main_definitions>.
-Parsing VHDL file "/home/filipe/Documents/AAC/lab1/register_file.vhd" into library work
+Parsing VHDL file "/home/nuno/aac/aac/lab1/register_file.vhd" into library work
 Parsing entity <register_file>.
 Parsing architecture <Behavioral> of entity <register_file>.
-Parsing VHDL file "/home/filipe/Documents/AAC/lab1/decoder.vhd" into library work
+Parsing VHDL file "/home/nuno/aac/aac/lab1/decoder.vhd" into library work
 Parsing entity <decoder>.
 Parsing architecture <Behavioral> of entity <decoder>.
-Parsing VHDL file "/home/filipe/Documents/AAC/lab1/branch_control.vhd" into library work
+Parsing VHDL file "/home/nuno/aac/aac/lab1/branch_control.vhd" into library work
 Parsing entity <branch_control>.
 Parsing architecture <Behavioral> of entity <branch_control>.
-Parsing VHDL file "/home/filipe/Documents/AAC/lab1/alu.vhd" into library work
+Parsing VHDL file "/home/nuno/aac/aac/lab1/alu.vhd" into library work
 Parsing entity <alu>.
 Parsing architecture <Behavioral> of entity <alu>.
-Parsing VHDL file "/home/filipe/Documents/AAC/lab1/simpleDualPortMemorySecond.vhd" into library work
+Parsing VHDL file "/home/nuno/aac/aac/lab1/simpleDualPortMemory.vhd" into library work
 Parsing entity <DualPortMemory>.
 Parsing architecture <Behavioral> of entity <dualportmemory>.
-Parsing VHDL file "/home/filipe/Documents/AAC/lab1/simpleCore.vhd" into library work
+Parsing VHDL file "/home/nuno/aac/aac/lab1/simpleCore.vhd" into library work
 Parsing entity <simpleCore>.
 Parsing architecture <Behavioral> of entity <simplecore>.
-Parsing VHDL file "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.vhd" into library work
+Parsing VHDL file "/home/nuno/aac/aac/lab1/SingleCoreProcessor.vhd" into library work
 Parsing entity <SingleCoreProcessor>.
 Parsing architecture <Behavioral> of entity <singlecoreprocessor>.
 
@@ -142,7 +142,7 @@ Elaborating entity <SingleCoreProcessor> (architecture <Behavioral>) from librar
 Elaborating entity <simpleCore> (architecture <Behavioral>) from library <work>.
 
 Elaborating entity <decoder> (architecture <Behavioral>) from library <work>.
-WARNING:HDLCompiler:1127 - "/home/filipe/Documents/AAC/lab1/simpleCore.vhd" Line 259: Assignment to brali_fw ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/nuno/aac/aac/lab1/simpleCore.vhd" Line 271: Assignment to brali_fw ignored, since the identifier is never used
 
 Elaborating entity <register_file> (architecture <Behavioral>) from library <work>.
 
@@ -157,13 +157,13 @@ Elaborating entity <DualPortMemory> (architecture <Behavioral>) from library <wo
 =========================================================================
 
 Synthesizing Unit <SingleCoreProcessor>.
-    Related source file is "/home/filipe/Documents/AAC/lab1/SingleCoreProcessor.vhd".
+    Related source file is "/home/nuno/aac/aac/lab1/SingleCoreProcessor.vhd".
     Summary:
 	no macro.
 Unit <SingleCoreProcessor> synthesized.
 
 Synthesizing Unit <simpleCore>.
-    Related source file is "/home/filipe/Documents/AAC/lab1/simpleCore.vhd".
+    Related source file is "/home/nuno/aac/aac/lab1/simpleCore.vhd".
     Found 16-bit register for signal <ID_PC>.
     Found 16-bit register for signal <REG_PC>.
     Found 32-bit register for signal <REG_I>.
@@ -193,11 +193,11 @@ Synthesizing Unit <simpleCore>.
     Found 1-bit register for signal <EX_RegWE>.
     Summary:
 	inferred 342 D-type flip-flop(s).
-	inferred  26 Multiplexer(s).
+	inferred  29 Multiplexer(s).
 Unit <simpleCore> synthesized.
 
 Synthesizing Unit <decoder>.
-    Related source file is "/home/filipe/Documents/AAC/lab1/decoder.vhd".
+    Related source file is "/home/nuno/aac/aac/lab1/decoder.vhd".
     Found 16-bit register for signal <RImm16>.
     Found 1-bit register for signal <MSR_I>.
     Summary:
@@ -206,7 +206,7 @@ Synthesizing Unit <decoder>.
 Unit <decoder> synthesized.
 
 Synthesizing Unit <register_file>.
-    Related source file is "/home/filipe/Documents/AAC/lab1/register_file.vhd".
+    Related source file is "/home/nuno/aac/aac/lab1/register_file.vhd".
     Found 32-bit register for signal <exTable>.
     Found 32-bit register for signal <memTable>.
     Found 32-bit register for signal <wbTable>.
@@ -242,22 +242,25 @@ Synthesizing Unit <register_file>.
     Found 32-bit register for signal <RegisterTable<30>>.
     Found 32-bit register for signal <RegisterTable<31>>.
     Found 1-bit register for signal <loadOP_reg>.
-    Found 1-bit 32-to-1 multiplexer for signal <FW_exTable_A> created at line 101.
-    Found 1-bit 32-to-1 multiplexer for signal <FW_memTable_A> created at line 102.
-    Found 1-bit 32-to-1 multiplexer for signal <FW_wbTable_A> created at line 103.
-    Found 1-bit 32-to-1 multiplexer for signal <FW_exTable_B> created at line 104.
-    Found 1-bit 32-to-1 multiplexer for signal <FW_memTable_B> created at line 105.
-    Found 1-bit 32-to-1 multiplexer for signal <FW_wbTable_B> created at line 106.
-    Found 32-bit 32-to-1 multiplexer for signal <DoutA> created at line 113.
-    Found 32-bit 32-to-1 multiplexer for signal <DoutB> created at line 114.
-    Found 32-bit 32-to-1 multiplexer for signal <DoutD> created at line 115.
+    Found 1-bit 32-to-1 multiplexer for signal <FW_exTable_A> created at line 107.
+    Found 1-bit 32-to-1 multiplexer for signal <FW_memTable_A> created at line 108.
+    Found 1-bit 32-to-1 multiplexer for signal <FW_wbTable_A> created at line 109.
+    Found 1-bit 32-to-1 multiplexer for signal <FW_exTable_B> created at line 110.
+    Found 1-bit 32-to-1 multiplexer for signal <FW_memTable_B> created at line 111.
+    Found 1-bit 32-to-1 multiplexer for signal <FW_wbTable_B> created at line 112.
+    Found 1-bit 32-to-1 multiplexer for signal <OpD[4]_exTable[31]_Mux_48_o> created at line 119.
+    Found 1-bit 32-to-1 multiplexer for signal <OpD[4]_memTable[31]_Mux_49_o> created at line 119.
+    Found 1-bit 32-to-1 multiplexer for signal <OpD[4]_wbTable[31]_Mux_50_o> created at line 119.
+    Found 32-bit 32-to-1 multiplexer for signal <DoutA> created at line 122.
+    Found 32-bit 32-to-1 multiplexer for signal <DoutB> created at line 123.
+    Found 32-bit 32-to-1 multiplexer for signal <DoutD> created at line 124.
     Summary:
 	inferred 1089 D-type flip-flop(s).
-	inferred   9 Multiplexer(s).
+	inferred  12 Multiplexer(s).
 Unit <register_file> synthesized.
 
 Synthesizing Unit <branch_control>.
-    Related source file is "/home/filipe/Documents/AAC/lab1/branch_control.vhd".
+    Related source file is "/home/nuno/aac/aac/lab1/branch_control.vhd".
 WARNING:Xst:647 - Input <reset> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <Data_Hazard> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 1-bit register for signal <BrTakenReg>.
@@ -272,7 +275,7 @@ WARNING:Xst:647 - Input <Data_Hazard> is never used. This port will be preserved
 Unit <branch_control> synthesized.
 
 Synthesizing Unit <alu>.
-    Related source file is "/home/filipe/Documents/AAC/lab1/alu.vhd".
+    Related source file is "/home/nuno/aac/aac/lab1/alu.vhd".
     Found 34-bit adder for signal <n0160> created at line 90.
     Found 34-bit adder for signal <uAddComp.auxRes> created at line 90.
     Found 6-bit adder for signal <n0164> created at line 124.
@@ -304,7 +307,7 @@ Synthesizing Unit <alu>.
 Unit <alu> synthesized.
 
 Synthesizing Unit <DualPortMemory>.
-    Related source file is "/home/filipe/Documents/AAC/lab1/simpleDualPortMemorySecond.vhd".
+    Related source file is "/home/nuno/aac/aac/lab1/simpleDualPortMemory.vhd".
 WARNING:Xst:647 - Input <Addr_A<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <Addr_B<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 16384x32-bit dual-port RAM <Mram_RAM> for signal <RAM>.
@@ -337,7 +340,7 @@ Macro Statistics
  32-bit register                                       : 42
  33-bit register                                       : 2
  5-bit register                                        : 3
-# Multiplexers                                         : 351
+# Multiplexers                                         : 357
  1-bit 2-to-1 multiplexer                              : 197
  1-bit 21-to-1 multiplexer                             : 2
  1-bit 24-to-1 multiplexer                             : 2
@@ -346,10 +349,10 @@ Macro Statistics
  1-bit 28-to-1 multiplexer                             : 2
  1-bit 30-to-1 multiplexer                             : 2
  1-bit 31-to-1 multiplexer                             : 2
- 1-bit 32-to-1 multiplexer                             : 9
+ 1-bit 32-to-1 multiplexer                             : 12
  16-bit 2-to-1 multiplexer                             : 19
  3-bit 2-to-1 multiplexer                              : 18
- 32-bit 2-to-1 multiplexer                             : 59
+ 32-bit 2-to-1 multiplexer                             : 62
  32-bit 3-to-1 multiplexer                             : 1
  32-bit 32-to-1 multiplexer                            : 3
  32-bit 4-to-1 multiplexer                             : 1
@@ -410,7 +413,7 @@ Macro Statistics
  6-bit subtractor                                      : 1
 # Registers                                            : 1449
  Flip-Flops                                            : 1449
-# Multiplexers                                         : 350
+# Multiplexers                                         : 356
  1-bit 2-to-1 multiplexer                              : 197
  1-bit 21-to-1 multiplexer                             : 2
  1-bit 24-to-1 multiplexer                             : 2
@@ -419,10 +422,10 @@ Macro Statistics
  1-bit 28-to-1 multiplexer                             : 2
  1-bit 30-to-1 multiplexer                             : 2
  1-bit 31-to-1 multiplexer                             : 2
- 1-bit 32-to-1 multiplexer                             : 9
+ 1-bit 32-to-1 multiplexer                             : 12
  16-bit 2-to-1 multiplexer                             : 19
  3-bit 2-to-1 multiplexer                              : 18
- 32-bit 2-to-1 multiplexer                             : 58
+ 32-bit 2-to-1 multiplexer                             : 61
  32-bit 3-to-1 multiplexer                             : 1
  32-bit 32-to-1 multiplexer                            : 3
  32-bit 4-to-1 multiplexer                             : 1
@@ -485,17 +488,17 @@ Top Level Output File Name         : SingleCoreProcessor.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 2725
+# BELS                             : 2792
 #      GND                         : 1
 #      INV                         : 14
 #      LUT1                        : 1
 #      LUT2                        : 39
 #      LUT3                        : 108
-#      LUT4                        : 202
+#      LUT4                        : 204
 #      LUT5                        : 407
-#      LUT6                        : 1641
+#      LUT6                        : 1733
 #      MUXCY                       : 73
-#      MUXF7                       : 161
+#      MUXF7                       : 134
 #      VCC                         : 1
 #      XORCY                       : 77
 # FlipFlops/Latches                : 1446
@@ -522,14 +525,14 @@ Selected Device : 7k70tfbg676-2
 
 Slice Logic Utilization: 
  Number of Slice Registers:            1446  out of  82000     1%  
- Number of Slice LUTs:                 2412  out of  41000     5%  
-    Number used as Logic:              2412  out of  41000     5%  
+ Number of Slice LUTs:                 2506  out of  41000     6%  
+    Number used as Logic:              2506  out of  41000     6%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   3633
-   Number with an unused Flip Flop:    2187  out of   3633    60%  
-   Number with an unused LUT:          1221  out of   3633    33%  
-   Number of fully used LUT-FF pairs:   225  out of   3633     6%  
+ Number of LUT Flip Flop pairs used:   3730
+   Number with an unused Flip Flop:    2284  out of   3730    61%  
+   Number with an unused LUT:          1224  out of   3730    32%  
+   Number of fully used LUT-FF pairs:   222  out of   3730     5%  
    Number of unique control sets:        38
 
 IO Utilization: 
@@ -586,7 +589,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 13.216ns (frequency: 75.666MHz)
-  Total number of paths / destination ports: 345330623930 / 2614
+  Total number of paths / destination ports: 345447289852 / 2614
 -------------------------------------------------------------------------
 Delay:               6.608ns (Levels of Logic = 13)
   Source:            Core0/uRF/RegisterTable_26_13 (FF)
@@ -602,15 +605,15 @@ Delay:               6.608ns (Levels of Logic = 13)
      LUT6:I2->O            1   0.043   0.522  Core0/uRF/Mmux_DoutA_813 (Core0/uRF/Mmux_DoutA_813)
      LUT6:I2->O            1   0.043   0.000  Core0/uRF/Mmux_DoutA_34 (Core0/uRF/Mmux_DoutA_34)
      MUXF7:I1->O           1   0.178   0.350  Core0/uRF/Mmux_DoutA_2_f7_3 (Core0/ID_RegDA<13>)
-     LUT5:I4->O            1   0.043   0.350  Core0/Mmux_ID_ExOpA_FW103_SW0 (N421)
+     LUT5:I4->O            1   0.043   0.350  Core0/Mmux_ID_ExOpA_FW103_SW0 (N481)
      LUT5:I4->O            2   0.043   0.618  Core0/Mmux_ID_ExOpA_FW103 (Core0/ID_ExOpA_FW<13>)
      LUT6:I0->O            4   0.043   0.422  Core0/uBranchCTRL/FlagZ1 (Core0/uBranchCTRL/FlagZ1)
-     LUT4:I2->O           13   0.043   0.418  Core0/uBranchCTRL/FlagZ7_SW0 (N506)
+     LUT4:I2->O           13   0.043   0.418  Core0/uBranchCTRL/FlagZ7_SW0 (N566)
      LUT6:I5->O           17   0.043   0.440  Core0/uBranchCTRL/Mmux_PCIncrement1011 (Core0/uBranchCTRL/Mmux_PCIncrement101)
      LUT6:I5->O            1   0.043   0.613  Core0/uBranchCTRL/Mmux_PCIncrement16 (Core0/uBranchCTRL/PCIncrement<1>)
      LUT6:I0->O            3   0.043   0.417  Core0/uBranchCTRL/PCIncrement[15]_GND_12_o_equal_16_o<15>1 (Core0/uBranchCTRL/PCIncrement[15]_GND_12_o_equal_16_o<15>)
      LUT6:I4->O           12   0.043   0.583  Core0/uBranchCTRL/PCIncrement[15]_GND_12_o_equal_16_o<15>3_1 (Core0/uBranchCTRL/PCIncrement[15]_GND_12_o_equal_16_o<15>3)
-     LUT6:I2->O            1   0.043   0.405  Core0/Mmux_REG_PC[15]_ID_NextPC[15]_mux_1_OUT71_F (N919)
+     LUT6:I2->O            1   0.043   0.405  Core0/Mmux_REG_PC[15]_ID_NextPC[15]_mux_1_OUT71_F (N979)
      LUT3:I1->O            1   0.043   0.000  Core0/Mmux_REG_PC[15]_ID_NextPC[15]_mux_1_OUT711 (Core0/REG_PC[15]_ID_NextPC[15]_mux_1_OUT<15>)
      FDC:D                    -0.000          Core0/REG_PC[15]_dff_2_15
     ----------------------------------------
@@ -619,7 +622,7 @@ Delay:               6.608ns (Levels of Logic = 13)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 10580248 / 1654
+  Total number of paths / destination ports: 10582264 / 1654
 -------------------------------------------------------------------------
 Offset:              8.460ns (Levels of Logic = 17)
   Source:            reset (PAD)
@@ -630,22 +633,22 @@ Offset:              8.460ns (Levels of Logic = 17)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O          1678   0.000   0.783  reset_IBUF (reset_IBUF)
+     IBUF:I->O          1681   0.000   0.783  reset_IBUF (reset_IBUF)
      LUT4:I0->O          248   0.043   0.783  Core0/Mmux_ID_I91 (Core0/ID_I<17>)
      LUT6:I0->O            1   0.043   0.522  Core0/uRF/Mmux_FW_exTable_A_81 (Core0/uRF/Mmux_FW_exTable_A_81)
      LUT6:I2->O            1   0.043   0.000  Core0/uRF/Mmux_FW_exTable_A_3 (Core0/uRF/Mmux_FW_exTable_A_3)
      MUXF7:I1->O          77   0.178   0.633  Core0/uRF/Mmux_FW_exTable_A_2_f7 (Core0/extable_a)
      LUT4:I1->O            2   0.043   0.527  Core0/Mmux_ID_ExOpA_FW241 (Core0/Mmux_ID_ExOpA_FW24)
-     LUT4:I0->O            2   0.043   0.608  Core0/Mmux_ID_ExOpA_FW243_SW1 (N317)
-     LUT6:I1->O            1   0.043   0.000  Core0/Mmux_ID_ExOpA_FW343_SW0_F (N961)
-     MUXF7:I0->O           1   0.176   0.350  Core0/Mmux_ID_ExOpA_FW343_SW0 (N319)
+     LUT4:I0->O            2   0.043   0.608  Core0/Mmux_ID_ExOpA_FW243_SW1 (N377)
+     LUT6:I1->O            1   0.043   0.000  Core0/Mmux_ID_ExOpA_FW343_SW0_F (N1025)
+     MUXF7:I0->O           1   0.176   0.350  Core0/Mmux_ID_ExOpA_FW343_SW0 (N379)
      LUT6:I5->O            1   0.043   0.350  Core0/uBranchCTRL/FlagZ3 (Core0/uBranchCTRL/FlagZ3)
      LUT6:I5->O           16   0.043   0.488  Core0/uBranchCTRL/FlagZ4 (Core0/uBranchCTRL/FlagZ4)
      LUT6:I4->O           17   0.043   0.440  Core0/uBranchCTRL/Mmux_PCIncrement1011 (Core0/uBranchCTRL/Mmux_PCIncrement101)
      LUT6:I5->O            1   0.043   0.613  Core0/uBranchCTRL/Mmux_PCIncrement16 (Core0/uBranchCTRL/PCIncrement<1>)
      LUT6:I0->O            3   0.043   0.417  Core0/uBranchCTRL/PCIncrement[15]_GND_12_o_equal_16_o<15>1 (Core0/uBranchCTRL/PCIncrement[15]_GND_12_o_equal_16_o<15>)
      LUT6:I4->O           12   0.043   0.583  Core0/uBranchCTRL/PCIncrement[15]_GND_12_o_equal_16_o<15>3_1 (Core0/uBranchCTRL/PCIncrement[15]_GND_12_o_equal_16_o<15>3)
-     LUT6:I2->O            1   0.043   0.405  Core0/Mmux_REG_PC[15]_ID_NextPC[15]_mux_1_OUT71_F (N919)
+     LUT6:I2->O            1   0.043   0.405  Core0/Mmux_REG_PC[15]_ID_NextPC[15]_mux_1_OUT71_F (N979)
      LUT3:I1->O            1   0.043   0.000  Core0/Mmux_REG_PC[15]_ID_NextPC[15]_mux_1_OUT711 (Core0/REG_PC[15]_ID_NextPC[15]_mux_1_OUT<15>)
      FDC:D                    -0.000          Core0/REG_PC[15]_dff_2_15
     ----------------------------------------
@@ -657,15 +660,15 @@ Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
   Total number of paths / destination ports: 505 / 65
 -------------------------------------------------------------------------
 Offset:              2.058ns (Levels of Logic = 3)
-  Source:            Core0/WB_MemCTRL[2]_dff_69_0 (FF)
+  Source:            Core0/WB_MemCTRL[2]_dff_74_0 (FF)
   Destination:       MemWData<31> (PAD)
   Source Clock:      clk rising
 
-  Data Path: Core0/WB_MemCTRL[2]_dff_69_0 to MemWData<31>
+  Data Path: Core0/WB_MemCTRL[2]_dff_74_0 to MemWData<31>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q             70   0.236   0.740  Core0/WB_MemCTRL[2]_dff_69_0 (Core0/WB_MemCTRL[2]_dff_69_0)
+     FDC:C->Q             70   0.236   0.740  Core0/WB_MemCTRL[2]_dff_74_0 (Core0/WB_MemCTRL[2]_dff_74_0)
      LUT5:I0->O            8   0.043   0.652  Core0/Mmux_MemWriteData3421 (Core0/Mmux_MemWriteData342)
      LUT6:I0->O            2   0.043   0.344  Core0/Mmux_MemWriteData50 (MemWData_31_OBUF)
      OBUF:I->O                 0.000          MemWData_31_OBUF (MemWData<31>)
@@ -689,13 +692,13 @@ clk            |   12.194|    6.608|    2.249|         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 87.00 secs
-Total CPU time to Xst completion: 85.52 secs
+Total REAL time to Xst completion: 35.00 secs
+Total CPU time to Xst completion: 34.12 secs
  
 --> 
 
 
-Total memory usage is 528408 kilobytes
+Total memory usage is 528580 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   11 (   0 filtered)

@@ -52,15 +52,20 @@ entity register_file is
 			  -- Validation --
 			  FW_exTable_A : out std_logic;
 			  FW_exTable_B : out std_logic;
+			  FW_exTable_D : out std_logic;
 			  
 			  FW_memTable_A : out std_logic;
 			  FW_memTable_B : out std_logic;
+			  FW_memTable_D : out std_logic;
 			  
 			  FW_wbTable_A : out std_logic;
 			  FW_wbTable_B : out std_logic;
+			  FW_wbTable_D : out std_logic;
+
 			  
 			  AIsInValid:out STD_LOGIC;
 			  BIsInValid:out STD_LOGIC;
+			  
 			  ID_ENABLE: in STD_LOGIC;
 			  
 			  memCTRL: in STD_LOGIC_VECTOR(2 downto 0);
@@ -80,6 +85,7 @@ signal wbTable  : std_logic_vector(N_REGISTERS-1 downto 0);
 signal toScoreBoard : std_logic; -- when 1, scoreboard is recorded, else isn't
 signal StoreSig : std_logic;
 signal loadOP_reg: std_logic; -- when load operation, data_hazard is needed
+signal DIsInValid: std_logic;
 
 begin
 
@@ -104,10 +110,13 @@ FW_wbTable_A <= wbTable(conv_integer(OpA));
 FW_exTable_B <= exTable(conv_integer(OpB));
 FW_memTable_B <= memTable(conv_integer(OpB));
 FW_wbTable_B <= wbTable(conv_integer(OpB));
+FW_exTable_D <= DIsInValid and exTable(conv_integer(OpD));
+FW_memTable_D <= DIsInValid and memTable(conv_integer(OpD));
+FW_wbTable_D <= DIsInValid and wbTable(conv_integer(OpD));
 
 AIsInValid <= (exTable(conv_integer(OpA)) AND loadOp_Reg); --OR memTable(conv_integer(OpA)) OR wbTable(conv_integer(OpA));
 BIsInValid <= (exTable(conv_integer(OpB)) AND loadOp_Reg); --OR memTable(conv_integer(OpB)) OR wbTable(conv_integer(OpB));
-
+DIsInValid <= Not(StoreSig) and (exTable(conv_integer(OpD)) OR memTable(conv_integer(OpD)) OR wbTable(conv_integer(OpD)));
 
 -- Asynchronous read process
 DoutA <= RegisterTable(conv_integer(OpA));

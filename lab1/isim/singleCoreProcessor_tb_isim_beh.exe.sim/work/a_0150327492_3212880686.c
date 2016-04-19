@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "/home/filipe/Documents/AAC/lab1/simpleDualPortMemorySecond.vhd";
+static const char *ng0 = "/home/nuno/aac/aac/lab1/simpleDualPortMemory.vhd";
 extern char *IEEE_P_2592010699;
 extern char *IEEE_P_3620187407;
 extern char *WORK_P_1299257503;

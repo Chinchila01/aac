@@ -144,27 +144,37 @@ signal Hazard,PC_Hazard : STD_LOGIC;
 -- Forwarding
 signal FW_Ex_OpA : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
 signal FW_Ex_OpB : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
+signal FW_Ex_OpD : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
 signal FW_Mem_OpA : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
 signal FW_Mem_OpB : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
+signal FW_Mem_OpD : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
 signal FW_Wb_OpA : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
 signal FW_Wb_OpB : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
+signal FW_Wb_OpD : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
 
 signal ID_ExOpA_EX_FW : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
 signal ID_ExOpB_EX_FW : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
+signal ID_ExOpD_EX_FW : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
 signal ID_ExOpA_MEM_FW : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
 signal ID_ExOpB_MEM_FW : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
+signal ID_ExOpD_MEM_FW : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
 signal ID_ExOpA_WB_FW : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
 signal ID_ExOpB_WB_FW : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
+signal ID_ExOpD_WB_FW : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
 
 signal ID_ExOpA_FW : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
 signal ID_ExOpB_FW : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
+signal ID_ExOpD_FW : STD_LOGIC_VECTOR(WORD_WIDTH-1 downto 0);
 
 signal extable_a : std_logic;
 signal extable_b : std_logic;
+signal extable_d : std_logic;
 signal memtable_a : std_logic;
 signal memtable_b : std_logic;
+signal memtable_d : std_logic;
 signal wbtable_a : std_logic;
 signal wbtable_b : std_logic;
+signal wbtable_d : std_logic;
 
 signal BrTaken, REG_BrTaken : std_logic;
 
@@ -251,16 +261,19 @@ MSR_C_REG <= EX_MSR_C when MSR_C_REG_EN='1' AND rising_edge(clk);
 --ID_ExOpB_EX_FW <= ID_RegDB when exTable_B='0' else FW_Ex_OpB;
 ID_ExOpA_FW <= ID_ExOpA_MEM_FW when exTable_A='0' else FW_Ex_OpA;--or BrTaken='1' else FW_Ex_OpA;
 ID_ExOpB_FW <= ID_ExOpB_MEM_FW when exTable_B='0' else FW_Ex_OpB;--or BrTaken='1' else FW_Ex_OpB;
+ID_ExOpD_FW <= ID_ExOpD_MEM_FW when exTable_D='0' else FW_Ex_OpD;
 
 -- MUX MEMTABLE
 ID_ExOpA_MEM_FW <= ID_ExOpA_WB_FW when memTable_A='0' else FW_Mem_OpA;--or BrTaken='1' else FW_Mem_OpA;
 ID_ExOpB_MEM_FW <= ID_ExOpB_WB_FW when memTable_B='0' else FW_Mem_OpB;--or BrTaken='1' else FW_Mem_OpB;
+ID_ExOpD_MEM_FW <= ID_ExOpD_WB_FW when memTable_D='0' else FW_Mem_OpD;
 
 brali_FW <= '0' when reset='1' else brali when rising_edge(clk);
 
 -- MUX WBTABLE
 ID_ExOpA_WB_FW <= ID_RegDA when wbTable_A='0' else FW_Wb_OpA;--or (BrTaken='1' AND brali_FW='0') else FW_Wb_OpA;
 ID_ExOpB_WB_FW <= ID_RegDB when wbTable_B='0' else FW_Wb_OpB;--or (BrTaken='1' AND brali_FW='0') else FW_Wb_OpB;
+ID_ExOpD_WB_FW <= ID_RegDD when wbTable_D='0' else FW_Wb_OpD;
 
 ---------------------------------------------------------------------------------------------------------------
 -- REGISTER FILE
@@ -268,16 +281,19 @@ ID_ExOpB_WB_FW <= ID_RegDB when wbTable_B='0' else FW_Wb_OpB;--or (BrTaken='1' A
 uRF : register_file port map(
     clk   => clk,           reset => reset,
     OpA   => ID_OpA,          OpB => ID_OpB,          OpD => ID_OpD, OP_D_REG=>WB_ID_OpD,--ID_OpD,     -- port addressing
-	 DoutA => ID_RegDA,      DoutB => ID_RegDB,      DoutD => ID_RegDD, -- port output
+	 DoutA => ID_RegDA,      DoutB => ID_RegDB,        DoutD => ID_RegDD, -- port output
     WE    => RegWE,         DinD  => WB_RegDin,                        -- RF write (port D only)
 	 fw_exTable_A =>exTable_A,fw_exTable_B =>exTable_B,fw_memTable_A => memTable_A,fw_memTable_B => memTable_B,fw_wbTable_A => wbTable_A,fw_wbTable_B => wbTable_B,
 	AIsInValid=>RF_InValidA,  BIsInValid => RF_InValidB,	ID_ENABLE => ID_STAGE_ENABLE,--Valid Registers
-	memCTRL => ID_MemCTRL, BrTaken => BrTaken
+	memCTRL => ID_MemCTRL, BrTaken => BrTaken,
+	fw_exTable_D=>exTable_D, fw_memTable_D=>memTable_D, fw_wbTable_D=>wbTable_D
+	
 );
 
 WB_ID_OpD <= (others=>'0') when reset='1' else MEM_ID_OpD when rising_edge(clk) AND WB_STAGE_ENABLE='1';
 MEM_ID_OpD <= (others=>'0') when reset='1' else EX_ID_OpD when rising_edge(clk) AND MEM_STAGE_ENABLE='1';
 EX_ID_OpD <= (others=>'0') when reset='1' else ID_OpD when rising_edge(clk) AND EX_STAGE_ENABLE='1';
+
 
 -------------------------------------------------------------------------------------------------
 -- HAZARD DETECTION 
@@ -334,7 +350,7 @@ EX_CTRL     <= (others=>'0') when (reset='1') else ID_ExCTRL   when rising_edge(
 EX_OpA      <= (others=>'0') when (reset='1') else ID_ExOpA    when rising_edge(clk) and ID_STAGE_ENABLE='1';
 EX_OpB      <= (others=>'0') when (reset='1') else ID_ExOpB    when rising_edge(clk) and ID_STAGE_ENABLE='1';
 EX_OpC      <=          '0'  when (reset='1') else ID_ExOpC    when rising_edge(clk) and ID_STAGE_ENABLE='1';
-EX_OpD      <= (others=>'0') when (reset='1') else ID_RegDD    when rising_edge(clk) and ID_STAGE_ENABLE='1';
+EX_OpD      <= (others=>'0') when (reset='1') else ID_ExOpD_FW    when rising_edge(clk) and ID_STAGE_ENABLE='1';
 EX_MSR_C_WE <=          '0'  when (reset='1' or BrTaken='1') else ID_MSR_C_WE when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
 EX_MemCTRL  <= (others=>'0') when (reset='1' or BrTaken='1') else ID_MemCTRL  when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
 EX_RegWE    <=          '0'  when (reset='1' or BrTaken='1') else ID_RegWE    when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
@@ -352,6 +368,7 @@ uALU: alu port map (
 -- Forwarding
 FW_Ex_OpA <= Ex_Result;
 FW_Ex_OpB <= Ex_Result;
+FW_Ex_Opd <= Ex_Result;
 
 ---------------------------------------------------------------------------------------------------------------
 -- EX to MEM stage registers
@@ -381,6 +398,7 @@ MemWriteEnable <= '1' when WB_STAGE_ENABLE='1' and WB_MemCTRL(2)='1' else '0';
 -- Forwarding
 FW_Mem_OpA <= MEM_ExResult when RF_InValidA='0' else memReadData;
 FW_Mem_OpB <= MEM_ExResult when RF_InValidB='0' else memReadData;
+FW_Mem_OpD <= MEM_ExResult;
 
 ---------------------------------------------------------------------------------------------------------------
 -- MEM to WB stage registers
@@ -408,5 +426,6 @@ RegWE <= WB_RegWE when WB_STAGE_ENABLE='1' else '0';
 -- Forwarding
 FW_Wb_OpA <= WB_ExResult;
 FW_Wb_OpB <= WB_ExResult;
+FW_Wb_OpD <= WB_ExResult;
 
 end Behavioral;
