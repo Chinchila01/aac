@@ -16,7 +16,7 @@ Parsing VHDL file "/home/nuno/aac/aac/lab1/singleCoreProcessor_tb.vhd" into libr
 Starting static elaboration
 Completed static elaboration
 Fuse Memory Usage: 101648 KB
-Fuse CPU Usage: 1360 ms
+Fuse CPU Usage: 1370 ms
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package std_logic_arith
@@ -40,5 +40,5 @@ Waiting for 1 sub-compilation(s) to finish...
 Compiled 25 VHDL Units
 Built simulation executable /home/nuno/aac/aac/lab1/singleCoreProcessor_tb_isim_beh.exe
 Fuse Memory Usage: 1214036 KB
-Fuse CPU Usage: 2310 ms
-GCC CPU Usage: 2200 ms
+Fuse CPU Usage: 2240 ms
+GCC CPU Usage: 2280 ms

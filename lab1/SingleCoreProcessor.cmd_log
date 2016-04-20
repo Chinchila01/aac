@@ -226,3 +226,7 @@ xst -intstyle ise -ifn "/home/nuno/aac/aac/lab1/SingleCoreProcessor.xst" -ofn "/
 netgen -intstyle ise -ar Structure -tm SingleCoreProcessor -w -dir netgen/synthesis -ofmt vhdl -sim SingleCoreProcessor.ngc SingleCoreProcessor_synthesis.vhd 
 xst -intstyle ise -ifn "/home/nuno/aac/aac/lab1/SingleCoreProcessor.xst" -ofn "/home/nuno/aac/aac/lab1/SingleCoreProcessor.syr" 
 netgen -intstyle ise -ar Structure -tm SingleCoreProcessor -w -dir netgen/synthesis -ofmt vhdl -sim SingleCoreProcessor.ngc SingleCoreProcessor_synthesis.vhd 
+xst -intstyle ise -ifn "/home/nuno/aac/aac/lab1/SingleCoreProcessor.xst" -ofn "/home/nuno/aac/aac/lab1/SingleCoreProcessor.syr" 
+netgen -intstyle ise -ar Structure -tm SingleCoreProcessor -w -dir netgen/synthesis -ofmt vhdl -sim SingleCoreProcessor.ngc SingleCoreProcessor_synthesis.vhd 
+xst -intstyle ise -ifn "/home/nuno/aac/aac/lab1/SingleCoreProcessor.xst" -ofn "/home/nuno/aac/aac/lab1/SingleCoreProcessor.syr" 
+netgen -intstyle ise -ar Structure -tm SingleCoreProcessor -w -dir netgen/synthesis -ofmt vhdl -sim SingleCoreProcessor.ngc SingleCoreProcessor_synthesis.vhd 

@@ -2,9 +2,9 @@ Command line:
    singleCoreProcessor_tb_isim_beh.exe
      -simmode  gui
      -simrunnum  1
-     -socket  33206
+     -socket  58257
 
-Tue Apr 19 10:56:48 2016
+Wed Apr 20 17:17:12 2016
 
 
- Elaboration Time: 0.09 sec
+ Elaboration Time: 0.04 sec
