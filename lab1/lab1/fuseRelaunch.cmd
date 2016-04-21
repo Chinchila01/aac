@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/nuno/aac/aac/lab1/singleCoreProcessor_tb_isim_beh.exe" -prj "/home/nuno/aac/aac/lab1/singleCoreProcessor_tb_beh.prj" "work.singleCoreProcessor_tb" 
