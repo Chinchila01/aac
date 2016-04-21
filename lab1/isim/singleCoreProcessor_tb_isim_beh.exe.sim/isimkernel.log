@@ -2,32 +2,9 @@ Command line:
    singleCoreProcessor_tb_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  49625
+     -socket  45507
 
-Thu Apr 21 12:17:56 2016
+Thu Apr 21 19:54:55 2016
 
 
- Elaboration Time: 0.07 sec
-
- Current Memory Usage: 201.884 Meg
-
- Total Signals          : 237
- Total Nets             : 3239
- Total Signal Drivers   : 205
- Total Blocks           : 79
- Total Primitive Blocks : 75
- Total Processes        : 204
- Total Traceable Variables  : 90
- Total Scalar Nets and Variables : 2101481
-Total Line Count : 302
-Total Line Count : 302
-Total Line Count : 302
-Total Line Count : 302
-Total Line Count : 302
-
- Total Simulation Time: 0.41 sec
-
- Current Memory Usage: 277.385 Meg
-
-Thu Apr 21 12:30:09 2016
-
+ Elaboration Time: 0.06 sec

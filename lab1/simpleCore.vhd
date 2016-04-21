@@ -189,6 +189,7 @@ signal brali_FW : std_logic; -- Brali flag delayed
 
 signal REG_RF_InValidA,REG_RF_InValidB : std_logic; -- delayed invalid signals
 signal MEM_FWIn : std_logic_vector(WORD_WIDTH-1 downto 0); -- memory forwarding when LOAD op
+signal REG_MEM_ExResult : std_logic_vector(WORD_WIDTH-1 downto 0); 
 begin
 
 
@@ -385,7 +386,9 @@ MEM_RegWE    <=          '0'  when (reset='1') else EX_RegWE   when rising_edge(
 -- DATA MEMORY
 ---------------------------------------------------------------------------------------------------------------
 --- Filipe: Adicionei um clock aqui, nao sei se esta correcto
-MemAddress   <= MEM_ExResult(PC_WIDTH-1 downto 0) when rising_edge(clk);
+MemAddress   <= MEM_ExResult(PC_WIDTH-1 downto 0) when WB_STAGE_ENABLE='1' and WB_MemCTRL(2)='0' else REG_MEM_ExResult(PC_WIDTH-1 downto 0);
+
+REG_MEM_ExResult <= MEM_ExResult when rising_edge(clk);
 
 MemWriteData <= MemReadData(31 downto  8) & WB_StoreData( 7 downto 0)                            when WB_MemCTRL="101" and MEM_ExResult(1 downto 0)="00" else -- write on byte 0
                 MemReadData(31 downto 16) & WB_StoreData( 7 downto 0) & MemReadData( 7 downto 0) when WB_MemCTRL="101" and MEM_ExResult(1 downto 0)="01" else -- write on byte 1
