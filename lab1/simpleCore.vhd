@@ -186,6 +186,9 @@ signal WB_ID_OpD,MEM_ID_OpD,EX_ID_OpD : std_logic_vector(REG_ADD_WIDTH-1 downto 
 
 signal brali : std_logic; -- Brali flag
 signal brali_FW : std_logic; -- Brali flag delayed
+
+signal REG_RF_InValidA,REG_RF_InValidB : std_logic; -- delayed invalid signals
+signal MEM_FWIn : std_logic_vector(WORD_WIDTH-1 downto 0); -- memory forwarding when LOAD op
 begin
 
 
@@ -381,7 +384,8 @@ MEM_RegWE    <=          '0'  when (reset='1') else EX_RegWE   when rising_edge(
 ---------------------------------------------------------------------------------------------------------------
 -- DATA MEMORY
 ---------------------------------------------------------------------------------------------------------------
-MemAddress   <= MEM_ExResult(PC_WIDTH-1 downto 0);
+--- Filipe: Adicionei um clock aqui, nao sei se esta correcto
+MemAddress   <= MEM_ExResult(PC_WIDTH-1 downto 0) when rising_edge(clk);
 
 MemWriteData <= MemReadData(31 downto  8) & WB_StoreData( 7 downto 0)                            when WB_MemCTRL="101" and MEM_ExResult(1 downto 0)="00" else -- write on byte 0
                 MemReadData(31 downto 16) & WB_StoreData( 7 downto 0) & MemReadData( 7 downto 0) when WB_MemCTRL="101" and MEM_ExResult(1 downto 0)="01" else -- write on byte 1
@@ -395,9 +399,22 @@ MemWriteData <= MemReadData(31 downto  8) & WB_StoreData( 7 downto 0)           
 -- all writes are performed during the WB stage
 MemWriteEnable <= '1' when WB_STAGE_ENABLE='1' and WB_MemCTRL(2)='1' else '0'; 
 
+-- Registers to delay invalid signals
+REG_RF_InValidA <= '0' when reset='1' else RF_InValidA when rising_edge(clk);
+REG_RF_InValidB <= '0' when reset='1' else RF_InValidB when rising_edge(clk);
+
+--Memory forwarding logic Não sei se é preciso--------------------------
+MEM_FWIn <= (WORD_WIDTH-1 downto  8=>'0') & MemReadData( 7 downto  0) when Mem_CTRL="001" and MEM_ExResult(1 downto 0)="00" else -- read from byte 0
+             (WORD_WIDTH-1 downto  8=>'0') & MemReadData(15 downto  8) when Mem_CTRL="001" and MEM_ExResult(1 downto 0)="01" else -- read from byte 1
+             (WORD_WIDTH-1 downto  8=>'0') & MemReadData(23 downto 16) when Mem_CTRL="001" and MEM_ExResult(1 downto 0)="10" else -- read from byte 2
+             (WORD_WIDTH-1 downto  8=>'0') & MemReadData(31 downto 24) when Mem_CTRL="001" and MEM_ExResult(1 downto 0)="11" else -- read from byte 3
+             (WORD_WIDTH-1 downto 16=>'0') & MemReadData(15 downto  0) when Mem_CTRL="010" and MEM_ExResult(1)='0'           else -- read from half-word 0
+             (WORD_WIDTH-1 downto 16=>'0') & MemReadData(31 downto 16) when Mem_CTRL="010" and MEM_ExResult(1)='1'           else -- read from half-word 1
+             MemReadData                                               when Mem_CTRL="011";
+----------------------------------------------------------
 -- Forwarding
-FW_Mem_OpA <= MEM_ExResult when RF_InValidA='0' else memReadData;
-FW_Mem_OpB <= MEM_ExResult when RF_InValidB='0' else memReadData;
+FW_Mem_OpA <= MEM_ExResult when REG_RF_InValidA='0' else MEM_FWIn;
+FW_Mem_OpB <= MEM_ExResult when REG_RF_InValidB='0' else MEM_FWIn;
 FW_Mem_OpD <= MEM_ExResult;
 
 ---------------------------------------------------------------------------------------------------------------

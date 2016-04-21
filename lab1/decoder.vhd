@@ -203,7 +203,7 @@ ImmAux32 <= RImm16  & Imm16 when MSR_I='1' else
             (15 downto 0=>Imm16(15)) & Imm16;
 Imm32  <= not ImmAux32 when std_match(IOpcode,"10-011") else ImmAux32;
 
-NewFlagKValue <= '1' when Iopcode="101100" else '0';
+NewFlagKValue <= '1' when Iopcode="101100" AND BrInTaken='0' else '0';
 MSR_I  <= NewFlagKValue when rising_edge(clk);
 
 end Behavioral;
