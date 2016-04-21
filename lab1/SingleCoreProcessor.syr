@@ -4,15 +4,15 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> 
 Reading design: SingleCoreProcessor.prj
@@ -194,42 +194,9 @@ Synthesizing Unit <simpleCore>.
     Found 3-bit register for signal <EX_MemCTRL>.
     Found 1-bit register for signal <EX_RegWE>.
     Found 16-bit register for signal <REG_MEM_ExResult<15:0>>.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<7>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<6>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<31>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<30>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<29>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<28>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<27>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<26>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<25>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<24>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<23>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<22>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<21>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<20>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<19>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<18>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<17>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<16>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<15>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<14>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<13>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<12>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<11>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<10>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<9>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <MEM_FWIn<8>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     Summary:
 	inferred 360 D-type flip-flop(s).
-	inferred  32 Latch(s).
-	inferred  94 Multiplexer(s).
+	inferred  38 Multiplexer(s).
 Unit <simpleCore> synthesized.
 
 Synthesizing Unit <decoder>.
@@ -376,10 +343,8 @@ Macro Statistics
  32-bit register                                       : 42
  33-bit register                                       : 2
  5-bit register                                        : 3
-# Latches                                              : 32
- 1-bit latch                                           : 32
-# Multiplexers                                         : 422
- 1-bit 2-to-1 multiplexer                              : 261
+# Multiplexers                                         : 366
+ 1-bit 2-to-1 multiplexer                              : 197
  1-bit 21-to-1 multiplexer                             : 2
  1-bit 24-to-1 multiplexer                             : 2
  1-bit 25-to-1 multiplexer                             : 2
@@ -390,7 +355,7 @@ Macro Statistics
  1-bit 32-to-1 multiplexer                             : 12
  16-bit 2-to-1 multiplexer                             : 20
  3-bit 2-to-1 multiplexer                              : 18
- 32-bit 2-to-1 multiplexer                             : 62
+ 32-bit 2-to-1 multiplexer                             : 70
  32-bit 3-to-1 multiplexer                             : 1
  32-bit 32-to-1 multiplexer                            : 3
  32-bit 4-to-1 multiplexer                             : 1
@@ -451,8 +416,8 @@ Macro Statistics
  6-bit subtractor                                      : 1
 # Registers                                            : 1467
  Flip-Flops                                            : 1467
-# Multiplexers                                         : 483
- 1-bit 2-to-1 multiplexer                              : 325
+# Multiplexers                                         : 365
+ 1-bit 2-to-1 multiplexer                              : 197
  1-bit 21-to-1 multiplexer                             : 2
  1-bit 24-to-1 multiplexer                             : 2
  1-bit 25-to-1 multiplexer                             : 2
@@ -463,7 +428,7 @@ Macro Statistics
  1-bit 32-to-1 multiplexer                             : 12
  16-bit 2-to-1 multiplexer                             : 20
  3-bit 2-to-1 multiplexer                              : 18
- 32-bit 2-to-1 multiplexer                             : 59
+ 32-bit 2-to-1 multiplexer                             : 69
  32-bit 3-to-1 multiplexer                             : 1
  32-bit 32-to-1 multiplexer                            : 3
  32-bit 4-to-1 multiplexer                             : 1
@@ -495,6 +460,11 @@ Optimizing unit <alu> ...
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block SingleCoreProcessor, actual ratio is 8.
+FlipFlop Core0/EX_OpB[32]_dff_35_0 has been replicated 1 time(s)
+FlipFlop Core0/EX_OpB[32]_dff_35_1 has been replicated 1 time(s)
+FlipFlop Core0/EX_OpB[32]_dff_35_2 has been replicated 1 time(s)
+FlipFlop Core0/EX_OpB[32]_dff_35_3 has been replicated 1 time(s)
+FlipFlop Core0/EX_OpB[32]_dff_35_4 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -502,8 +472,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 1464
- Flip-Flops                                            : 1464
+# Registers                                            : 1469
+ Flip-Flops                                            : 1469
 
 =========================================================================
 
@@ -526,27 +496,25 @@ Top Level Output File Name         : SingleCoreProcessor.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 2847
+# BELS                             : 2869
 #      GND                         : 1
 #      INV                         : 14
 #      LUT1                        : 1
-#      LUT2                        : 43
-#      LUT3                        : 197
-#      LUT4                        : 135
-#      LUT5                        : 408
-#      LUT6                        : 1763
+#      LUT2                        : 46
+#      LUT3                        : 159
+#      LUT4                        : 191
+#      LUT5                        : 400
+#      LUT6                        : 1802
 #      MUXCY                       : 73
-#      MUXF7                       : 134
+#      MUXF7                       : 104
 #      VCC                         : 1
 #      XORCY                       : 77
-# FlipFlops/Latches                : 1496
+# FlipFlops/Latches                : 1469
 #      FD                          : 36
 #      FDC                         : 296
-#      FDCE                        : 139
+#      FDCE                        : 144
 #      FDCE_1                      : 992
 #      FDP                         : 1
-#      LD                          : 8
-#      LDC                         : 24
 # RAMS                             : 16
 #      RAMB36E1                    : 16
 # Clock Buffers                    : 1
@@ -564,16 +532,16 @@ Selected Device : 7k70tfbg676-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            1496  out of  82000     1%  
- Number of Slice LUTs:                 2561  out of  41000     6%  
-    Number used as Logic:              2561  out of  41000     6%  
+ Number of Slice Registers:            1469  out of  82000     1%  
+ Number of Slice LUTs:                 2613  out of  41000     6%  
+    Number used as Logic:              2613  out of  41000     6%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   3780
-   Number with an unused Flip Flop:    2284  out of   3780    60%  
-   Number with an unused LUT:          1219  out of   3780    32%  
-   Number of fully used LUT-FF pairs:   277  out of   3780     7%  
-   Number of unique control sets:        41
+ Number of LUT Flip Flop pairs used:   3837
+   Number with an unused Flip Flop:    2368  out of   3837    61%  
+   Number with an unused LUT:          1224  out of   3837    31%  
+   Number of fully used LUT-FF pairs:   245  out of   3837     6%  
+   Number of unique control sets:        38
 
 IO Utilization: 
  Number of IOs:                          67
@@ -603,18 +571,11 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
----------------------------------------------------------------------------------+---------------------------+-------+
-Clock Signal                                                                     | Clock buffer(FF name)     | Load  |
----------------------------------------------------------------------------------+---------------------------+-------+
-clk                                                                              | BUFGP                     | 1480  |
-Core0/MEM_CTRL[2]_MEM_CTRL[2]_OR_615_o(Core0/MEM_CTRL[2]_MEM_CTRL[2]_OR_615_o1:O)| NONE(*)(Core0/MEM_FWIn_1) | 8     |
-Core0/MEM_CTRL[2]_MEM_CTRL[2]_OR_611_o(Core0/MEM_CTRL[2]_MEM_CTRL[2]_OR_611_o1:O)| NONE(*)(Core0/MEM_FWIn_8) | 8     |
-Core0/MEM_CTRL[2]_GND_7_o_equal_78_o(Core0/MEM_CTRL[2]_GND_7_o_equal_78_o<2>1:O) | NONE(*)(Core0/MEM_FWIn_16)| 16    |
----------------------------------------------------------------------------------+---------------------------+-------+
-(*) These 3 clock signal(s) are generated by combinatorial logic,
-and XST is not able to identify which are the primary clock signals.
-Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
-INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 1485  |
+-----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
 ----------------------------------------
@@ -624,9 +585,9 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 13.216ns (Maximum Frequency: 75.666MHz)
-   Minimum input arrival time before clock: 8.001ns
-   Maximum output required time after clock: 2.058ns
+   Minimum period: 12.849ns (Maximum Frequency: 77.829MHz)
+   Minimum input arrival time before clock: 7.862ns
+   Maximum output required time after clock: 2.063ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -635,43 +596,57 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 13.216ns (frequency: 75.666MHz)
-  Total number of paths / destination ports: 345439862003 / 2632
+  Clock period: 12.849ns (frequency: 77.829MHz)
+  Total number of paths / destination ports: 278132061587 / 2642
 -------------------------------------------------------------------------
-Delay:               6.608ns (Levels of Logic = 13)
-  Source:            Core0/uRF/RegisterTable_26_13 (FF)
+Delay:               6.424ns (Levels of Logic = 27)
+  Source:            Core0/uRF/RegisterTable_1_13 (FF)
   Destination:       Core0/REG_PC[15]_dff_2_15 (FF)
   Source Clock:      clk falling
   Destination Clock: clk rising
 
-  Data Path: Core0/uRF/RegisterTable_26_13 to Core0/REG_PC[15]_dff_2_15
+  Data Path: Core0/uRF/RegisterTable_1_13 to Core0/REG_PC[15]_dff_2_15
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE_1:C->Q           3   0.240   0.534  Core0/uRF/RegisterTable_26_13 (Core0/uRF/RegisterTable_26_13)
-     LUT6:I2->O            1   0.043   0.522  Core0/uRF/Mmux_DoutA_813 (Core0/uRF/Mmux_DoutA_813)
-     LUT6:I2->O            1   0.043   0.000  Core0/uRF/Mmux_DoutA_34 (Core0/uRF/Mmux_DoutA_34)
-     MUXF7:I1->O           1   0.178   0.350  Core0/uRF/Mmux_DoutA_2_f7_3 (Core0/ID_RegDA<13>)
-     LUT5:I4->O            1   0.043   0.350  Core0/Mmux_ID_ExOpA_FW103_SW0 (N481)
-     LUT5:I4->O            2   0.043   0.618  Core0/Mmux_ID_ExOpA_FW103 (Core0/ID_ExOpA_FW<13>)
-     LUT6:I0->O            4   0.043   0.422  Core0/uBranchCTRL/FlagZ1 (Core0/uBranchCTRL/FlagZ1)
-     LUT4:I2->O           13   0.043   0.418  Core0/uBranchCTRL/FlagZ7_SW0 (N566)
-     LUT6:I5->O           17   0.043   0.440  Core0/uBranchCTRL/Mmux_PCIncrement1011 (Core0/uBranchCTRL/Mmux_PCIncrement101)
-     LUT6:I5->O            1   0.043   0.613  Core0/uBranchCTRL/Mmux_PCIncrement16 (Core0/uBranchCTRL/PCIncrement<1>)
-     LUT6:I0->O            3   0.043   0.417  Core0/uBranchCTRL/PCIncrement[15]_GND_12_o_equal_16_o<15>1 (Core0/uBranchCTRL/PCIncrement[15]_GND_12_o_equal_16_o<15>)
-     LUT6:I4->O           12   0.043   0.583  Core0/uBranchCTRL/PCIncrement[15]_GND_12_o_equal_16_o<15>3_1 (Core0/uBranchCTRL/PCIncrement[15]_GND_12_o_equal_16_o<15>3)
-     LUT6:I2->O            1   0.043   0.405  Core0/Mmux_REG_PC[15]_ID_NextPC[15]_mux_1_OUT71_F (N979)
+     FDCE_1:C->Q           3   0.240   0.507  Core0/uRF/RegisterTable_1_13 (Core0/uRF/RegisterTable_1_13)
+     LUT6:I3->O            1   0.043   0.522  Core0/uRF/Mmux_DoutA_814 (Core0/uRF/Mmux_DoutA_814)
+     LUT6:I2->O            1   0.043   0.405  Core0/uRF/Mmux_DoutA_44 (Core0/uRF/Mmux_DoutA_44)
+     LUT6:I4->O            1   0.043   0.350  Core0/Mmux_ID_ExOpA_FW102 (Core0/Mmux_ID_ExOpA_FW101)
+     LUT6:I5->O            2   0.043   0.618  Core0/Mmux_ID_ExOpA_FW103 (Core0/ID_ExOpA_FW<13>)
+     LUT6:I0->O            1   0.043   0.603  Core0/uBranchCTRL/FlagZ1 (Core0/uBranchCTRL/FlagZ1)
+     LUT6:I1->O           18   0.043   0.445  Core0/uBranchCTRL/FlagZ7 (Core0/uBranchCTRL/FlagZ)
+     LUT6:I5->O            1   0.043   0.000  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_lut<0> (Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_lut<0>)
+     MUXCY:S->O            1   0.238   0.000  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<0> (Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<0>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<1> (Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<1>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<2> (Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<2>)
+     XORCY:CI->O           4   0.262   0.356  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_xor<3> (Core0/uBranchCTRL/PC[15]_PCIncrement[15]_add_16_OUT<3>)
+     INV:I->O              1   0.054   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_lut<3>_INV_0 (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_lut<3>)
+     MUXCY:S->O            1   0.238   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<3> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<3>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<4> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<4>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<5> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<5>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<6> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<6>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<7> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<7>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<8> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<8>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<9> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<9>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<10> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<10>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<11> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<11>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<12> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<12>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<13> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<13>)
+     MUXCY:CI->O           0   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<14> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<14>)
+     XORCY:CI->O           2   0.262   0.355  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_xor<15> (Core0/uBranchCTRL/GND_12_o_GND_12_o_sub_18_OUT<15>)
+     LUT6:I5->O            1   0.043   0.405  Core0/Mmux_REG_PC[15]_ID_NextPC[15]_mux_1_OUT71_F (N1018)
      LUT3:I1->O            1   0.043   0.000  Core0/Mmux_REG_PC[15]_ID_NextPC[15]_mux_1_OUT711 (Core0/REG_PC[15]_ID_NextPC[15]_mux_1_OUT<15>)
      FDC:D                    -0.000          Core0/REG_PC[15]_dff_2_15
     ----------------------------------------
-    Total                      6.608ns (0.934ns logic, 5.674ns route)
-                                       (14.1% logic, 85.9% route)
+    Total                      6.424ns (1.857ns logic, 4.568ns route)
+                                       (28.9% logic, 71.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 8444802 / 1658
+  Total number of paths / destination ports: 8461762 / 1668
 -------------------------------------------------------------------------
-Offset:              8.001ns (Levels of Logic = 16)
+Offset:              7.862ns (Levels of Logic = 30)
   Source:            reset (PAD)
   Destination:       Core0/REG_PC[15]_dff_2_15 (FF)
   Destination Clock: clk rising
@@ -680,32 +655,46 @@ Offset:              8.001ns (Levels of Logic = 16)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O          1683   0.000   0.783  reset_IBUF (reset_IBUF)
+     IBUF:I->O          1678   0.000   0.783  reset_IBUF (reset_IBUF)
      LUT4:I0->O          248   0.043   0.783  Core0/Mmux_ID_I91 (Core0/ID_I<17>)
      LUT6:I0->O            1   0.043   0.522  Core0/uRF/Mmux_FW_memTable_A_81 (Core0/uRF/Mmux_FW_memTable_A_81)
      LUT6:I2->O            1   0.043   0.000  Core0/uRF/Mmux_FW_memTable_A_3 (Core0/uRF/Mmux_FW_memTable_A_3)
-     MUXF7:I1->O          36   0.178   0.744  Core0/uRF/Mmux_FW_memTable_A_2_f7 (Core0/memtable_a)
-     LUT6:I0->O            2   0.043   0.608  Core0/Mmux_ID_ExOpA_FW243_SW1 (N377)
-     LUT6:I1->O            1   0.043   0.000  Core0/Mmux_ID_ExOpA_FW343_SW0_F (N1023)
-     MUXF7:I0->O           1   0.176   0.350  Core0/Mmux_ID_ExOpA_FW343_SW0 (N379)
-     LUT6:I5->O            1   0.043   0.350  Core0/uBranchCTRL/FlagZ3 (Core0/uBranchCTRL/FlagZ3)
-     LUT6:I5->O           16   0.043   0.488  Core0/uBranchCTRL/FlagZ4 (Core0/uBranchCTRL/FlagZ4)
-     LUT6:I4->O           17   0.043   0.440  Core0/uBranchCTRL/Mmux_PCIncrement1011 (Core0/uBranchCTRL/Mmux_PCIncrement101)
-     LUT6:I5->O            1   0.043   0.613  Core0/uBranchCTRL/Mmux_PCIncrement16 (Core0/uBranchCTRL/PCIncrement<1>)
-     LUT6:I0->O            3   0.043   0.417  Core0/uBranchCTRL/PCIncrement[15]_GND_12_o_equal_16_o<15>1 (Core0/uBranchCTRL/PCIncrement[15]_GND_12_o_equal_16_o<15>)
-     LUT6:I4->O           12   0.043   0.583  Core0/uBranchCTRL/PCIncrement[15]_GND_12_o_equal_16_o<15>3_1 (Core0/uBranchCTRL/PCIncrement[15]_GND_12_o_equal_16_o<15>3)
-     LUT6:I2->O            1   0.043   0.405  Core0/Mmux_REG_PC[15]_ID_NextPC[15]_mux_1_OUT71_F (N979)
+     MUXF7:I1->O          66   0.178   0.658  Core0/uRF/Mmux_FW_memTable_A_2_f7 (Core0/memtable_a)
+     LUT4:I0->O            1   0.043   0.603  Core0/Mmux_ID_ExOpA_FW21 (Core0/Mmux_ID_ExOpA_FW2)
+     LUT6:I1->O            2   0.043   0.500  Core0/Mmux_ID_ExOpA_FW23 (Core0/ID_ExOpA_FW<0>)
+     LUT6:I3->O            1   0.043   0.613  Core0/uBranchCTRL/FlagZ3 (Core0/uBranchCTRL/FlagZ3)
+     LUT6:I0->O           18   0.043   0.445  Core0/uBranchCTRL/FlagZ7 (Core0/uBranchCTRL/FlagZ)
+     LUT6:I5->O            1   0.043   0.000  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_lut<0> (Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_lut<0>)
+     MUXCY:S->O            1   0.238   0.000  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<0> (Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<0>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<1> (Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<1>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<2> (Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_cy<2>)
+     XORCY:CI->O           4   0.262   0.356  Core0/uBranchCTRL/Madd_PC[15]_PCIncrement[15]_add_16_OUT_xor<3> (Core0/uBranchCTRL/PC[15]_PCIncrement[15]_add_16_OUT<3>)
+     INV:I->O              1   0.054   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_lut<3>_INV_0 (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_lut<3>)
+     MUXCY:S->O            1   0.238   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<3> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<3>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<4> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<4>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<5> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<5>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<6> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<6>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<7> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<7>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<8> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<8>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<9> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<9>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<10> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<10>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<11> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<11>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<12> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<12>)
+     MUXCY:CI->O           1   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<13> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<13>)
+     MUXCY:CI->O           0   0.013   0.000  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<14> (Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_cy<14>)
+     XORCY:CI->O           2   0.262   0.355  Core0/uBranchCTRL/Msub_GND_12_o_GND_12_o_sub_18_OUT<15:0>_xor<15> (Core0/uBranchCTRL/GND_12_o_GND_12_o_sub_18_OUT<15>)
+     LUT6:I5->O            1   0.043   0.405  Core0/Mmux_REG_PC[15]_ID_NextPC[15]_mux_1_OUT71_F (N1018)
      LUT3:I1->O            1   0.043   0.000  Core0/Mmux_REG_PC[15]_ID_NextPC[15]_mux_1_OUT711 (Core0/REG_PC[15]_ID_NextPC[15]_mux_1_OUT<15>)
      FDC:D                    -0.000          Core0/REG_PC[15]_dff_2_15
     ----------------------------------------
-    Total                      8.001ns (0.913ns logic, 7.088ns route)
-                                       (11.4% logic, 88.6% route)
+    Total                      7.862ns (1.838ns logic, 6.024ns route)
+                                       (23.4% logic, 76.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
   Total number of paths / destination ports: 537 / 65
 -------------------------------------------------------------------------
-Offset:              2.058ns (Levels of Logic = 3)
+Offset:              2.063ns (Levels of Logic = 3)
   Source:            Core0/WB_MemCTRL[2]_dff_93_0 (FF)
   Destination:       MemWData<31> (PAD)
   Source Clock:      clk rising
@@ -714,12 +703,12 @@ Offset:              2.058ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q             70   0.236   0.740  Core0/WB_MemCTRL[2]_dff_93_0 (Core0/WB_MemCTRL[2]_dff_93_0)
+     FDC:C->Q             95   0.236   0.745  Core0/WB_MemCTRL[2]_dff_93_0 (Core0/WB_MemCTRL[2]_dff_93_0)
      LUT5:I0->O            8   0.043   0.652  Core0/Mmux_MemWriteData3421 (Core0/Mmux_MemWriteData342)
      LUT6:I0->O            2   0.043   0.344  Core0/Mmux_MemWriteData50 (MemWData_31_OBUF)
      OBUF:I->O                 0.000          MemWData_31_OBUF (MemWData<31>)
     ----------------------------------------
-    Total                      2.058ns (0.322ns logic, 1.736ns route)
+    Total                      2.063ns (0.322ns logic, 1.741ns route)
                                        (15.6% logic, 84.4% route)
 
 =========================================================================
@@ -727,53 +716,26 @@ Offset:              2.058ns (Levels of Logic = 3)
 Cross Clock Domains Report:
 --------------------------
 
-Clock to Setup on destination clock Core0/MEM_CTRL[2]_GND_7_o_equal_78_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    1.580|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock Core0/MEM_CTRL[2]_MEM_CTRL[2]_OR_611_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    1.580|         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock Core0/MEM_CTRL[2]_MEM_CTRL[2]_OR_615_o
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-clk            |         |         |    2.026|         |
----------------+---------+---------+---------+---------+
-
 Clock to Setup on destination clock clk
---------------------------------------+---------+---------+---------+---------+
-                                      | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
---------------------------------------+---------+---------+---------+---------+
-Core0/MEM_CTRL[2]_GND_7_o_equal_78_o  |         |    5.740|         |         |
-Core0/MEM_CTRL[2]_MEM_CTRL[2]_OR_611_o|         |    5.948|         |         |
-Core0/MEM_CTRL[2]_MEM_CTRL[2]_OR_615_o|         |    5.947|         |         |
-clk                                   |   12.194|    6.608|    2.252|         |
---------------------------------------+---------+---------+---------+---------+
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |   11.867|    6.424|    2.259|         |
+---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 91.00 secs
-Total CPU time to Xst completion: 88.67 secs
+Total REAL time to Xst completion: 82.00 secs
+Total CPU time to Xst completion: 81.03 secs
  
 --> 
 
 
-Total memory usage is 528920 kilobytes
+Total memory usage is 528776 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   43 (   0 filtered)
-Number of infos    :    2 (   0 filtered)
+Number of warnings :   11 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
 

@@ -413,7 +413,8 @@ MEM_FWIn <= (WORD_WIDTH-1 downto  8=>'0') & MemReadData( 7 downto  0) when Mem_C
              (WORD_WIDTH-1 downto  8=>'0') & MemReadData(31 downto 24) when Mem_CTRL="001" and MEM_ExResult(1 downto 0)="11" else -- read from byte 3
              (WORD_WIDTH-1 downto 16=>'0') & MemReadData(15 downto  0) when Mem_CTRL="010" and MEM_ExResult(1)='0'           else -- read from half-word 0
              (WORD_WIDTH-1 downto 16=>'0') & MemReadData(31 downto 16) when Mem_CTRL="010" and MEM_ExResult(1)='1'           else -- read from half-word 1
-             MemReadData                                               when Mem_CTRL="011";
+             MemReadData                                               when Mem_CTRL="011" else
+				 MEM_ExResult;
 ----------------------------------------------------------
 -- Forwarding
 FW_Mem_OpA <= MEM_ExResult when REG_RF_InValidA='0' else MEM_FWIn;
@@ -444,8 +445,8 @@ WB_RegDin <= (WORD_WIDTH-1 downto  8=>'0') & MemReadData( 7 downto  0) when WB_M
 RegWE <= WB_RegWE when WB_STAGE_ENABLE='1' else '0';
 
 -- Forwarding
-FW_Wb_OpA <= WB_ExResult;
-FW_Wb_OpB <= WB_ExResult;
+FW_Wb_OpA <= WB_RegDin when WB_STAGE_ENABLE='1' AND WB_MemCTRL(2)='0' else WB_ExResult;
+FW_Wb_OpB <= WB_ExResult when WB_STAGE_ENABLE='1' AND WB_MemCTRL(2)='0' else WB_ExResult;
 FW_Wb_OpD <= WB_ExResult;
 
 end Behavioral;
