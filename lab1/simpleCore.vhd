@@ -351,10 +351,10 @@ BrTaken <= '0' when reset='1' else REG_BrTaken when rising_edge(clk);
 --EX_MSR_C    <= '0' when (reset='1' OR BrTaken='1') else EX_FlagC;
 
 EX_CTRL     <= (others=>'0') when (reset='1') else ID_ExCTRL   when rising_edge(clk) and ID_STAGE_ENABLE='1';--or BrTaken='1') else ID_ExCTRL   when rising_edge(clk) and ID_STAGE_ENABLE='1';
-EX_OpA      <= (others=>'0') when (reset='1') else ID_ExOpA    when rising_edge(clk) and ID_STAGE_ENABLE='1';
-EX_OpB      <= (others=>'0') when (reset='1') else ID_ExOpB    when rising_edge(clk) and ID_STAGE_ENABLE='1';
-EX_OpC      <=          '0'  when (reset='1') else ID_ExOpC    when rising_edge(clk) and ID_STAGE_ENABLE='1';
-EX_OpD      <= (others=>'0') when (reset='1') else ID_ExOpD_FW    when rising_edge(clk) and ID_STAGE_ENABLE='1';
+EX_OpA      <= (others=>'0') when (reset='1') else ID_ExOpA    when rising_edge(clk); --and ID_STAGE_ENABLE='1';
+EX_OpB      <= (others=>'0') when (reset='1') else ID_ExOpB    when rising_edge(clk);-- and ID_STAGE_ENABLE='1';
+EX_OpC      <=          '0'  when (reset='1') else ID_ExOpC    when rising_edge(clk);-- and ID_STAGE_ENABLE='1';
+EX_OpD      <= (others=>'0') when (reset='1') else ID_ExOpD_FW    when rising_edge(clk);-- and ID_STAGE_ENABLE='1';
 EX_MSR_C_WE <=          '0'  when (reset='1' or BrTaken='1') else ID_MSR_C_WE when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
 EX_MemCTRL  <= (others=>'0') when (reset='1' or BrTaken='1') else ID_MemCTRL  when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
 EX_RegWE    <=          '0'  when (reset='1' or BrTaken='1') else ID_RegWE    when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
@@ -446,7 +446,7 @@ RegWE <= WB_RegWE when WB_STAGE_ENABLE='1' else '0';
 
 -- Forwarding
 FW_Wb_OpA <= WB_RegDin when WB_STAGE_ENABLE='1' AND WB_MemCTRL(2)='0' else WB_ExResult;
-FW_Wb_OpB <= WB_ExResult when WB_STAGE_ENABLE='1' AND WB_MemCTRL(2)='0' else WB_ExResult;
+FW_Wb_OpB <= WB_RegDin when WB_STAGE_ENABLE='1' AND WB_MemCTRL(2)='0' else WB_ExResult;
 FW_Wb_OpD <= WB_ExResult;
 
 end Behavioral;
