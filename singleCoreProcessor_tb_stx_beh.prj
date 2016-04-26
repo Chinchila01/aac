@@ -1,0 +1,8 @@
+vhdl isim_temp "main_definitions.vhd"
+vhdl isim_temp "register_file.vhd"
+vhdl isim_temp "decoder.vhd"
+vhdl isim_temp "branch_control.vhd"
+vhdl isim_temp "alu.vhd"
+vhdl isim_temp "simpleCore.vhd"
+vhdl isim_temp "SingleCoreProcessor.vhd"
+vhdl isim_temp "singleCoreProcessor_tb.vhd"

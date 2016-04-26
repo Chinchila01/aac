@@ -1,0 +1,1736 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3 -a -s 2
+-n 3 -fastpaths -xml SingleCoreProcessor.twx SingleCoreProcessor.ncd -o
+SingleCoreProcessor.twr SingleCoreProcessor.pcf
+
+Design file:              SingleCoreProcessor.ncd
+Physical constraint file: SingleCoreProcessor.pcf
+Device,package,speed:     xc7k70t,fbg676,C,-2 (PRODUCTION 1.10 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2700 - Timing constraints ignored because advanced analysis with 
+   offsets was specified.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: Default period analysis for net "clk_BUFGP" 
+
+ 117016567 paths analyzed, 4723 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors)
+ Minimum period is   7.843ns.
+--------------------------------------------------------------------------------
+
+Paths for end point Core0/MEM_ExResult[31]_dff_19_24 (SLICE_X27Y166.A6), 3842827 paths
+--------------------------------------------------------------------------------
+Delay (setup path):     7.843ns (data path - clock path skew + uncertainty)
+  Source:               Core0/EX_OpB[32]_dff_11_3_1 (FF)
+  Destination:          Core0/MEM_ExResult[31]_dff_19_24 (FF)
+  Data Path Delay:      7.754ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.054ns (0.546 - 0.600)
+  Source Clock:         clk_BUFGP rising
+  Destination Clock:    clk_BUFGP rising
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Core0/EX_OpB[32]_dff_11_3_1 to Core0/MEM_ExResult[31]_dff_19_24
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y162.DQ     Tcko                  0.259   Core0/EX_OpB[32]_dff_11_3_1
+                                                       Core0/EX_OpB[32]_dff_11_3_1
+    DSP48_X1Y63.A3       net (fanout=1)        0.470   Core0/EX_OpB[32]_dff_11_3_1
+    DSP48_X1Y63.PCOUT0   Tdspdo_A_PCOUT_MULT   2.879   Core0/uALU/Mmult_uMultiplier.auxRes
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes
+    DSP48_X1Y64.PCIN0    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes_PCOUT_to_Mmult_uMultiplier.auxRes1_PCIN_0
+    DSP48_X1Y64.PCOUT9   Tdspdo_PCIN_PCOUT     1.219   Core0/uALU/Mmult_uMultiplier.auxRes1
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes1
+    DSP48_X1Y65.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes1_PCOUT_to_Mmult_uMultiplier.auxRes2_PCIN_9
+    DSP48_X1Y65.PCOUT9   Tdspdo_PCIN_PCOUT     1.219   Core0/uALU/Mmult_uMultiplier.auxRes2
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes2
+    DSP48_X1Y66.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes2_PCOUT_to_Mmult_uMultiplier.auxRes3_PCIN_9
+    DSP48_X1Y66.P22      Tdspdo_PCIN_P         1.077   Core0/uALU/Mmult_uMultiplier.auxRes3
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes3
+    SLICE_X27Y166.A6     net (fanout=1)        0.622   Core0/uALU/uMultiplier.auxRes<56>
+    SLICE_X27Y166.CLK    Tas                   0.009   Core0/MEM_ExResult[31]_dff_19<25>
+                                                       Core0/uALU/Res<24>12
+                                                       Core0/MEM_ExResult[31]_dff_19_24
+    -------------------------------------------------  ---------------------------
+    Total                                      7.754ns (6.662ns logic, 1.092ns route)
+                                                       (85.9% logic, 14.1% route)
+
+--------------------------------------------------------------------------------
+Delay (setup path):     7.843ns (data path - clock path skew + uncertainty)
+  Source:               Core0/EX_OpB[32]_dff_11_3_1 (FF)
+  Destination:          Core0/MEM_ExResult[31]_dff_19_24 (FF)
+  Data Path Delay:      7.754ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.054ns (0.546 - 0.600)
+  Source Clock:         clk_BUFGP rising
+  Destination Clock:    clk_BUFGP rising
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Core0/EX_OpB[32]_dff_11_3_1 to Core0/MEM_ExResult[31]_dff_19_24
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y162.DQ     Tcko                  0.259   Core0/EX_OpB[32]_dff_11_3_1
+                                                       Core0/EX_OpB[32]_dff_11_3_1
+    DSP48_X1Y63.A3       net (fanout=1)        0.470   Core0/EX_OpB[32]_dff_11_3_1
+    DSP48_X1Y63.PCOUT9   Tdspdo_A_PCOUT_MULT   2.879   Core0/uALU/Mmult_uMultiplier.auxRes
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes
+    DSP48_X1Y64.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes_PCOUT_to_Mmult_uMultiplier.auxRes1_PCIN_9
+    DSP48_X1Y64.PCOUT9   Tdspdo_PCIN_PCOUT     1.219   Core0/uALU/Mmult_uMultiplier.auxRes1
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes1
+    DSP48_X1Y65.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes1_PCOUT_to_Mmult_uMultiplier.auxRes2_PCIN_9
+    DSP48_X1Y65.PCOUT9   Tdspdo_PCIN_PCOUT     1.219   Core0/uALU/Mmult_uMultiplier.auxRes2
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes2
+    DSP48_X1Y66.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes2_PCOUT_to_Mmult_uMultiplier.auxRes3_PCIN_9
+    DSP48_X1Y66.P22      Tdspdo_PCIN_P         1.077   Core0/uALU/Mmult_uMultiplier.auxRes3
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes3
+    SLICE_X27Y166.A6     net (fanout=1)        0.622   Core0/uALU/uMultiplier.auxRes<56>
+    SLICE_X27Y166.CLK    Tas                   0.009   Core0/MEM_ExResult[31]_dff_19<25>
+                                                       Core0/uALU/Res<24>12
+                                                       Core0/MEM_ExResult[31]_dff_19_24
+    -------------------------------------------------  ---------------------------
+    Total                                      7.754ns (6.662ns logic, 1.092ns route)
+                                                       (85.9% logic, 14.1% route)
+
+--------------------------------------------------------------------------------
+Delay (setup path):     7.843ns (data path - clock path skew + uncertainty)
+  Source:               Core0/EX_OpB[32]_dff_11_3_1 (FF)
+  Destination:          Core0/MEM_ExResult[31]_dff_19_24 (FF)
+  Data Path Delay:      7.754ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.054ns (0.546 - 0.600)
+  Source Clock:         clk_BUFGP rising
+  Destination Clock:    clk_BUFGP rising
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Core0/EX_OpB[32]_dff_11_3_1 to Core0/MEM_ExResult[31]_dff_19_24
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y162.DQ     Tcko                  0.259   Core0/EX_OpB[32]_dff_11_3_1
+                                                       Core0/EX_OpB[32]_dff_11_3_1
+    DSP48_X1Y63.A3       net (fanout=1)        0.470   Core0/EX_OpB[32]_dff_11_3_1
+    DSP48_X1Y63.PCOUT1   Tdspdo_A_PCOUT_MULT   2.879   Core0/uALU/Mmult_uMultiplier.auxRes
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes
+    DSP48_X1Y64.PCIN1    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes_PCOUT_to_Mmult_uMultiplier.auxRes1_PCIN_1
+    DSP48_X1Y64.PCOUT9   Tdspdo_PCIN_PCOUT     1.219   Core0/uALU/Mmult_uMultiplier.auxRes1
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes1
+    DSP48_X1Y65.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes1_PCOUT_to_Mmult_uMultiplier.auxRes2_PCIN_9
+    DSP48_X1Y65.PCOUT9   Tdspdo_PCIN_PCOUT     1.219   Core0/uALU/Mmult_uMultiplier.auxRes2
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes2
+    DSP48_X1Y66.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes2_PCOUT_to_Mmult_uMultiplier.auxRes3_PCIN_9
+    DSP48_X1Y66.P22      Tdspdo_PCIN_P         1.077   Core0/uALU/Mmult_uMultiplier.auxRes3
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes3
+    SLICE_X27Y166.A6     net (fanout=1)        0.622   Core0/uALU/uMultiplier.auxRes<56>
+    SLICE_X27Y166.CLK    Tas                   0.009   Core0/MEM_ExResult[31]_dff_19<25>
+                                                       Core0/uALU/Res<24>12
+                                                       Core0/MEM_ExResult[31]_dff_19_24
+    -------------------------------------------------  ---------------------------
+    Total                                      7.754ns (6.662ns logic, 1.092ns route)
+                                                       (85.9% logic, 14.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Core0/MEM_ExResult[31]_dff_19_29 (SLICE_X21Y173.C6), 3842827 paths
+--------------------------------------------------------------------------------
+Delay (setup path):     7.769ns (data path - clock path skew + uncertainty)
+  Source:               Core0/EX_OpB[32]_dff_11_3_1 (FF)
+  Destination:          Core0/MEM_ExResult[31]_dff_19_29 (FF)
+  Data Path Delay:      7.677ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.057ns (0.543 - 0.600)
+  Source Clock:         clk_BUFGP rising
+  Destination Clock:    clk_BUFGP rising
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Core0/EX_OpB[32]_dff_11_3_1 to Core0/MEM_ExResult[31]_dff_19_29
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y162.DQ     Tcko                  0.259   Core0/EX_OpB[32]_dff_11_3_1
+                                                       Core0/EX_OpB[32]_dff_11_3_1
+    DSP48_X1Y63.A3       net (fanout=1)        0.470   Core0/EX_OpB[32]_dff_11_3_1
+    DSP48_X1Y63.PCOUT0   Tdspdo_A_PCOUT_MULT   2.879   Core0/uALU/Mmult_uMultiplier.auxRes
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes
+    DSP48_X1Y64.PCIN0    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes_PCOUT_to_Mmult_uMultiplier.auxRes1_PCIN_0
+    DSP48_X1Y64.PCOUT9   Tdspdo_PCIN_PCOUT     1.219   Core0/uALU/Mmult_uMultiplier.auxRes1
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes1
+    DSP48_X1Y65.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes1_PCOUT_to_Mmult_uMultiplier.auxRes2_PCIN_9
+    DSP48_X1Y65.PCOUT9   Tdspdo_PCIN_PCOUT     1.219   Core0/uALU/Mmult_uMultiplier.auxRes2
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes2
+    DSP48_X1Y66.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes2_PCOUT_to_Mmult_uMultiplier.auxRes3_PCIN_9
+    DSP48_X1Y66.P27      Tdspdo_PCIN_P         1.077   Core0/uALU/Mmult_uMultiplier.auxRes3
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes3
+    SLICE_X21Y173.C6     net (fanout=1)        0.545   Core0/uALU/uMultiplier.auxRes<61>
+    SLICE_X21Y173.CLK    Tas                   0.009   Core0/MEM_ExResult[31]_dff_19<29>
+                                                       Core0/uALU/Res<29>
+                                                       Core0/MEM_ExResult[31]_dff_19_29
+    -------------------------------------------------  ---------------------------
+    Total                                      7.677ns (6.662ns logic, 1.015ns route)
+                                                       (86.8% logic, 13.2% route)
+
+--------------------------------------------------------------------------------
+Delay (setup path):     7.769ns (data path - clock path skew + uncertainty)
+  Source:               Core0/EX_OpB[32]_dff_11_3_1 (FF)
+  Destination:          Core0/MEM_ExResult[31]_dff_19_29 (FF)
+  Data Path Delay:      7.677ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.057ns (0.543 - 0.600)
+  Source Clock:         clk_BUFGP rising
+  Destination Clock:    clk_BUFGP rising
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Core0/EX_OpB[32]_dff_11_3_1 to Core0/MEM_ExResult[31]_dff_19_29
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y162.DQ     Tcko                  0.259   Core0/EX_OpB[32]_dff_11_3_1
+                                                       Core0/EX_OpB[32]_dff_11_3_1
+    DSP48_X1Y63.A3       net (fanout=1)        0.470   Core0/EX_OpB[32]_dff_11_3_1
+    DSP48_X1Y63.PCOUT9   Tdspdo_A_PCOUT_MULT   2.879   Core0/uALU/Mmult_uMultiplier.auxRes
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes
+    DSP48_X1Y64.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes_PCOUT_to_Mmult_uMultiplier.auxRes1_PCIN_9
+    DSP48_X1Y64.PCOUT9   Tdspdo_PCIN_PCOUT     1.219   Core0/uALU/Mmult_uMultiplier.auxRes1
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes1
+    DSP48_X1Y65.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes1_PCOUT_to_Mmult_uMultiplier.auxRes2_PCIN_9
+    DSP48_X1Y65.PCOUT9   Tdspdo_PCIN_PCOUT     1.219   Core0/uALU/Mmult_uMultiplier.auxRes2
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes2
+    DSP48_X1Y66.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes2_PCOUT_to_Mmult_uMultiplier.auxRes3_PCIN_9
+    DSP48_X1Y66.P27      Tdspdo_PCIN_P         1.077   Core0/uALU/Mmult_uMultiplier.auxRes3
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes3
+    SLICE_X21Y173.C6     net (fanout=1)        0.545   Core0/uALU/uMultiplier.auxRes<61>
+    SLICE_X21Y173.CLK    Tas                   0.009   Core0/MEM_ExResult[31]_dff_19<29>
+                                                       Core0/uALU/Res<29>
+                                                       Core0/MEM_ExResult[31]_dff_19_29
+    -------------------------------------------------  ---------------------------
+    Total                                      7.677ns (6.662ns logic, 1.015ns route)
+                                                       (86.8% logic, 13.2% route)
+
+--------------------------------------------------------------------------------
+Delay (setup path):     7.769ns (data path - clock path skew + uncertainty)
+  Source:               Core0/EX_OpB[32]_dff_11_3_1 (FF)
+  Destination:          Core0/MEM_ExResult[31]_dff_19_29 (FF)
+  Data Path Delay:      7.677ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.057ns (0.543 - 0.600)
+  Source Clock:         clk_BUFGP rising
+  Destination Clock:    clk_BUFGP rising
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Core0/EX_OpB[32]_dff_11_3_1 to Core0/MEM_ExResult[31]_dff_19_29
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y162.DQ     Tcko                  0.259   Core0/EX_OpB[32]_dff_11_3_1
+                                                       Core0/EX_OpB[32]_dff_11_3_1
+    DSP48_X1Y63.A3       net (fanout=1)        0.470   Core0/EX_OpB[32]_dff_11_3_1
+    DSP48_X1Y63.PCOUT1   Tdspdo_A_PCOUT_MULT   2.879   Core0/uALU/Mmult_uMultiplier.auxRes
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes
+    DSP48_X1Y64.PCIN1    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes_PCOUT_to_Mmult_uMultiplier.auxRes1_PCIN_1
+    DSP48_X1Y64.PCOUT9   Tdspdo_PCIN_PCOUT     1.219   Core0/uALU/Mmult_uMultiplier.auxRes1
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes1
+    DSP48_X1Y65.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes1_PCOUT_to_Mmult_uMultiplier.auxRes2_PCIN_9
+    DSP48_X1Y65.PCOUT9   Tdspdo_PCIN_PCOUT     1.219   Core0/uALU/Mmult_uMultiplier.auxRes2
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes2
+    DSP48_X1Y66.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes2_PCOUT_to_Mmult_uMultiplier.auxRes3_PCIN_9
+    DSP48_X1Y66.P27      Tdspdo_PCIN_P         1.077   Core0/uALU/Mmult_uMultiplier.auxRes3
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes3
+    SLICE_X21Y173.C6     net (fanout=1)        0.545   Core0/uALU/uMultiplier.auxRes<61>
+    SLICE_X21Y173.CLK    Tas                   0.009   Core0/MEM_ExResult[31]_dff_19<29>
+                                                       Core0/uALU/Res<29>
+                                                       Core0/MEM_ExResult[31]_dff_19_29
+    -------------------------------------------------  ---------------------------
+    Total                                      7.677ns (6.662ns logic, 1.015ns route)
+                                                       (86.8% logic, 13.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Core0/MEM_ExResult[31]_dff_19_25 (SLICE_X27Y166.C6), 3842827 paths
+--------------------------------------------------------------------------------
+Delay (setup path):     7.757ns (data path - clock path skew + uncertainty)
+  Source:               Core0/EX_OpB[32]_dff_11_3_1 (FF)
+  Destination:          Core0/MEM_ExResult[31]_dff_19_25 (FF)
+  Data Path Delay:      7.668ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.054ns (0.546 - 0.600)
+  Source Clock:         clk_BUFGP rising
+  Destination Clock:    clk_BUFGP rising
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Core0/EX_OpB[32]_dff_11_3_1 to Core0/MEM_ExResult[31]_dff_19_25
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y162.DQ     Tcko                  0.259   Core0/EX_OpB[32]_dff_11_3_1
+                                                       Core0/EX_OpB[32]_dff_11_3_1
+    DSP48_X1Y63.A3       net (fanout=1)        0.470   Core0/EX_OpB[32]_dff_11_3_1
+    DSP48_X1Y63.PCOUT0   Tdspdo_A_PCOUT_MULT   2.879   Core0/uALU/Mmult_uMultiplier.auxRes
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes
+    DSP48_X1Y64.PCIN0    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes_PCOUT_to_Mmult_uMultiplier.auxRes1_PCIN_0
+    DSP48_X1Y64.PCOUT9   Tdspdo_PCIN_PCOUT     1.219   Core0/uALU/Mmult_uMultiplier.auxRes1
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes1
+    DSP48_X1Y65.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes1_PCOUT_to_Mmult_uMultiplier.auxRes2_PCIN_9
+    DSP48_X1Y65.PCOUT9   Tdspdo_PCIN_PCOUT     1.219   Core0/uALU/Mmult_uMultiplier.auxRes2
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes2
+    DSP48_X1Y66.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes2_PCOUT_to_Mmult_uMultiplier.auxRes3_PCIN_9
+    DSP48_X1Y66.P23      Tdspdo_PCIN_P         1.077   Core0/uALU/Mmult_uMultiplier.auxRes3
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes3
+    SLICE_X27Y166.C6     net (fanout=1)        0.536   Core0/uALU/uMultiplier.auxRes<57>
+    SLICE_X27Y166.CLK    Tas                   0.009   Core0/MEM_ExResult[31]_dff_19<25>
+                                                       Core0/uALU/Res<25>12
+                                                       Core0/MEM_ExResult[31]_dff_19_25
+    -------------------------------------------------  ---------------------------
+    Total                                      7.668ns (6.662ns logic, 1.006ns route)
+                                                       (86.9% logic, 13.1% route)
+
+--------------------------------------------------------------------------------
+Delay (setup path):     7.757ns (data path - clock path skew + uncertainty)
+  Source:               Core0/EX_OpB[32]_dff_11_3_1 (FF)
+  Destination:          Core0/MEM_ExResult[31]_dff_19_25 (FF)
+  Data Path Delay:      7.668ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.054ns (0.546 - 0.600)
+  Source Clock:         clk_BUFGP rising
+  Destination Clock:    clk_BUFGP rising
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Core0/EX_OpB[32]_dff_11_3_1 to Core0/MEM_ExResult[31]_dff_19_25
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y162.DQ     Tcko                  0.259   Core0/EX_OpB[32]_dff_11_3_1
+                                                       Core0/EX_OpB[32]_dff_11_3_1
+    DSP48_X1Y63.A3       net (fanout=1)        0.470   Core0/EX_OpB[32]_dff_11_3_1
+    DSP48_X1Y63.PCOUT9   Tdspdo_A_PCOUT_MULT   2.879   Core0/uALU/Mmult_uMultiplier.auxRes
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes
+    DSP48_X1Y64.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes_PCOUT_to_Mmult_uMultiplier.auxRes1_PCIN_9
+    DSP48_X1Y64.PCOUT9   Tdspdo_PCIN_PCOUT     1.219   Core0/uALU/Mmult_uMultiplier.auxRes1
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes1
+    DSP48_X1Y65.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes1_PCOUT_to_Mmult_uMultiplier.auxRes2_PCIN_9
+    DSP48_X1Y65.PCOUT9   Tdspdo_PCIN_PCOUT     1.219   Core0/uALU/Mmult_uMultiplier.auxRes2
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes2
+    DSP48_X1Y66.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes2_PCOUT_to_Mmult_uMultiplier.auxRes3_PCIN_9
+    DSP48_X1Y66.P23      Tdspdo_PCIN_P         1.077   Core0/uALU/Mmult_uMultiplier.auxRes3
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes3
+    SLICE_X27Y166.C6     net (fanout=1)        0.536   Core0/uALU/uMultiplier.auxRes<57>
+    SLICE_X27Y166.CLK    Tas                   0.009   Core0/MEM_ExResult[31]_dff_19<25>
+                                                       Core0/uALU/Res<25>12
+                                                       Core0/MEM_ExResult[31]_dff_19_25
+    -------------------------------------------------  ---------------------------
+    Total                                      7.668ns (6.662ns logic, 1.006ns route)
+                                                       (86.9% logic, 13.1% route)
+
+--------------------------------------------------------------------------------
+Delay (setup path):     7.757ns (data path - clock path skew + uncertainty)
+  Source:               Core0/EX_OpB[32]_dff_11_3_1 (FF)
+  Destination:          Core0/MEM_ExResult[31]_dff_19_25 (FF)
+  Data Path Delay:      7.668ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.054ns (0.546 - 0.600)
+  Source Clock:         clk_BUFGP rising
+  Destination Clock:    clk_BUFGP rising
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Core0/EX_OpB[32]_dff_11_3_1 to Core0/MEM_ExResult[31]_dff_19_25
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y162.DQ     Tcko                  0.259   Core0/EX_OpB[32]_dff_11_3_1
+                                                       Core0/EX_OpB[32]_dff_11_3_1
+    DSP48_X1Y63.A3       net (fanout=1)        0.470   Core0/EX_OpB[32]_dff_11_3_1
+    DSP48_X1Y63.PCOUT1   Tdspdo_A_PCOUT_MULT   2.879   Core0/uALU/Mmult_uMultiplier.auxRes
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes
+    DSP48_X1Y64.PCIN1    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes_PCOUT_to_Mmult_uMultiplier.auxRes1_PCIN_1
+    DSP48_X1Y64.PCOUT9   Tdspdo_PCIN_PCOUT     1.219   Core0/uALU/Mmult_uMultiplier.auxRes1
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes1
+    DSP48_X1Y65.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes1_PCOUT_to_Mmult_uMultiplier.auxRes2_PCIN_9
+    DSP48_X1Y65.PCOUT9   Tdspdo_PCIN_PCOUT     1.219   Core0/uALU/Mmult_uMultiplier.auxRes2
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes2
+    DSP48_X1Y66.PCIN9    net (fanout=1)        0.000   Core0/uALU/Mmult_uMultiplier.auxRes2_PCOUT_to_Mmult_uMultiplier.auxRes3_PCIN_9
+    DSP48_X1Y66.P23      Tdspdo_PCIN_P         1.077   Core0/uALU/Mmult_uMultiplier.auxRes3
+                                                       Core0/uALU/Mmult_uMultiplier.auxRes3
+    SLICE_X27Y166.C6     net (fanout=1)        0.536   Core0/uALU/uMultiplier.auxRes<57>
+    SLICE_X27Y166.CLK    Tas                   0.009   Core0/MEM_ExResult[31]_dff_19<25>
+                                                       Core0/uALU/Res<25>12
+                                                       Core0/MEM_ExResult[31]_dff_19_25
+    -------------------------------------------------  ---------------------------
+    Total                                      7.668ns (6.662ns logic, 1.006ns route)
+                                                       (86.9% logic, 13.1% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: Default period analysis for net "clk_BUFGP"
+
+--------------------------------------------------------------------------------
+
+Paths for end point Core0/MEM_DataIn[31]_dff_21_14 (SLICE_X11Y154.CX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.023ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Core0/EX_OpD[31]_dff_13_14 (FF)
+  Destination:          Core0/MEM_DataIn[31]_dff_21_14 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.320ns (Levels of Logic = 0)
+  Clock Path Skew:      0.297ns (0.772 - 0.475)
+  Source Clock:         clk_BUFGP rising
+  Destination Clock:    clk_BUFGP rising
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: Core0/EX_OpD[31]_dff_13_14 to Core0/MEM_DataIn[31]_dff_21_14
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y143.CQ     Tcko                  0.100   Core0/EX_OpD[31]_dff_13<14>
+                                                       Core0/EX_OpD[31]_dff_13_14
+    SLICE_X11Y154.CX     net (fanout=1)        0.267   Core0/EX_OpD[31]_dff_13<14>
+    SLICE_X11Y154.CLK    Tckdi       (-Th)     0.047   Core0/MEM_DataIn[31]_dff_21<15>
+                                                       Core0/MEM_DataIn[31]_dff_21_14
+    -------------------------------------------------  ---------------------------
+    Total                                      0.320ns (0.053ns logic, 0.267ns route)
+                                                       (16.6% logic, 83.4% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CoreMem0/Mram_RAM8 (RAMB36_X1Y33.ADDRARDADDRL11), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.029ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Core0/MEM_ExResult[31]_dff_19_12 (FF)
+  Destination:          CoreMem0/Mram_RAM8 (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.070ns (Levels of Logic = 0)
+  Clock Path Skew:      0.041ns (0.100 - 0.059)
+  Source Clock:         clk_BUFGP rising
+  Destination Clock:    clk_BUFGP rising
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: Core0/MEM_ExResult[31]_dff_19_12 to CoreMem0/Mram_RAM8
+    Location                    Delay type         Delay(ns)  Physical Resource
+                                                              Logical Resource(s)
+    --------------------------------------------------------  -------------------
+    SLICE_X23Y167.AQ            Tcko                  0.100   Core0/MEM_ExResult[31]_dff_19<13>
+                                                              Core0/MEM_ExResult[31]_dff_19_12
+    RAMB36_X1Y33.ADDRARDADDRL11 net (fanout=34)       0.153   Core0/MEM_ExResult[31]_dff_19<12>
+    RAMB36_X1Y33.CLKARDCLKL     Trckc_ADDRA (-Th)     0.183   CoreMem0/Mram_RAM8
+                                                              CoreMem0/Mram_RAM8
+    --------------------------------------------------------  ---------------------------
+    Total                                             0.070ns (-0.083ns logic, 0.153ns route)
+                                                              (-118.6% logic, 218.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CoreMem0/Mram_RAM8 (RAMB36_X1Y33.ADDRARDADDRU11), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.029ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Core0/MEM_ExResult[31]_dff_19_12 (FF)
+  Destination:          CoreMem0/Mram_RAM8 (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.070ns (Levels of Logic = 0)
+  Clock Path Skew:      0.041ns (0.100 - 0.059)
+  Source Clock:         clk_BUFGP rising
+  Destination Clock:    clk_BUFGP rising
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: Core0/MEM_ExResult[31]_dff_19_12 to CoreMem0/Mram_RAM8
+    Location                    Delay type         Delay(ns)  Physical Resource
+                                                              Logical Resource(s)
+    --------------------------------------------------------  -------------------
+    SLICE_X23Y167.AQ            Tcko                  0.100   Core0/MEM_ExResult[31]_dff_19<13>
+                                                              Core0/MEM_ExResult[31]_dff_19_12
+    RAMB36_X1Y33.ADDRARDADDRU11 net (fanout=34)       0.153   Core0/MEM_ExResult[31]_dff_19<12>
+    RAMB36_X1Y33.CLKARDCLKU     Trckc_ADDRA (-Th)     0.183   CoreMem0/Mram_RAM8
+                                                              CoreMem0/Mram_RAM8
+    --------------------------------------------------------  ---------------------------
+    Total                                             0.070ns (-0.083ns logic, 0.153ns route)
+                                                              (-118.6% logic, 218.6% route)
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: Default OFFSET IN BEFORE analysis for clock "clk_BUFGP" 
+
+ 1294 paths analyzed, 1294 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected.
+ Minimum allowable offset is   3.552ns.
+--------------------------------------------------------------------------------
+
+Paths for end point Core0/uRF/RegisterTable_12_8 (SLICE_X39Y137.SR), 1 path
+--------------------------------------------------------------------------------
+Offset (setup paths):   3.552ns (data path - clock path + uncertainty)
+  Source:               reset (PAD)
+  Destination:          Core0/uRF/RegisterTable_12_8 (FF)
+  Destination Clock:    clk_BUFGP rising
+  Data Path Delay:      7.146ns (Levels of Logic = 1)
+  Clock Path Delay:     3.619ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: reset to Core0/uRF/RegisterTable_12_8
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    J8.I                 Tiopi                 0.770   reset
+                                                       reset
+                                                       reset_IBUF
+    SLICE_X39Y137.SR     net (fanout=371)      6.164   reset_IBUF
+    SLICE_X39Y137.CLK    Trck                  0.212   Core0/uRF/RegisterTable_12<11>
+                                                       Core0/uRF/RegisterTable_12_8
+    -------------------------------------------------  ---------------------------
+    Total                                      7.146ns (0.982ns logic, 6.164ns route)
+                                                       (13.7% logic, 86.3% route)
+
+  Minimum Clock Path at Slow Process Corner: clk to Core0/uRF/RegisterTable_12_8
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.686   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        1.787   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.083   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X39Y137.CLK    net (fanout=436)      1.063   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      3.619ns (0.769ns logic, 2.850ns route)
+                                                       (21.2% logic, 78.8% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Core0/uRF/RegisterTable_12_9 (SLICE_X39Y137.SR), 1 path
+--------------------------------------------------------------------------------
+Offset (setup paths):   3.552ns (data path - clock path + uncertainty)
+  Source:               reset (PAD)
+  Destination:          Core0/uRF/RegisterTable_12_9 (FF)
+  Destination Clock:    clk_BUFGP rising
+  Data Path Delay:      7.146ns (Levels of Logic = 1)
+  Clock Path Delay:     3.619ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: reset to Core0/uRF/RegisterTable_12_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    J8.I                 Tiopi                 0.770   reset
+                                                       reset
+                                                       reset_IBUF
+    SLICE_X39Y137.SR     net (fanout=371)      6.164   reset_IBUF
+    SLICE_X39Y137.CLK    Trck                  0.212   Core0/uRF/RegisterTable_12<11>
+                                                       Core0/uRF/RegisterTable_12_9
+    -------------------------------------------------  ---------------------------
+    Total                                      7.146ns (0.982ns logic, 6.164ns route)
+                                                       (13.7% logic, 86.3% route)
+
+  Minimum Clock Path at Slow Process Corner: clk to Core0/uRF/RegisterTable_12_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.686   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        1.787   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.083   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X39Y137.CLK    net (fanout=436)      1.063   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      3.619ns (0.769ns logic, 2.850ns route)
+                                                       (21.2% logic, 78.8% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Core0/uRF/RegisterTable_12_10 (SLICE_X39Y137.SR), 1 path
+--------------------------------------------------------------------------------
+Offset (setup paths):   3.552ns (data path - clock path + uncertainty)
+  Source:               reset (PAD)
+  Destination:          Core0/uRF/RegisterTable_12_10 (FF)
+  Destination Clock:    clk_BUFGP rising
+  Data Path Delay:      7.146ns (Levels of Logic = 1)
+  Clock Path Delay:     3.619ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: reset to Core0/uRF/RegisterTable_12_10
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    J8.I                 Tiopi                 0.770   reset
+                                                       reset
+                                                       reset_IBUF
+    SLICE_X39Y137.SR     net (fanout=371)      6.164   reset_IBUF
+    SLICE_X39Y137.CLK    Trck                  0.212   Core0/uRF/RegisterTable_12<11>
+                                                       Core0/uRF/RegisterTable_12_10
+    -------------------------------------------------  ---------------------------
+    Total                                      7.146ns (0.982ns logic, 6.164ns route)
+                                                       (13.7% logic, 86.3% route)
+
+  Minimum Clock Path at Slow Process Corner: clk to Core0/uRF/RegisterTable_12_10
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.686   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        1.787   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.083   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X39Y137.CLK    net (fanout=436)      1.063   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      3.619ns (0.769ns logic, 2.850ns route)
+                                                       (21.2% logic, 78.8% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: Default OFFSET IN BEFORE analysis for clock "clk_BUFGP"
+
+--------------------------------------------------------------------------------
+
+Paths for end point Core0/MEM_DataIn[31]_dff_21_28 (SLICE_X6Y182.SR), 1 path
+--------------------------------------------------------------------------------
+Offset (hold paths):    -2.193ns (data path - clock path + uncertainty)
+  Source:               reset (PAD)
+  Destination:          Core0/MEM_DataIn[31]_dff_21_28 (FF)
+  Destination Clock:    clk_BUFGP rising
+  Data Path Delay:      2.016ns (Levels of Logic = 1)
+  Clock Path Delay:     4.185ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Minimum Data Path at Slow Process Corner: reset to Core0/MEM_DataIn[31]_dff_21_28
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    J8.I                 Tiopi                 0.695   reset
+                                                       reset
+                                                       reset_IBUF
+    SLICE_X6Y182.SR      net (fanout=371)      1.215   reset_IBUF
+    SLICE_X6Y182.CLK     Tremck      (-Th)    -0.106   Core0/MEM_DataIn[31]_dff_21<31>
+                                                       Core0/MEM_DataIn[31]_dff_21_28
+    -------------------------------------------------  ---------------------------
+    Total                                      2.016ns (0.801ns logic, 1.215ns route)
+                                                       (39.7% logic, 60.3% route)
+
+  Maximum Clock Path at Slow Process Corner: clk to Core0/MEM_DataIn[31]_dff_21_28
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.761   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        1.901   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.093   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X6Y182.CLK     net (fanout=436)      1.430   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      4.185ns (0.854ns logic, 3.331ns route)
+                                                       (20.4% logic, 79.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Core0/MEM_DataIn[31]_dff_21_29 (SLICE_X6Y182.SR), 1 path
+--------------------------------------------------------------------------------
+Offset (hold paths):    -2.193ns (data path - clock path + uncertainty)
+  Source:               reset (PAD)
+  Destination:          Core0/MEM_DataIn[31]_dff_21_29 (FF)
+  Destination Clock:    clk_BUFGP rising
+  Data Path Delay:      2.016ns (Levels of Logic = 1)
+  Clock Path Delay:     4.185ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Minimum Data Path at Slow Process Corner: reset to Core0/MEM_DataIn[31]_dff_21_29
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    J8.I                 Tiopi                 0.695   reset
+                                                       reset
+                                                       reset_IBUF
+    SLICE_X6Y182.SR      net (fanout=371)      1.215   reset_IBUF
+    SLICE_X6Y182.CLK     Tremck      (-Th)    -0.106   Core0/MEM_DataIn[31]_dff_21<31>
+                                                       Core0/MEM_DataIn[31]_dff_21_29
+    -------------------------------------------------  ---------------------------
+    Total                                      2.016ns (0.801ns logic, 1.215ns route)
+                                                       (39.7% logic, 60.3% route)
+
+  Maximum Clock Path at Slow Process Corner: clk to Core0/MEM_DataIn[31]_dff_21_29
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.761   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        1.901   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.093   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X6Y182.CLK     net (fanout=436)      1.430   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      4.185ns (0.854ns logic, 3.331ns route)
+                                                       (20.4% logic, 79.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Core0/MEM_DataIn[31]_dff_21_30 (SLICE_X6Y182.SR), 1 path
+--------------------------------------------------------------------------------
+Offset (hold paths):    -2.193ns (data path - clock path + uncertainty)
+  Source:               reset (PAD)
+  Destination:          Core0/MEM_DataIn[31]_dff_21_30 (FF)
+  Destination Clock:    clk_BUFGP rising
+  Data Path Delay:      2.016ns (Levels of Logic = 1)
+  Clock Path Delay:     4.185ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Minimum Data Path at Slow Process Corner: reset to Core0/MEM_DataIn[31]_dff_21_30
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    J8.I                 Tiopi                 0.695   reset
+                                                       reset
+                                                       reset_IBUF
+    SLICE_X6Y182.SR      net (fanout=371)      1.215   reset_IBUF
+    SLICE_X6Y182.CLK     Tremck      (-Th)    -0.106   Core0/MEM_DataIn[31]_dff_21<31>
+                                                       Core0/MEM_DataIn[31]_dff_21_30
+    -------------------------------------------------  ---------------------------
+    Total                                      2.016ns (0.801ns logic, 1.215ns route)
+                                                       (39.7% logic, 60.3% route)
+
+  Maximum Clock Path at Slow Process Corner: clk to Core0/MEM_DataIn[31]_dff_21_30
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.761   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        1.901   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.093   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X6Y182.CLK     net (fanout=436)      1.430   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      4.185ns (0.854ns logic, 3.331ns route)
+                                                       (20.4% logic, 79.6% route)
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: Default OFFSET OUT AFTER analysis for clock "clk_BUFGP" 
+
+ 538 paths analyzed, 65 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected.
+ Maximum allowable offset is  11.868ns.
+--------------------------------------------------------------------------------
+
+Paths for end point MemWData<30> (A13.PAD), 23 paths
+--------------------------------------------------------------------------------
+Offset (slowest paths): 11.868ns (clock path + data path + uncertainty)
+  Source:               Core0/MEM_ExResult[31]_dff_19_1 (FF)
+  Destination:          MemWData<30> (PAD)
+  Source Clock:         clk_BUFGP rising
+  Data Path Delay:      7.718ns (Levels of Logic = 3)
+  Clock Path Delay:     4.125ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Clock Path at Slow Process Corner: clk to Core0/MEM_ExResult[31]_dff_19_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.761   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        1.901   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.093   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X28Y166.CLK    net (fanout=436)      1.370   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      4.125ns (0.854ns logic, 3.271ns route)
+                                                       (20.7% logic, 79.3% route)
+
+  Maximum Data Path at Slow Process Corner: Core0/MEM_ExResult[31]_dff_19_1 to MemWData<30>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X28Y166.DQ     Tcko                  0.223   Core0/MEM_ExResult[31]_dff_19<1>
+                                                       Core0/MEM_ExResult[31]_dff_19_1
+    SLICE_X8Y175.B2      net (fanout=30)       1.857   Core0/MEM_ExResult[31]_dff_19<1>
+    SLICE_X8Y175.BMUX    Tilo                  0.146   Core0/uRF/RegisterTable_14<31>
+                                                       Core0/PWR_5_o_PWR_5_o_AND_1248_o1
+    SLICE_X6Y167.B3      net (fanout=8)        1.127   Core0/PWR_5_o_PWR_5_o_AND_1248_o
+    SLICE_X6Y167.B       Tilo                  0.043   MemWData_30_OBUF
+                                                       Core0/Mmux_MemWriteData48
+    A13.O                net (fanout=2)        1.922   MemWData_30_OBUF
+    A13.PAD              Tioop                 2.400   MemWData<30>
+                                                       MemWData_30_OBUF
+                                                       MemWData<30>
+    -------------------------------------------------  ---------------------------
+    Total                                      7.718ns (2.812ns logic, 4.906ns route)
+                                                       (36.4% logic, 63.6% route)
+
+--------------------------------------------------------------------------------
+Offset (slowest paths): 11.629ns (clock path + data path + uncertainty)
+  Source:               Core0/MEM_ExResult[31]_dff_19_1 (FF)
+  Destination:          MemWData<30> (PAD)
+  Source Clock:         clk_BUFGP rising
+  Data Path Delay:      7.479ns (Levels of Logic = 3)
+  Clock Path Delay:     4.125ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Clock Path at Slow Process Corner: clk to Core0/MEM_ExResult[31]_dff_19_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.761   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        1.901   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.093   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X28Y166.CLK    net (fanout=436)      1.370   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      4.125ns (0.854ns logic, 3.271ns route)
+                                                       (20.7% logic, 79.3% route)
+
+  Maximum Data Path at Slow Process Corner: Core0/MEM_ExResult[31]_dff_19_1 to MemWData<30>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X28Y166.DQ     Tcko                  0.223   Core0/MEM_ExResult[31]_dff_19<1>
+                                                       Core0/MEM_ExResult[31]_dff_19_1
+    SLICE_X7Y173.B5      net (fanout=30)       1.930   Core0/MEM_ExResult[31]_dff_19<1>
+    SLICE_X7Y173.BMUX    Tilo                  0.148   Core0/uRF/RegisterTable_18<31>
+                                                       Core0/Mmux_MemWriteData3431
+    SLICE_X6Y167.B1      net (fanout=8)        0.813   Core0/Mmux_MemWriteData343
+    SLICE_X6Y167.B       Tilo                  0.043   MemWData_30_OBUF
+                                                       Core0/Mmux_MemWriteData48
+    A13.O                net (fanout=2)        1.922   MemWData_30_OBUF
+    A13.PAD              Tioop                 2.400   MemWData<30>
+                                                       MemWData_30_OBUF
+                                                       MemWData<30>
+    -------------------------------------------------  ---------------------------
+    Total                                      7.479ns (2.814ns logic, 4.665ns route)
+                                                       (37.6% logic, 62.4% route)
+
+--------------------------------------------------------------------------------
+Offset (slowest paths): 11.461ns (clock path + data path + uncertainty)
+  Source:               CoreMem0/Mram_RAM16 (RAM)
+  Destination:          MemWData<30> (PAD)
+  Source Clock:         clk_BUFGP rising
+  Data Path Delay:      7.265ns (Levels of Logic = 2)
+  Clock Path Delay:     4.171ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Clock Path at Slow Process Corner: clk to CoreMem0/Mram_RAM16
+    Location                Delay type         Delay(ns)  Physical Resource
+                                                          Logical Resource(s)
+    ----------------------------------------------------  -------------------
+    R22.I                   Tiopi                 0.761   clk
+                                                          clk
+                                                          clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0        net (fanout=1)        1.901   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O         Tbccko_O              0.093   clk_BUFGP/BUFG
+                                                          clk_BUFGP/BUFG
+    RAMB36_X0Y30.CLKARDCLKL net (fanout=436)      1.416   clk_BUFGP
+    ----------------------------------------------------  ---------------------------
+    Total                                         4.171ns (0.854ns logic, 3.317ns route)
+                                                          (20.5% logic, 79.5% route)
+
+  Maximum Data Path at Slow Process Corner: CoreMem0/Mram_RAM16 to MemWData<30>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X0Y30.DOADO0  Trcko_DOA             1.800   CoreMem0/Mram_RAM16
+                                                       CoreMem0/Mram_RAM16
+    SLICE_X6Y167.B4      net (fanout=4)        1.100   MemReadData<30>
+    SLICE_X6Y167.B       Tilo                  0.043   MemWData_30_OBUF
+                                                       Core0/Mmux_MemWriteData48
+    A13.O                net (fanout=2)        1.922   MemWData_30_OBUF
+    A13.PAD              Tioop                 2.400   MemWData<30>
+                                                       MemWData_30_OBUF
+                                                       MemWData<30>
+    -------------------------------------------------  ---------------------------
+    Total                                      7.265ns (4.243ns logic, 3.022ns route)
+                                                       (58.4% logic, 41.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point MemWData<29> (A18.PAD), 23 paths
+--------------------------------------------------------------------------------
+Offset (slowest paths): 11.763ns (clock path + data path + uncertainty)
+  Source:               CoreMem0/Mram_RAM15 (RAM)
+  Destination:          MemWData<29> (PAD)
+  Source Clock:         clk_BUFGP rising
+  Data Path Delay:      7.728ns (Levels of Logic = 2)
+  Clock Path Delay:     4.010ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Clock Path at Slow Process Corner: clk to CoreMem0/Mram_RAM15
+    Location                Delay type         Delay(ns)  Physical Resource
+                                                          Logical Resource(s)
+    ----------------------------------------------------  -------------------
+    R22.I                   Tiopi                 0.761   clk
+                                                          clk
+                                                          clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0        net (fanout=1)        1.901   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O         Tbccko_O              0.093   clk_BUFGP/BUFG
+                                                          clk_BUFGP/BUFG
+    RAMB36_X0Y29.CLKARDCLKL net (fanout=436)      1.255   clk_BUFGP
+    ----------------------------------------------------  ---------------------------
+    Total                                         4.010ns (0.854ns logic, 3.156ns route)
+                                                          (21.3% logic, 78.7% route)
+
+  Maximum Data Path at Slow Process Corner: CoreMem0/Mram_RAM15 to MemWData<29>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X0Y29.DOADO1  Trcko_DOA             1.800   CoreMem0/Mram_RAM15
+                                                       CoreMem0/Mram_RAM15
+    SLICE_X6Y173.D2      net (fanout=4)        1.431   MemReadData<29>
+    SLICE_X6Y173.D       Tilo                  0.043   MemWData_29_OBUF
+                                                       Core0/Mmux_MemWriteData44
+    A18.O                net (fanout=2)        2.051   MemWData_29_OBUF
+    A18.PAD              Tioop                 2.403   MemWData<29>
+                                                       MemWData_29_OBUF
+                                                       MemWData<29>
+    -------------------------------------------------  ---------------------------
+    Total                                      7.728ns (4.246ns logic, 3.482ns route)
+                                                       (54.9% logic, 45.1% route)
+
+--------------------------------------------------------------------------------
+Offset (slowest paths): 11.345ns (clock path + data path + uncertainty)
+  Source:               Core0/MEM_ExResult[31]_dff_19_1 (FF)
+  Destination:          MemWData<29> (PAD)
+  Source Clock:         clk_BUFGP rising
+  Data Path Delay:      7.195ns (Levels of Logic = 3)
+  Clock Path Delay:     4.125ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Clock Path at Slow Process Corner: clk to Core0/MEM_ExResult[31]_dff_19_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.761   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        1.901   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.093   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X28Y166.CLK    net (fanout=436)      1.370   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      4.125ns (0.854ns logic, 3.271ns route)
+                                                       (20.7% logic, 79.3% route)
+
+  Maximum Data Path at Slow Process Corner: Core0/MEM_ExResult[31]_dff_19_1 to MemWData<29>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X28Y166.DQ     Tcko                  0.223   Core0/MEM_ExResult[31]_dff_19<1>
+                                                       Core0/MEM_ExResult[31]_dff_19_1
+    SLICE_X7Y173.B5      net (fanout=30)       1.930   Core0/MEM_ExResult[31]_dff_19<1>
+    SLICE_X7Y173.B       Tilo                  0.043   Core0/uRF/RegisterTable_18<31>
+                                                       Core0/Mmux_MemWriteData3421
+    SLICE_X6Y173.D1      net (fanout=8)        0.502   Core0/Mmux_MemWriteData342
+    SLICE_X6Y173.D       Tilo                  0.043   MemWData_29_OBUF
+                                                       Core0/Mmux_MemWriteData44
+    A18.O                net (fanout=2)        2.051   MemWData_29_OBUF
+    A18.PAD              Tioop                 2.403   MemWData<29>
+                                                       MemWData_29_OBUF
+                                                       MemWData<29>
+    -------------------------------------------------  ---------------------------
+    Total                                      7.195ns (2.712ns logic, 4.483ns route)
+                                                       (37.7% logic, 62.3% route)
+
+--------------------------------------------------------------------------------
+Offset (slowest paths): 11.292ns (clock path + data path + uncertainty)
+  Source:               Core0/MEM_ExResult[31]_dff_19_1 (FF)
+  Destination:          MemWData<29> (PAD)
+  Source Clock:         clk_BUFGP rising
+  Data Path Delay:      7.142ns (Levels of Logic = 3)
+  Clock Path Delay:     4.125ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Clock Path at Slow Process Corner: clk to Core0/MEM_ExResult[31]_dff_19_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.761   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        1.901   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.093   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X28Y166.CLK    net (fanout=436)      1.370   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      4.125ns (0.854ns logic, 3.271ns route)
+                                                       (20.7% logic, 79.3% route)
+
+  Maximum Data Path at Slow Process Corner: Core0/MEM_ExResult[31]_dff_19_1 to MemWData<29>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X28Y166.DQ     Tcko                  0.223   Core0/MEM_ExResult[31]_dff_19<1>
+                                                       Core0/MEM_ExResult[31]_dff_19_1
+    SLICE_X8Y175.B2      net (fanout=30)       1.857   Core0/MEM_ExResult[31]_dff_19<1>
+    SLICE_X8Y175.BMUX    Tilo                  0.146   Core0/uRF/RegisterTable_14<31>
+                                                       Core0/PWR_5_o_PWR_5_o_AND_1248_o1
+    SLICE_X6Y173.D5      net (fanout=8)        0.419   Core0/PWR_5_o_PWR_5_o_AND_1248_o
+    SLICE_X6Y173.D       Tilo                  0.043   MemWData_29_OBUF
+                                                       Core0/Mmux_MemWriteData44
+    A18.O                net (fanout=2)        2.051   MemWData_29_OBUF
+    A18.PAD              Tioop                 2.403   MemWData<29>
+                                                       MemWData_29_OBUF
+                                                       MemWData<29>
+    -------------------------------------------------  ---------------------------
+    Total                                      7.142ns (2.815ns logic, 4.327ns route)
+                                                       (39.4% logic, 60.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point MemWData<25> (E13.PAD), 23 paths
+--------------------------------------------------------------------------------
+Offset (slowest paths): 11.633ns (clock path + data path + uncertainty)
+  Source:               Core0/MEM_ExResult[31]_dff_19_1 (FF)
+  Destination:          MemWData<25> (PAD)
+  Source Clock:         clk_BUFGP rising
+  Data Path Delay:      7.483ns (Levels of Logic = 3)
+  Clock Path Delay:     4.125ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Clock Path at Slow Process Corner: clk to Core0/MEM_ExResult[31]_dff_19_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.761   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        1.901   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.093   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X28Y166.CLK    net (fanout=436)      1.370   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      4.125ns (0.854ns logic, 3.271ns route)
+                                                       (20.7% logic, 79.3% route)
+
+  Maximum Data Path at Slow Process Corner: Core0/MEM_ExResult[31]_dff_19_1 to MemWData<25>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X28Y166.DQ     Tcko                  0.223   Core0/MEM_ExResult[31]_dff_19<1>
+                                                       Core0/MEM_ExResult[31]_dff_19_1
+    SLICE_X8Y175.B2      net (fanout=30)       1.857   Core0/MEM_ExResult[31]_dff_19<1>
+    SLICE_X8Y175.BMUX    Tilo                  0.146   Core0/uRF/RegisterTable_14<31>
+                                                       Core0/PWR_5_o_PWR_5_o_AND_1248_o1
+    SLICE_X10Y166.B2     net (fanout=8)        1.354   Core0/PWR_5_o_PWR_5_o_AND_1248_o
+    SLICE_X10Y166.B      Tilo                  0.043   MemWData_25_OBUF
+                                                       Core0/Mmux_MemWriteData36
+    E13.O                net (fanout=2)        1.503   MemWData_25_OBUF
+    E13.PAD              Tioop                 2.357   MemWData<25>
+                                                       MemWData_25_OBUF
+                                                       MemWData<25>
+    -------------------------------------------------  ---------------------------
+    Total                                      7.483ns (2.769ns logic, 4.714ns route)
+                                                       (37.0% logic, 63.0% route)
+
+--------------------------------------------------------------------------------
+Offset (slowest paths): 11.369ns (clock path + data path + uncertainty)
+  Source:               Core0/MEM_ExResult[31]_dff_19_1 (FF)
+  Destination:          MemWData<25> (PAD)
+  Source Clock:         clk_BUFGP rising
+  Data Path Delay:      7.219ns (Levels of Logic = 3)
+  Clock Path Delay:     4.125ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Clock Path at Slow Process Corner: clk to Core0/MEM_ExResult[31]_dff_19_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.761   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        1.901   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.093   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X28Y166.CLK    net (fanout=436)      1.370   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      4.125ns (0.854ns logic, 3.271ns route)
+                                                       (20.7% logic, 79.3% route)
+
+  Maximum Data Path at Slow Process Corner: Core0/MEM_ExResult[31]_dff_19_1 to MemWData<25>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X28Y166.DQ     Tcko                  0.223   Core0/MEM_ExResult[31]_dff_19<1>
+                                                       Core0/MEM_ExResult[31]_dff_19_1
+    SLICE_X7Y173.B5      net (fanout=30)       1.930   Core0/MEM_ExResult[31]_dff_19<1>
+    SLICE_X7Y173.B       Tilo                  0.043   Core0/uRF/RegisterTable_18<31>
+                                                       Core0/Mmux_MemWriteData3421
+    SLICE_X10Y166.B5     net (fanout=8)        1.120   Core0/Mmux_MemWriteData342
+    SLICE_X10Y166.B      Tilo                  0.043   MemWData_25_OBUF
+                                                       Core0/Mmux_MemWriteData36
+    E13.O                net (fanout=2)        1.503   MemWData_25_OBUF
+    E13.PAD              Tioop                 2.357   MemWData<25>
+                                                       MemWData_25_OBUF
+                                                       MemWData<25>
+    -------------------------------------------------  ---------------------------
+    Total                                      7.219ns (2.666ns logic, 4.553ns route)
+                                                       (36.9% logic, 63.1% route)
+
+--------------------------------------------------------------------------------
+Offset (slowest paths): 11.224ns (clock path + data path + uncertainty)
+  Source:               Core0/MEM_ExResult[31]_dff_19_1 (FF)
+  Destination:          MemWData<25> (PAD)
+  Source Clock:         clk_BUFGP rising
+  Data Path Delay:      7.074ns (Levels of Logic = 3)
+  Clock Path Delay:     4.125ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Clock Path at Slow Process Corner: clk to Core0/MEM_ExResult[31]_dff_19_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.761   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        1.901   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.093   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X28Y166.CLK    net (fanout=436)      1.370   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      4.125ns (0.854ns logic, 3.271ns route)
+                                                       (20.7% logic, 79.3% route)
+
+  Maximum Data Path at Slow Process Corner: Core0/MEM_ExResult[31]_dff_19_1 to MemWData<25>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X28Y166.DQ     Tcko                  0.223   Core0/MEM_ExResult[31]_dff_19<1>
+                                                       Core0/MEM_ExResult[31]_dff_19_1
+    SLICE_X7Y173.B5      net (fanout=30)       1.930   Core0/MEM_ExResult[31]_dff_19<1>
+    SLICE_X7Y173.BMUX    Tilo                  0.148   Core0/uRF/RegisterTable_18<31>
+                                                       Core0/Mmux_MemWriteData3431
+    SLICE_X10Y166.B3     net (fanout=8)        0.870   Core0/Mmux_MemWriteData343
+    SLICE_X10Y166.B      Tilo                  0.043   MemWData_25_OBUF
+                                                       Core0/Mmux_MemWriteData36
+    E13.O                net (fanout=2)        1.503   MemWData_25_OBUF
+    E13.PAD              Tioop                 2.357   MemWData<25>
+                                                       MemWData_25_OBUF
+                                                       MemWData<25>
+    -------------------------------------------------  ---------------------------
+    Total                                      7.074ns (2.771ns logic, 4.303ns route)
+                                                       (39.2% logic, 60.8% route)
+
+--------------------------------------------------------------------------------
+
+Fastest Paths: Default OFFSET OUT AFTER analysis for clock "clk_BUFGP"
+
+--------------------------------------------------------------------------------
+
+Paths for end point MemWData<15> (F12.PAD), 17 paths
+--------------------------------------------------------------------------------
+Offset (fastest paths): 3.611ns (clock path + data path - uncertainty)
+  Source:               Core0/WB_StoreData[31]_dff_42_15 (FF)
+  Destination:          MemWData<15> (PAD)
+  Source Clock:         clk_BUFGP rising
+  Data Path Delay:      2.031ns (Levels of Logic = 2)
+  Clock Path Delay:     1.605ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Minimum Clock Path at Fast Process Corner: clk to Core0/WB_StoreData[31]_dff_42_15
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.103   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        0.863   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.026   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X11Y164.CLK    net (fanout=436)      0.613   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      1.605ns (0.129ns logic, 1.476ns route)
+                                                       (8.0% logic, 92.0% route)
+
+  Minimum Data Path at Fast Process Corner: Core0/WB_StoreData[31]_dff_42_15 to MemWData<15>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X11Y164.DQ     Tcko                  0.100   Core0/WB_StoreData[31]_dff_42<15>
+                                                       Core0/WB_StoreData[31]_dff_42_15
+    SLICE_X10Y167.D5     net (fanout=2)        0.176   Core0/WB_StoreData[31]_dff_42<15>
+    SLICE_X10Y167.D      Tilo                  0.028   Core0/WB_ExResult[31]_dff_40<3>
+                                                       Core0/Mmux_MemWriteData143
+    F12.O                net (fanout=2)        0.446   MemWData_15_OBUF
+    F12.PAD              Tioop                 1.281   MemWData<15>
+                                                       MemWData_15_OBUF
+                                                       MemWData<15>
+    -------------------------------------------------  ---------------------------
+    Total                                      2.031ns (1.409ns logic, 0.622ns route)
+                                                       (69.4% logic, 30.6% route)
+
+--------------------------------------------------------------------------------
+Offset (fastest paths): 4.018ns (clock path + data path - uncertainty)
+  Source:               Core0/WB_MemCTRL[2]_dff_44_0 (FF)
+  Destination:          MemWData<15> (PAD)
+  Source Clock:         clk_BUFGP rising
+  Data Path Delay:      2.443ns (Levels of Logic = 3)
+  Clock Path Delay:     1.600ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Minimum Clock Path at Fast Process Corner: clk to Core0/WB_MemCTRL[2]_dff_44_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.103   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        0.863   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.026   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X14Y169.CLK    net (fanout=436)      0.608   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      1.600ns (0.129ns logic, 1.471ns route)
+                                                       (8.1% logic, 91.9% route)
+
+  Minimum Data Path at Fast Process Corner: Core0/WB_MemCTRL[2]_dff_44_0 to MemWData<15>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y169.AQ     Tcko                  0.118   Core0/WB_MemCTRL[2]_dff_44<2>
+                                                       Core0/WB_MemCTRL[2]_dff_44_0
+    SLICE_X8Y167.B5      net (fanout=62)       0.320   Core0/WB_MemCTRL[2]_dff_44<0>
+    SLICE_X8Y167.BMUX    Tilo                  0.075   Core0/Mmux_WB_RegDin26
+                                                       Core0/Mmux_MemWriteData81
+    SLICE_X10Y167.D6     net (fanout=8)        0.175   Core0/Mmux_MemWriteData10
+    SLICE_X10Y167.D      Tilo                  0.028   Core0/WB_ExResult[31]_dff_40<3>
+                                                       Core0/Mmux_MemWriteData143
+    F12.O                net (fanout=2)        0.446   MemWData_15_OBUF
+    F12.PAD              Tioop                 1.281   MemWData<15>
+                                                       MemWData_15_OBUF
+                                                       MemWData<15>
+    -------------------------------------------------  ---------------------------
+    Total                                      2.443ns (1.502ns logic, 0.941ns route)
+                                                       (61.5% logic, 38.5% route)
+
+--------------------------------------------------------------------------------
+Offset (fastest paths): 4.105ns (clock path + data path - uncertainty)
+  Source:               Core0/WB_MemCTRL[2]_dff_44_1 (FF)
+  Destination:          MemWData<15> (PAD)
+  Source Clock:         clk_BUFGP rising
+  Data Path Delay:      2.530ns (Levels of Logic = 3)
+  Clock Path Delay:     1.600ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Minimum Clock Path at Fast Process Corner: clk to Core0/WB_MemCTRL[2]_dff_44_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.103   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        0.863   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.026   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X14Y169.CLK    net (fanout=436)      0.608   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      1.600ns (0.129ns logic, 1.471ns route)
+                                                       (8.1% logic, 91.9% route)
+
+  Minimum Data Path at Fast Process Corner: Core0/WB_MemCTRL[2]_dff_44_1 to MemWData<15>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y169.BQ     Tcko                  0.118   Core0/WB_MemCTRL[2]_dff_44<2>
+                                                       Core0/WB_MemCTRL[2]_dff_44_1
+    SLICE_X8Y167.B2      net (fanout=64)       0.409   Core0/WB_MemCTRL[2]_dff_44<1>
+    SLICE_X8Y167.BMUX    Tilo                  0.073   Core0/Mmux_WB_RegDin26
+                                                       Core0/Mmux_MemWriteData81
+    SLICE_X10Y167.D6     net (fanout=8)        0.175   Core0/Mmux_MemWriteData10
+    SLICE_X10Y167.D      Tilo                  0.028   Core0/WB_ExResult[31]_dff_40<3>
+                                                       Core0/Mmux_MemWriteData143
+    F12.O                net (fanout=2)        0.446   MemWData_15_OBUF
+    F12.PAD              Tioop                 1.281   MemWData<15>
+                                                       MemWData_15_OBUF
+                                                       MemWData<15>
+    -------------------------------------------------  ---------------------------
+    Total                                      2.530ns (1.500ns logic, 1.030ns route)
+                                                       (59.3% logic, 40.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point MemWData<6> (B9.PAD), 7 paths
+--------------------------------------------------------------------------------
+Offset (fastest paths): 3.665ns (clock path + data path - uncertainty)
+  Source:               Core0/WB_StoreData[31]_dff_42_6 (FF)
+  Destination:          MemWData<6> (PAD)
+  Source Clock:         clk_BUFGP rising
+  Data Path Delay:      2.062ns (Levels of Logic = 2)
+  Clock Path Delay:     1.628ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Minimum Clock Path at Fast Process Corner: clk to Core0/WB_StoreData[31]_dff_42_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.103   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        0.863   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.026   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X7Y178.CLK     net (fanout=436)      0.636   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      1.628ns (0.129ns logic, 1.499ns route)
+                                                       (7.9% logic, 92.1% route)
+
+  Minimum Data Path at Fast Process Corner: Core0/WB_StoreData[31]_dff_42_6 to MemWData<6>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X7Y178.CMUX    Tshcko                0.127   Core0/WB_StoreData[31]_dff_42<7>
+                                                       Core0/WB_StoreData[31]_dff_42_6
+    SLICE_X6Y178.A3      net (fanout=4)        0.144   Core0/WB_StoreData[31]_dff_42<6>
+    SLICE_X6Y178.AMUX    Tilo                  0.067   Core0/MEM_DataIn[31]_dff_21<7>
+                                                       Core0/Mmux_MemWriteData581
+    B9.O                 net (fanout=2)        0.391   MemWData_6_OBUF
+    B9.PAD               Tioop                 1.333   MemWData<6>
+                                                       MemWData_6_OBUF
+                                                       MemWData<6>
+    -------------------------------------------------  ---------------------------
+    Total                                      2.062ns (1.527ns logic, 0.535ns route)
+                                                       (74.1% logic, 25.9% route)
+
+--------------------------------------------------------------------------------
+Offset (fastest paths): 4.370ns (clock path + data path - uncertainty)
+  Source:               CoreMem0/Mram_RAM4 (RAM)
+  Destination:          MemWData<6> (PAD)
+  Source Clock:         clk_BUFGP rising
+  Data Path Delay:      2.758ns (Levels of Logic = 2)
+  Clock Path Delay:     1.637ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Minimum Clock Path at Fast Process Corner: clk to CoreMem0/Mram_RAM4
+    Location                Delay type         Delay(ns)  Physical Resource
+                                                          Logical Resource(s)
+    ----------------------------------------------------  -------------------
+    R22.I                   Tiopi                 0.103   clk
+                                                          clk
+                                                          clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0        net (fanout=1)        0.863   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O         Tbccko_O              0.026   clk_BUFGP/BUFG
+                                                          clk_BUFGP/BUFG
+    RAMB36_X0Y37.CLKARDCLKL net (fanout=436)      0.645   clk_BUFGP
+    ----------------------------------------------------  ---------------------------
+    Total                                         1.637ns (0.129ns logic, 1.508ns route)
+                                                          (7.9% logic, 92.1% route)
+
+  Minimum Data Path at Fast Process Corner: CoreMem0/Mram_RAM4 to MemWData<6>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X0Y37.DOADO0  Trcko_DOA             0.585   CoreMem0/Mram_RAM4
+                                                       CoreMem0/Mram_RAM4
+    SLICE_X6Y178.A5      net (fanout=2)        0.379   MemReadData<6>
+    SLICE_X6Y178.AMUX    Tilo                  0.070   Core0/MEM_DataIn[31]_dff_21<7>
+                                                       Core0/Mmux_MemWriteData581
+    B9.O                 net (fanout=2)        0.391   MemWData_6_OBUF
+    B9.PAD               Tioop                 1.333   MemWData<6>
+                                                       MemWData_6_OBUF
+                                                       MemWData<6>
+    -------------------------------------------------  ---------------------------
+    Total                                      2.758ns (1.988ns logic, 0.770ns route)
+                                                       (72.1% logic, 27.9% route)
+
+--------------------------------------------------------------------------------
+Offset (fastest paths): 4.426ns (clock path + data path - uncertainty)
+  Source:               Core0/WB_MemCTRL[2]_dff_44_1 (FF)
+  Destination:          MemWData<6> (PAD)
+  Source Clock:         clk_BUFGP rising
+  Data Path Delay:      2.851ns (Levels of Logic = 3)
+  Clock Path Delay:     1.600ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Minimum Clock Path at Fast Process Corner: clk to Core0/WB_MemCTRL[2]_dff_44_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.103   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        0.863   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.026   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X14Y169.CLK    net (fanout=436)      0.608   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      1.600ns (0.129ns logic, 1.471ns route)
+                                                       (8.1% logic, 91.9% route)
+
+  Minimum Data Path at Fast Process Corner: Core0/WB_MemCTRL[2]_dff_44_1 to MemWData<6>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y169.BQ     Tcko                  0.118   Core0/WB_MemCTRL[2]_dff_44<2>
+                                                       Core0/WB_MemCTRL[2]_dff_44_1
+    SLICE_X8Y175.B4      net (fanout=64)       0.432   Core0/WB_MemCTRL[2]_dff_44<1>
+    SLICE_X8Y175.B       Tilo                  0.028   Core0/uRF/RegisterTable_14<31>
+                                                       Core0/Mmux_MemWriteData1111
+    SLICE_X6Y178.A1      net (fanout=4)        0.483   Core0/Mmux_MemWriteData111
+    SLICE_X6Y178.AMUX    Tilo                  0.066   Core0/MEM_DataIn[31]_dff_21<7>
+                                                       Core0/Mmux_MemWriteData581
+    B9.O                 net (fanout=2)        0.391   MemWData_6_OBUF
+    B9.PAD               Tioop                 1.333   MemWData<6>
+                                                       MemWData_6_OBUF
+                                                       MemWData<6>
+    -------------------------------------------------  ---------------------------
+    Total                                      2.851ns (1.545ns logic, 1.306ns route)
+                                                       (54.2% logic, 45.8% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point MemAdd<7> (J14.PAD), 1 path
+--------------------------------------------------------------------------------
+Offset (fastest paths): 3.708ns (clock path + data path - uncertainty)
+  Source:               Core0/MEM_ExResult[31]_dff_19_7 (FF)
+  Destination:          MemAdd<7> (PAD)
+  Source Clock:         clk_BUFGP rising
+  Data Path Delay:      2.131ns (Levels of Logic = 1)
+  Clock Path Delay:     1.602ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.025ns
+
+  Clock Uncertainty:          0.025ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.050ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Minimum Clock Path at Fast Process Corner: clk to Core0/MEM_ExResult[31]_dff_19_7
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R22.I                Tiopi                 0.103   clk
+                                                       clk
+                                                       clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.I0     net (fanout=1)        0.863   clk_BUFGP/IBUFG
+    BUFGCTRL_X0Y0.O      Tbccko_O              0.026   clk_BUFGP/BUFG
+                                                       clk_BUFGP/BUFG
+    SLICE_X19Y167.CLK    net (fanout=436)      0.610   clk_BUFGP
+    -------------------------------------------------  ---------------------------
+    Total                                      1.602ns (0.129ns logic, 1.473ns route)
+                                                       (8.1% logic, 91.9% route)
+
+  Minimum Data Path at Fast Process Corner: Core0/MEM_ExResult[31]_dff_19_7 to MemAdd<7>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X19Y167.DQ     Tcko                  0.100   Core0/MEM_ExResult[31]_dff_19<7>
+                                                       Core0/MEM_ExResult[31]_dff_19_7
+    J14.O                net (fanout=34)       0.783   Core0/MEM_ExResult[31]_dff_19<7>
+    J14.PAD              Tioop                 1.248   MemAdd<7>
+                                                       MemAdd_7_OBUF
+                                                       MemAdd<7>
+    -------------------------------------------------  ---------------------------
+    Total                                      2.131ns (1.348ns logic, 0.783ns route)
+                                                       (63.3% logic, 36.7% route)
+
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock clk
+------------+------------+------------+------------+------------+------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
+------------+------------+------------+------------+------------+------------------+--------+
+reset       |    3.552(R)|      SLOW  |    2.194(R)|      SLOW  |clk_BUFGP         |   0.000|
+------------+------------+------------+------------+------------+------------------+--------+
+
+Clock clk to Pad
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+MemAdd<0>   |         9.129(R)|      SLOW  |         4.033(R)|      FAST  |clk_BUFGP         |   0.000|
+MemAdd<1>   |         9.407(R)|      SLOW  |         4.174(R)|      FAST  |clk_BUFGP         |   0.000|
+MemAdd<2>   |         8.898(R)|      SLOW  |         3.886(R)|      FAST  |clk_BUFGP         |   0.000|
+MemAdd<3>   |         8.801(R)|      SLOW  |         3.837(R)|      FAST  |clk_BUFGP         |   0.000|
+MemAdd<4>   |         8.978(R)|      SLOW  |         3.915(R)|      FAST  |clk_BUFGP         |   0.000|
+MemAdd<5>   |         9.178(R)|      SLOW  |         4.042(R)|      FAST  |clk_BUFGP         |   0.000|
+MemAdd<6>   |         8.810(R)|      SLOW  |         3.834(R)|      FAST  |clk_BUFGP         |   0.000|
+MemAdd<7>   |         8.586(R)|      SLOW  |         3.708(R)|      FAST  |clk_BUFGP         |   0.000|
+MemAdd<8>   |         9.023(R)|      SLOW  |         3.969(R)|      FAST  |clk_BUFGP         |   0.000|
+MemAdd<9>   |         9.090(R)|      SLOW  |         4.032(R)|      FAST  |clk_BUFGP         |   0.000|
+MemAdd<10>  |         8.851(R)|      SLOW  |         3.856(R)|      FAST  |clk_BUFGP         |   0.000|
+MemAdd<11>  |         8.997(R)|      SLOW  |         3.907(R)|      FAST  |clk_BUFGP         |   0.000|
+MemAdd<12>  |         9.267(R)|      SLOW  |         4.067(R)|      FAST  |clk_BUFGP         |   0.000|
+MemAdd<13>  |         8.997(R)|      SLOW  |         3.893(R)|      FAST  |clk_BUFGP         |   0.000|
+MemAdd<14>  |         9.480(R)|      SLOW  |         4.176(R)|      FAST  |clk_BUFGP         |   0.000|
+MemAdd<15>  |         9.328(R)|      SLOW  |         4.093(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<0> |        10.479(R)|      SLOW  |         4.058(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<1> |        10.904(R)|      SLOW  |         4.015(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<2> |        10.714(R)|      SLOW  |         4.043(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<3> |        10.449(R)|      SLOW  |         3.773(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<4> |        10.641(R)|      SLOW  |         3.813(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<5> |        10.862(R)|      SLOW  |         3.713(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<6> |        10.963(R)|      SLOW  |         3.665(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<7> |        10.814(R)|      SLOW  |         3.795(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<8> |        10.699(R)|      SLOW  |         4.027(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<9> |        10.789(R)|      SLOW  |         3.893(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<10>|        10.873(R)|      SLOW  |         3.884(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<11>|        10.829(R)|      SLOW  |         3.925(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<12>|        10.821(R)|      SLOW  |         3.803(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<13>|        10.736(R)|      SLOW  |         3.771(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<14>|        10.630(R)|      SLOW  |         3.751(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<15>|        10.909(R)|      SLOW  |         3.611(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<16>|        10.347(R)|      SLOW  |         3.918(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<17>|        10.817(R)|      SLOW  |         4.029(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<18>|        10.747(R)|      SLOW  |         4.077(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<19>|        10.594(R)|      SLOW  |         3.860(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<20>|        10.485(R)|      SLOW  |         3.917(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<21>|        10.447(R)|      SLOW  |         3.819(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<22>|        10.378(R)|      SLOW  |         3.820(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<23>|        10.832(R)|      SLOW  |         3.931(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<24>|        11.417(R)|      SLOW  |         3.957(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<25>|        11.633(R)|      SLOW  |         3.840(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<26>|        11.626(R)|      SLOW  |         3.831(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<27>|        11.423(R)|      SLOW  |         3.821(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<28>|        11.487(R)|      SLOW  |         4.040(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<29>|        11.763(R)|      SLOW  |         4.270(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<30>|        11.868(R)|      SLOW  |         4.338(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWData<31>|        11.467(R)|      SLOW  |         3.955(R)|      FAST  |clk_BUFGP         |   0.000|
+MemWE       |        10.619(R)|      SLOW  |         4.645(R)|      FAST  |clk_BUFGP         |   0.000|
+PC<0>       |         8.809(R)|      SLOW  |         3.797(R)|      FAST  |clk_BUFGP         |   0.000|
+PC<1>       |         8.981(R)|      SLOW  |         3.908(R)|      FAST  |clk_BUFGP         |   0.000|
+PC<2>       |         9.096(R)|      SLOW  |         3.982(R)|      FAST  |clk_BUFGP         |   0.000|
+PC<3>       |         9.209(R)|      SLOW  |         4.047(R)|      FAST  |clk_BUFGP         |   0.000|
+PC<4>       |         8.976(R)|      SLOW  |         3.915(R)|      FAST  |clk_BUFGP         |   0.000|
+PC<5>       |         8.947(R)|      SLOW  |         3.914(R)|      FAST  |clk_BUFGP         |   0.000|
+PC<6>       |         8.913(R)|      SLOW  |         3.902(R)|      FAST  |clk_BUFGP         |   0.000|
+PC<7>       |         8.932(R)|      SLOW  |         3.901(R)|      FAST  |clk_BUFGP         |   0.000|
+PC<8>       |         8.639(R)|      SLOW  |         3.719(R)|      FAST  |clk_BUFGP         |   0.000|
+PC<9>       |         8.962(R)|      SLOW  |         3.888(R)|      FAST  |clk_BUFGP         |   0.000|
+PC<10>      |         8.766(R)|      SLOW  |         3.786(R)|      FAST  |clk_BUFGP         |   0.000|
+PC<11>      |         8.718(R)|      SLOW  |         3.777(R)|      FAST  |clk_BUFGP         |   0.000|
+PC<12>      |         8.698(R)|      SLOW  |         3.769(R)|      FAST  |clk_BUFGP         |   0.000|
+PC<13>      |         8.766(R)|      SLOW  |         3.804(R)|      FAST  |clk_BUFGP         |   0.000|
+PC<14>      |         8.603(R)|      SLOW  |         3.709(R)|      FAST  |clk_BUFGP         |   0.000|
+PC<15>      |         8.663(R)|      SLOW  |         3.775(R)|      FAST  |clk_BUFGP         |   0.000|
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    7.843|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 117018399 paths, 0 nets, and 13708 connections
+
+Design statistics:
+   Minimum period:   7.843ns{1}   (Maximum frequency: 127.502MHz)
+   Minimum input required time before clock:   3.552ns
+   Maximum output delay after clock:  11.868ns
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Mon Apr 11 16:37:54 2016 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 775 MB
+
+
+

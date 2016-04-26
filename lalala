@@ -1,0 +1,19 @@
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+
+signal id_table: std_logic_vector(31 downto 0);
+signal ex_table: std_logic_vector(31 downto 0);
+signal mem_table: std_logic_vector(31 downto 0);
+signal wb_table: std_logic_vector(31 downto 0);
+
+begin
+
+(...)
+
+uGenerateScoreboard : for i in 0 to 31 generate
+	id_table(i)<= '1' when conv_integer(OpA)=i and ID_WE='1' else '0';
+end generate;
+
+ex_table <= (others=>'0') when reset='1' else id_table when rising_edge(clk);
+mem_table <= (others=>'0') when reset='1' else ex_table when rising_edge(clk);
+wb_table <= (others=>'0') when reset='1' else mem_table when rising_edge(clk);

@@ -1,0 +1,81 @@
+ISim log file
+Running: /home/filipe/Documents/AAC/lab1-original/singleCoreProcessor_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/filipe/Documents/AAC/lab1-original/singleCoreProcessor_tb_isim_beh.wdb 
+ISim P.20131013 (signature 0xfbc00daa)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uALU/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uALU/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+Finished circuit initialization process.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 640 ns(2), Instance /singlecoreprocessor_tb/proc0/Core0/uALU/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 660 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 670 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 680 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 690 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 690 ns(2), Instance /singlecoreprocessor_tb/proc0/Core0/uALU/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 700 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 710 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 720 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 730 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 740 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 740 ns(2), Instance /singlecoreprocessor_tb/proc0/Core0/uALU/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 750 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 790 ns(2), Instance /singlecoreprocessor_tb/proc0/Core0/uALU/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 810 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 820 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 830 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 840 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 850 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 890 ns(2), Instance /singlecoreprocessor_tb/proc0/Core0/uALU/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 910 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 920 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 930 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 940 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 940 ns(2), Instance /singlecoreprocessor_tb/proc0/Core0/uALU/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 950 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 990 ns(2), Instance /singlecoreprocessor_tb/proc0/Core0/uALU/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# run 100ns
+at 1010 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1020 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1030 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1040 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1040 ns(2), Instance /singlecoreprocessor_tb/proc0/Core0/uALU/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 1050 ns(1), Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 1090 ns(2), Instance /singlecoreprocessor_tb/proc0/Core0/uALU/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+# restart
+# run 100ns
+Simulator is doing circuit initialization process.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uALU/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uALU/ : Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+Finished circuit initialization process.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/CoreMem0/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /singlecoreprocessor_tb/proc0/Core0/uRF/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+# run 100ns
+# exit 0

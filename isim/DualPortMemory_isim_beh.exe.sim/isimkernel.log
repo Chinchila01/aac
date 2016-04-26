@@ -1,0 +1,10 @@
+Command line:
+   DualPortMemory_isim_beh.exe
+     -simmode  gui
+     -simrunnum  1
+     -socket  50641
+
+Sun Apr 17 12:57:16 2016
+
+
+ Elaboration Time: 0.04 sec
