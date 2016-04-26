@@ -123,7 +123,7 @@ BrCond <= I(23 downto 21) when std_match(IOpcode,"10-111") else
 
 BrPC <= PC when BrInTaken='1' else
 		  RegDB(PC_WIDTH-1 downto 0) when IOpcode="100110" and I(19)='1' else -- unconditional jump (i.e., with absolute address given by RB)
-		  RegDA(PC_WIDTH-1 downto 0) + Imm16(PC_WIDTH-1 downto 0) - std_logic_vector(to_unsigned(4, PC_WIDTH)) when IOpcode="101101" else -- RTS with delay slot
+		  RegDA(PC_WIDTH-1 downto 0) when IOpcode="101101" else--+ Imm16(PC_WIDTH-1 downto 0) - std_logic_vector(to_unsigned(4, PC_WIDTH)) when IOpcode="101101" else -- RTS with delay slot
         Imm32(PC_WIDTH-1 downto 0) when IOpcode="101110" and I(19)='1' else -- unconditional jump (i.e., with absolute address given by Imm)
         PC;
 
@@ -132,6 +132,7 @@ BrOffset <= (PC_WIDTH-1 downto 0=>'0') when std_match(IOpcode,"10-110") and I(19
             Imm32(PC_WIDTH-1 downto 0) when std_match(IOpcode,"101110") and I(19)='0' else -- unconditional branch (i.e., with relative address given by Imm32)
             RegDB(PC_WIDTH-1 downto 0) when std_match(IOpcode,"100111") else -- unconditional branch (i.e., with relative address given by RB)
             Imm32(PC_WIDTH-1 downto 0) when std_match(IOpcode,"101111") else -- unconditional branch (i.e., with relative address given by Imm32)
+				Imm16(PC_WIDTH-1 downto 0) when std_match(IOpcode,"101101") else
             std_logic_vector(to_unsigned(4, PC_WIDTH)); -- for all other cases, add 4 (i.e., sizeof(instruction))
 
 -- define EXECUTION UNIT signals
