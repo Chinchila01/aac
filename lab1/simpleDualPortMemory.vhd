@@ -434,7 +434,7 @@ constant InitValue2 : MEM_TYPE := (
         others => x"80000000" -- NOP
 );
 
-shared variable RAM : MEM_TYPE := InitValue1;
+shared variable RAM : MEM_TYPE := InitValue2;
 
 begin
 

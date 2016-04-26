@@ -22,6 +22,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
+use IEEE.STD_LOGIC_SIGNED.ALL;
 use WORK.MAIN_DEFINITIONS.ALL;
 
 -- Uncomment the following library declaration if using
@@ -62,7 +63,9 @@ entity decoder is
         MSR_C   : in STD_LOGIC;
 		  -- Flag BRALI
 		  brali : out STD_LOGIC;
-		  BrInTaken : in STD_LOGIC
+		  BrInTaken : in STD_LOGIC;
+		  branch : out STD_LOGIC;
+		  delaySlot : out STD_LOGIC
   );
 end decoder;
 
@@ -78,6 +81,29 @@ signal Imm32, ImmAux32 : std_logic_vector(31 downto 0);
 signal MSR_I ,NewFlagKValue : std_logic;
 
 begin
+
+-- Delayed Slot will be needed
+delaySlot <= '1' when std_match(I,"1001100000010000-----00000000000")
+					  or   std_match(I,"100110-----10100-----00000000000")
+					  or   std_match(I,"1001100000011000-----00000000000")
+					  or   std_match(I,"100110-----11100-----00000000000")
+					  or   std_match(I,"10011110000----------00000000000")
+					  or   std_match(I,"10011110001----------00000000000")
+					  or   std_match(I,"10011110010----------00000000000")
+					  or   std_match(I,"10011110011----------00000000000")
+					  or   std_match(I,"10011110100----------00000000000")
+					  or   std_match(I,"10011110101----------00000000000")
+					  or   std_match(I,"1011100000010000----------------")
+					  or   std_match(I,"101110-----10100----------------")
+					  or   std_match(I,"1011100000011000----------------")
+					  or   std_match(I,"101110-----11100----------------")
+					  or   std_match(I,"10111110000---------------------")
+					  or   std_match(I,"10111110001---------------------")
+					  or   std_match(I,"10111110010---------------------")
+					  or   std_match(I,"10111110011---------------------")
+					  or   std_match(I,"10111110100---------------------")
+					  or   std_match(I,"10110110000---------------------")
+					  else '0';
 
 -- Get Instruction Fields
 IOpcode   <= I(31 downto 26);
@@ -97,6 +123,7 @@ BrCond <= I(23 downto 21) when std_match(IOpcode,"10-111") else
 
 BrPC <= PC when BrInTaken='1' else
 		  RegDB(PC_WIDTH-1 downto 0) when IOpcode="100110" and I(19)='1' else -- unconditional jump (i.e., with absolute address given by RB)
+		  RegDA(PC_WIDTH-1 downto 0) + Imm16(PC_WIDTH-1 downto 0) - std_logic_vector(to_unsigned(4, PC_WIDTH)) when IOpcode="101101" else -- RTS with delay slot
         Imm32(PC_WIDTH-1 downto 0) when IOpcode="101110" and I(19)='1' else -- unconditional jump (i.e., with absolute address given by Imm)
         PC;
 
@@ -125,6 +152,7 @@ ExCTRL   <= "000" when std_match(IOpcode,"00-0--") else                       --
             (others=>'-');
 
 brali <= '1' when std_match(IOpcode,"10-110") and I(18) ='1' else '0';
+branch <= '1' when std_match(IOpcode,"10-11-") or std_match(IOpcode,"101101") else '0';
 
 ExOpA   <= '0'                        & RegDA      when std_match(IOpcode,"00---0") else -- ADD/I, ADDC/I, ADDK/I, ADDKC/I,
            '0'                        & not RegDA  when std_match(IOpcode,"000--1") and IModifier(0) ='0' else -- RSUB, RSUBC, RSUBK, RSUBKC

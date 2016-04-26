@@ -63,7 +63,9 @@ component decoder
         MSR_C_WE : out STD_LOGIC;
         MSR_C   : in STD_LOGIC;
 	brali   : out STD_LOGIC;
-	BrInTaken : in STD_LOGIC
+	BrInTaken : in STD_LOGIC;
+        branch : out STD_LOGIC;
+	delaySlot: out STD_LOGIC
   );
 end component;
 
@@ -102,7 +104,9 @@ component register_file
        ID_ENABLE : in STD_LOGIC;
 
        memCTRL: in STD_LOGIC_VECTOR(2 downto 0);
-       BrTaken : in STD_LOGIC
+       BrTaken : in STD_LOGIC;
+       brali   : in STD_LOGIC;
+       branch : in STD_LOGIC
      );
 end component;
 

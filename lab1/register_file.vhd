@@ -69,7 +69,9 @@ entity register_file is
 			  ID_ENABLE: in STD_LOGIC;
 			  
 			  memCTRL: in STD_LOGIC_VECTOR(2 downto 0);
-			  BrTaken : in STD_LOGIC
+			  brali   : in STD_LOGIC;
+			  BrTaken : in STD_LOGIC;
+			  branch : in STD_LOGIC
          );
 end register_file;
 
@@ -88,6 +90,7 @@ signal loadOP_reg: std_logic; -- when load operation, data_hazard is needed
 signal DIsInValid: std_logic;
 signal REG_AIsInValid,REG_BIsInValid : std_logic; -- load operation, 2 stalls needed
 signal Data_Stall : std_logic;
+signal branchNoLink : std_logic;
 begin
 
 StoreSig <= '0' when memCTRL(2)='1' else '1'; -- when store operation, scoreboard is not updated
@@ -96,10 +99,10 @@ toScoreBoard <= ID_ENABLE AND NOT BrTaken AND StoreSig;
 loadOP_reg <= '1' when (memCTRL="001" OR memCTRL="010" OR memCTRL="011") else '0' when rising_edge(clk);
 
 Data_Stall <= REG_BIsInValid or (exTable(conv_integer(OpB)) AND loadOp_Reg) or REG_AIsInValid or (exTable(conv_integer(OpA)) AND loadOp_Reg);-- when stalls, scoreboard not updated
-
+branchNoLink <= branch AND NOT brali;
 -- Scoreboard markings --
 uScoreboard: for i in 1 to (N_REGISTERS-1) generate
-		idTable(i) <= '1' when conv_integer(OpD)=i AND toScoreBoard='1' AND Data_Stall='0' else '0';
+		idTable(i) <= '1' when conv_integer(OpD)=i AND toScoreBoard='1' AND Data_Stall='0' AND branchNoLink='0' else '0';
 end generate;
 		idTable(0) <= '0';
 
@@ -117,9 +120,11 @@ FW_exTable_D <= DIsInValid and exTable(conv_integer(OpD));
 FW_memTable_D <= DIsInValid and memTable(conv_integer(OpD));
 FW_wbTable_D <= DIsInValid and wbTable(conv_integer(OpD));
 
-REG_AIsInValid <= (exTable(conv_integer(OpA)) AND loadOp_Reg) when rising_edge(clk);
+REG_AIsInValid <= (exTable(conv_integer(OpA)) AND loadOp_Reg AND NOT memCTRL(0) AND NOT memCTRL(1) AND NOT memCTRL(2)) when rising_edge(clk);
 REG_BIsInValid <= (exTable(conv_integer(OpB)) AND loadOp_Reg) when rising_edge(clk);
-AIsInValid <= (exTable(conv_integer(OpA)) AND loadOp_Reg) OR REG_AIsInValid; --OR memTable(conv_integer(OpA)) OR wbTable(conv_integer(OpA));
+AIsInValid <= (exTable(conv_integer(OpA)) AND loadOp_Reg 
+					AND NOT memCTRL(0) AND NOT memCTRL(1) AND NOT memCTRL(2))
+					OR REG_AIsInValid; --OR memTable(conv_integer(OpA)) OR wbTable(conv_integer(OpA));
 BIsInValid <= (exTable(conv_integer(OpB)) AND loadOp_Reg) OR REG_BIsInValid; --OR memTable(conv_integer(OpB)) OR wbTable(conv_integer(OpB));
 DIsInValid <= Not(StoreSig) and (exTable(conv_integer(OpD)) OR memTable(conv_integer(OpD)) OR wbTable(conv_integer(OpD)));
 
