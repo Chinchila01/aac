@@ -65,7 +65,8 @@ component decoder
 	brali   : out STD_LOGIC;
 	BrInTaken : in STD_LOGIC;
         branch : out STD_LOGIC;
-	delaySlot: out STD_LOGIC
+	delaySlot: out STD_LOGIC;
+	rtsd : out STD_LOGIC
   );
 end component;
 
@@ -122,7 +123,8 @@ component branch_control
 	Data_Hazard: in STD_LOGIC;
 	BrTaken : out STD_LOGIC;
 	brali   : in STD_LOGIC;
-	RegPC   : in STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0)
+	RegPC   : in STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
+	rtsd    : in STD_LOGIC
        );
 end component;
 

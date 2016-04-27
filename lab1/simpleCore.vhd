@@ -191,6 +191,7 @@ signal REG_RF_InValidA,REG_RF_InValidB : std_logic; -- delayed invalid signals
 signal MEM_FWIn : std_logic_vector(WORD_WIDTH-1 downto 0); -- memory forwarding when LOAD op
 signal REG_MEM_ExResult : std_logic_vector(WORD_WIDTH-1 downto 0); 
 signal branch,delaySlot,reg_delaySlot : std_logic;
+signal rtsd : std_logic;
 begin
 
 
@@ -249,7 +250,7 @@ uDecoder : decoder port map(
     -- Other/Flag connections
     MSR_C_WE => ID_MSR_C_WE,       MSR_C => EX_MSR_C_FW,
 	 -- Brali flag
-	 brali => brali, BrInTaken => BrTaken, branch => branch, delaySlot=>delaySlot
+	 brali => brali, BrInTaken => BrTaken, branch => branch, delaySlot=>delaySlot, rtsd => rtsd
 );
 
 EX_MSR_C_FW <= EX_MSR_C when MSR_MUX_SEL='1' else
@@ -334,7 +335,8 @@ uBranchCTRL: branch_control port map (
 	 Data_Hazard => Hazard,
 	 BrTaken => REG_BrTaken,
 	 brali => brali,
-	 RegPC => REG_PC
+	 RegPC => REG_PC,
+	 rtsd  => rtsd
 );
 
 BrTaken <= '0' when reset='1' else REG_BrTaken when rising_edge(clk);

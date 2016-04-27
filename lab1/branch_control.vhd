@@ -45,7 +45,8 @@ entity branch_control is
 		  Data_Hazard: in STD_LOGIC;
 		  BrTaken  : out STD_LOGIC;
 		  brali    : in STD_LOGIC;
-		  RegPC   : in STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0)
+		  RegPC    : in STD_LOGIC_VECTOR(PC_WIDTH-1 downto 0);
+		  rtsd     : in STD_LOGIC
        );
 end branch_control;
 
@@ -82,7 +83,7 @@ BrInTaken <= BrTakenFlag when BrTakenReg='0' else '0';
 BrTakenReg <= BrTakenFlag when rising_edge(clk);
 
 -- compute nextPC
-NextPC <= PC + std_logic_vector(to_unsigned(4,PC_WIDTH)) when BrInTaken='0' else
+NextPC <= PC + std_logic_vector(to_unsigned(4,PC_WIDTH)) when BrInTaken='0' AND rtsd='0' else
 			 PC + PCIncrement when brali='1' and BrInTaken='1' else
 			 RegPC + PCIncrement when brali='1' and BrInTaken='0' else
 			 PC + PCIncrement - std_logic_vector(to_unsigned(4,PC_WIDTH));-- when Data_Hazard='0' else PC;

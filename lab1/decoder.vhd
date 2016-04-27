@@ -65,7 +65,8 @@ entity decoder is
 		  brali : out STD_LOGIC;
 		  BrInTaken : in STD_LOGIC;
 		  branch : out STD_LOGIC;
-		  delaySlot : out STD_LOGIC
+		  delaySlot : out STD_LOGIC;
+		  rtsd : out STD_LOGIC
   );
 end decoder;
 
@@ -132,7 +133,7 @@ BrOffset <= (PC_WIDTH-1 downto 0=>'0') when std_match(IOpcode,"10-110") and I(19
             Imm32(PC_WIDTH-1 downto 0) when std_match(IOpcode,"101110") and I(19)='0' else -- unconditional branch (i.e., with relative address given by Imm32)
             RegDB(PC_WIDTH-1 downto 0) when std_match(IOpcode,"100111") else -- unconditional branch (i.e., with relative address given by RB)
             Imm32(PC_WIDTH-1 downto 0) when std_match(IOpcode,"101111") else -- unconditional branch (i.e., with relative address given by Imm32)
-				Imm16(PC_WIDTH-1 downto 0) - std_logic_vector(to_unsigned(4, PC_WIDTH)) when std_match(IOpcode,"101101") else
+				Imm16(PC_WIDTH-1 downto 0) when std_match(IOpcode,"101101") else
             std_logic_vector(to_unsigned(4, PC_WIDTH)); -- for all other cases, add 4 (i.e., sizeof(instruction))
 
 -- define EXECUTION UNIT signals
@@ -154,6 +155,7 @@ ExCTRL   <= "000" when std_match(IOpcode,"00-0--") else                       --
 
 brali <= '1' when std_match(IOpcode,"10-110") and I(18) ='1' else '0';
 branch <= '1' when std_match(IOpcode,"10-11-") or std_match(IOpcode,"101101") else '0';
+rtsd   <= '0' when reset='1' else '1' when std_match(IOpcode,"101101") else '0';
 
 ExOpA   <= '0'                        & RegDA      when std_match(IOpcode,"00---0") else -- ADD/I, ADDC/I, ADDK/I, ADDKC/I,
            '0'                        & not RegDA  when std_match(IOpcode,"000--1") and IModifier(0) ='0' else -- RSUB, RSUBC, RSUBK, RSUBKC
