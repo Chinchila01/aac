@@ -12,7 +12,7 @@ Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> 
 Reading design: SingleCoreProcessor.prj
@@ -142,7 +142,6 @@ Elaborating entity <SingleCoreProcessor> (architecture <Behavioral>) from librar
 Elaborating entity <simpleCore> (architecture <Behavioral>) from library <work>.
 
 Elaborating entity <decoder> (architecture <Behavioral>) from library <work>.
-WARNING:HDLCompiler:1127 - "/home/filipe/Documents/AAC/lab1/simpleCore.vhd" Line 276: Assignment to brali_fw ignored, since the identifier is never used
 
 Elaborating entity <register_file> (architecture <Behavioral>) from library <work>.
 
@@ -180,6 +179,7 @@ Synthesizing Unit <simpleCore>.
     Found 3-bit register for signal <WB_MemCTRL>.
     Found 33-bit register for signal <EX_OpA>.
     Found 33-bit register for signal <EX_OpB>.
+    Found 1-bit register for signal <brali_FW>.
     Found 1-bit register for signal <BrTaken>.
     Found 1-bit register for signal <reg_delaySlot>.
     Found 1-bit register for signal <EX_OpC>.
@@ -195,7 +195,7 @@ Synthesizing Unit <simpleCore>.
     Found 16-bit register for signal <REG_MEM_ExResult<15:0>>.
     Found 16-bit register for signal <REG_PC[15]_dff_0>.
     Summary:
-	inferred 360 D-type flip-flop(s).
+	inferred 361 D-type flip-flop(s).
 	inferred  39 Multiplexer(s).
 Unit <simpleCore> synthesized.
 
@@ -203,7 +203,9 @@ Synthesizing Unit <decoder>.
     Related source file is "/home/filipe/Documents/AAC/lab1/decoder.vhd".
     Found 16-bit register for signal <RImm16>.
     Found 1-bit register for signal <MSR_I>.
+    Found 16-bit subtractor for signal <Imm16[15]_GND_10_o_sub_699_OUT<15:0>> created at line 135.
     Summary:
+	inferred   1 Adder/Subtractor(s).
 	inferred  17 D-type flip-flop(s).
 	inferred  88 Multiplexer(s).
 Unit <decoder> synthesized.
@@ -332,14 +334,14 @@ Macro Statistics
  16384x32-bit dual-port RAM                            : 1
 # Multipliers                                          : 1
  33x33-bit multiplier                                  : 1
-# Adders/Subtractors                                   : 8
+# Adders/Subtractors                                   : 9
  16-bit adder                                          : 3
- 16-bit subtractor                                     : 1
+ 16-bit subtractor                                     : 2
  34-bit adder                                          : 2
  6-bit adder                                           : 1
  6-bit subtractor                                      : 1
-# Registers                                            : 72
- 1-bit register                                        : 16
+# Registers                                            : 73
+ 1-bit register                                        : 17
  16-bit register                                       : 5
  3-bit register                                        : 4
  32-bit register                                       : 42
@@ -410,14 +412,14 @@ Macro Statistics
  16384x32-bit dual-port block RAM                      : 1
 # Multipliers                                          : 1
  33x33-bit multiplier                                  : 1
-# Adders/Subtractors                                   : 7
+# Adders/Subtractors                                   : 8
  16-bit adder                                          : 3
- 16-bit subtractor                                     : 1
+ 16-bit subtractor                                     : 2
  33-bit adder carry in                                 : 1
  6-bit adder                                           : 1
  6-bit subtractor                                      : 1
-# Registers                                            : 1469
- Flip-Flops                                            : 1469
+# Registers                                            : 1470
+ Flip-Flops                                            : 1470
 # Multiplexers                                         : 368
  1-bit 2-to-1 multiplexer                              : 198
  1-bit 21-to-1 multiplexer                             : 2
@@ -469,8 +471,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 1466
- Flip-Flops                                            : 1466
+# Registers                                            : 1467
+ Flip-Flops                                            : 1467
 
 =========================================================================
 
@@ -493,22 +495,22 @@ Top Level Output File Name         : SingleCoreProcessor.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 2970
+# BELS                             : 3010
 #      GND                         : 1
 #      INV                         : 13
 #      LUT1                        : 1
 #      LUT2                        : 42
-#      LUT3                        : 178
-#      LUT4                        : 160
-#      LUT5                        : 443
-#      LUT6                        : 1854
-#      MUXCY                       : 73
-#      MUXF7                       : 127
+#      LUT3                        : 177
+#      LUT4                        : 163
+#      LUT5                        : 444
+#      LUT6                        : 1865
+#      MUXCY                       : 86
+#      MUXF7                       : 126
 #      VCC                         : 1
-#      XORCY                       : 77
-# FlipFlops/Latches                : 1466
+#      XORCY                       : 91
+# FlipFlops/Latches                : 1467
 #      FD                          : 38
-#      FDC                         : 395
+#      FDC                         : 396
 #      FDCE                        : 40
 #      FDCE_1                      : 992
 #      FDP                         : 1
@@ -529,15 +531,15 @@ Selected Device : 7k70tfbg676-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            1466  out of  82000     1%  
- Number of Slice LUTs:                 2691  out of  41000     6%  
-    Number used as Logic:              2691  out of  41000     6%  
+ Number of Slice Registers:            1467  out of  82000     1%  
+ Number of Slice LUTs:                 2705  out of  41000     6%  
+    Number used as Logic:              2705  out of  41000     6%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   3885
-   Number with an unused Flip Flop:    2419  out of   3885    62%  
-   Number with an unused LUT:          1194  out of   3885    30%  
-   Number of fully used LUT-FF pairs:   272  out of   3885     7%  
+ Number of LUT Flip Flop pairs used:   3905
+   Number with an unused Flip Flop:    2438  out of   3905    62%  
+   Number with an unused LUT:          1200  out of   3905    30%  
+   Number of fully used LUT-FF pairs:   267  out of   3905     6%  
    Number of unique control sets:        38
 
 IO Utilization: 
@@ -571,7 +573,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 1482  |
+clk                                | BUFGP                  | 1483  |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -583,7 +585,7 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 13.435ns (Maximum Frequency: 74.434MHz)
-   Minimum input arrival time before clock: 8.028ns
+   Minimum input arrival time before clock: 8.029ns
    Maximum output required time after clock: 2.071ns
    Maximum combinational path delay: No path found
 
@@ -594,7 +596,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 13.435ns (frequency: 74.434MHz)
-  Total number of paths / destination ports: 318716157838 / 2535
+  Total number of paths / destination ports: 318716206181 / 2536
 -------------------------------------------------------------------------
 Delay:               6.717ns (Levels of Logic = 13)
   Source:            Core0/uRF/RegisterTable_26_18 (FF)
@@ -627,9 +629,9 @@ Delay:               6.717ns (Levels of Logic = 13)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 11234396 / 1669
+  Total number of paths / destination ports: 11258861 / 1671
 -------------------------------------------------------------------------
-Offset:              8.028ns (Levels of Logic = 16)
+Offset:              8.029ns (Levels of Logic = 16)
   Source:            reset (PAD)
   Destination:       Core0/REG_PC[15]_dff_2_15 (FF)
   Destination Clock: clk rising
@@ -638,7 +640,7 @@ Offset:              8.028ns (Levels of Logic = 16)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O          1646   0.000   0.782  reset_IBUF (reset_IBUF)
+     IBUF:I->O          1668   0.000   0.782  reset_IBUF (reset_IBUF)
      LUT4:I0->O          249   0.043   0.783  Core0/Mmux_ID_I91 (Core0/ID_I<17>)
      LUT6:I0->O            1   0.043   0.522  Core0/uRF/Mmux_FW_memTable_A_81 (Core0/uRF/Mmux_FW_memTable_A_81)
      LUT6:I2->O            1   0.043   0.000  Core0/uRF/Mmux_FW_memTable_A_3 (Core0/uRF/Mmux_FW_memTable_A_3)
@@ -656,7 +658,7 @@ Offset:              8.028ns (Levels of Logic = 16)
      LUT3:I1->O            1   0.043   0.000  Core0/Mmux_REG_PC[15]_ID_NextPC[15]_mux_1_OUT711 (Core0/REG_PC[15]_ID_NextPC[15]_mux_1_OUT<15>)
      FDC:D                    -0.000          Core0/REG_PC[15]_dff_2_15
     ----------------------------------------
-    Total                      8.028ns (0.913ns logic, 7.115ns route)
+    Total                      8.029ns (0.913ns logic, 7.116ns route)
                                        (11.4% logic, 88.6% route)
 
 =========================================================================
@@ -673,7 +675,7 @@ Offset:              2.071ns (Levels of Logic = 3)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDC:C->Q            189   0.236   0.762  Core0/WB_MemCTRL[2]_dff_90_2 (Core0/WB_MemCTRL[2]_dff_90_2)
-     LUT5:I0->O            8   0.043   0.642  Core0/WB_MemCTRL[2]_MEM_ExResult[1]_AND_1386_o1 (Core0/WB_MemCTRL[2]_MEM_ExResult[1]_AND_1386_o)
+     LUT5:I0->O            8   0.043   0.642  Core0/WB_MemCTRL[2]_MEM_ExResult[1]_AND_1389_o1 (Core0/WB_MemCTRL[2]_MEM_ExResult[1]_AND_1389_o)
      LUT6:I1->O            2   0.043   0.344  Core0/Mmux_MemWriteData50 (MemWData_31_OBUF)
      OBUF:I->O                 0.000          MemWData_31_OBUF (MemWData<31>)
     ----------------------------------------
@@ -696,15 +698,15 @@ clk            |   12.062|    6.717|    2.269|         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 90.00 secs
-Total CPU time to Xst completion: 88.48 secs
+Total REAL time to Xst completion: 83.00 secs
+Total CPU time to Xst completion: 82.37 secs
  
 --> 
 
 
-Total memory usage is 529304 kilobytes
+Total memory usage is 529340 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   11 (   0 filtered)
+Number of warnings :   10 (   0 filtered)
 Number of infos    :    1 (   0 filtered)
 

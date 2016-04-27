@@ -358,9 +358,9 @@ EX_OpA      <= (others=>'0') when (reset='1') else ID_ExOpA    when rising_edge(
 EX_OpB      <= (others=>'0') when (reset='1') else ID_ExOpB    when rising_edge(clk);-- and ID_STAGE_ENABLE='1';
 EX_OpC      <=          '0'  when (reset='1') else ID_ExOpC    when rising_edge(clk);-- and ID_STAGE_ENABLE='1';
 EX_OpD      <= (others=>'0') when (reset='1') else ID_ExOpD_FW    when rising_edge(clk);-- and ID_STAGE_ENABLE='1';
-EX_MSR_C_WE <=          '0'  when (reset='1' or (BrTaken='1' AND reg_delaySlot='0')) else ID_MSR_C_WE when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
-EX_MemCTRL  <= (others=>'0') when (reset='1' or (BrTaken='1' AND reg_delaySlot='0')) else ID_MemCTRL  when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
-EX_RegWE    <=          '0'  when (reset='1' or (BrTaken='1' AND reg_delaySlot='0')) else ID_RegWE    when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
+EX_MSR_C_WE <=          '0'  when (reset='1' or (BrTaken='1' AND brali_fw='0' AND reg_delaySlot='0')) else ID_MSR_C_WE when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
+EX_MemCTRL  <= (others=>'0') when (reset='1' or (BrTaken='1' AND brali_fw='0' AND reg_delaySlot='0')) else ID_MemCTRL  when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
+EX_RegWE    <=          '0'  when (reset='1' or (BrTaken='1' AND brali_fw='0' AND reg_delaySlot='0')) else ID_RegWE    when rising_edge(clk) and ID_STAGE_ENABLE='1'; 
 
 EX_MSR_C    <= '0' when (reset='1') else EX_FlagC;
 ---------------------------------------------------------------------------------------------------------------
